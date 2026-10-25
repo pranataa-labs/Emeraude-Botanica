@@ -86,7 +86,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
               <span className="font-serif font-bold text-sm tracking-widest uppercase block text-sidebar-foreground">
                 Émeraude Maison
               </span>
-              <span className="text-[10px] text-[#B08A4F] block truncate">
+              <span className="text-[10px] text-[#D4AF37] block truncate">
                 Backoffice Suite • v2.5
               </span>
             </div>
@@ -99,7 +99,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
         {navItems.map((group, gIdx) => (
           <div key={gIdx} className="space-y-1">
             {!isCollapsed && (
-              <p className="px-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#B08A4F]/85">
+              <p className="px-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#D4AF37]/85">
                 {group.group}
               </p>
             )}
@@ -114,7 +114,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
                     title={isCollapsed ? item.label : undefined}
                     className={`flex w-full items-center gap-3 rounded-md px-3 py-2 text-xs font-medium transition ${
                       isActive
-                        ? 'bg-[#B08A4F] text-[#102F27] font-bold shadow-xs'
+                        ? 'bg-[#D4AF37] text-[#102F27] font-bold shadow-xs'
                         : 'text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-foreground'
                     }`}
                   >
@@ -126,9 +126,9 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
                       <span
                         className={`rounded-full px-1.5 py-0.5 text-[10px] font-bold ${
                           isActive
-                            ? 'bg-[#102F27] text-[#B08A4F]'
+                            ? 'bg-[#102F27] text-[#D4AF37]'
                             : item.badgeHighlight
-                            ? 'bg-[#B08A4F]/20 text-[#B08A4F] border border-[#B08A4F]/40'
+                            ? 'bg-[#D4AF37]/20 text-[#D4AF37] border border-[#D4AF37]/40'
                             : 'bg-sidebar-accent text-sidebar-foreground'
                         }`}
                       >
@@ -149,7 +149,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
             className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-xs font-medium text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-foreground transition"
             title="Lihat Butik Publik"
           >
-            <ExternalLink className="size-4 shrink-0 text-[#B08A4F]" />
+            <ExternalLink className="size-4 shrink-0 text-[#D4AF37]" />
             {!isCollapsed && <span className="flex-1 text-left">Lihat Butik Publik</span>}
           </button>
         </div>
@@ -158,16 +158,16 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
       {/* Sidebar Footer User Info */}
       <div className="border-t border-sidebar-border p-3">
         {!isCollapsed ? (
-          <div className="flex items-center justify-between gap-2 rounded-lg bg-[#185844]/70 p-2 border border-[#B08A4F]/25">
+          <div className="flex items-center justify-between gap-2 rounded-lg bg-[#185844]/70 p-2 border border-[#D4AF37]/25">
             <div className="flex items-center gap-2 truncate">
               {currentUser?.avatarUrl ? (
                 <img
                   src={currentUser.avatarUrl}
                   alt=""
-                  className="size-7 rounded-full object-cover shrink-0 border border-[#B08A4F]/40"
+                  className="size-7 rounded-full object-cover shrink-0 border border-[#D4AF37]/40"
                 />
               ) : (
-                <div className="size-7 rounded-full bg-[#B08A4F] text-[#102F27] flex items-center justify-center text-xs font-bold shrink-0">
+                <div className="size-7 rounded-full bg-[#D4AF37] text-[#102F27] flex items-center justify-center text-xs font-bold shrink-0">
                   A
                 </div>
               )}

@@ -5,7 +5,7 @@ export const BRAND_SWATCHES = [
   { hex: '#78947F', code: '78947F', name: 'Sage', role: 'Botanical Sage Tint' },
   { hex: '#185844', code: '185844', name: 'Emerald', role: 'Rich Imperial Emerald' },
   { hex: '#102F27', code: '102F27', name: 'Forest', role: 'Deep Midnight Forest' },
-  { hex: '#B08A4F', code: 'B08A4F', name: 'Antique Gold', role: '24K Antique Gold Signature' },
+  { hex: '#D4AF37', code: 'D4AF37', name: '24K Royal Gold', role: 'Radiant 24K Royal Gold Signature' },
 ] as const
 
 export const COMPLIMENTARY_SAMPLES = [

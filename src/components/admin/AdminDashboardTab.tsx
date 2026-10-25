@@ -49,13 +49,13 @@ export const AdminDashboardTab: React.FC = () => {
 
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1.5 rounded-md border border-border bg-card px-2.5 py-1.5 text-xs text-muted-foreground">
-            <Calendar className="size-3.5 text-[#B08A4F]" />
+            <Calendar className="size-3.5 text-[#D4AF37]" />
             <span>Oktober 2026</span>
           </div>
 
           <button
             onClick={() => window.print()}
-            className="flex items-center gap-1.5 h-8 px-3 rounded-md bg-[#B08A4F] text-[#102F27] text-xs font-bold hover:bg-[#9E7B44] transition shadow-xs"
+            className="flex items-center gap-1.5 h-8 px-3 rounded-md bg-[#D4AF37] text-[#102F27] text-xs font-bold hover:bg-[#E5C453] transition shadow-xs"
           >
             <Download className="size-3.5" />
             <span>Ekspor Laporan</span>
@@ -68,14 +68,14 @@ export const AdminDashboardTab: React.FC = () => {
         <div className="rounded-xl border border-border bg-card p-5 shadow-xs space-y-2">
           <div className="flex items-center justify-between text-muted-foreground">
             <span className="text-xs font-medium">Total Pendapatan</span>
-            <CreditCard className="size-4 text-[#B08A4F]" />
+            <CreditCard className="size-4 text-[#D4AF37]" />
           </div>
           <div>
             <div className="text-2xl font-bold tracking-tight text-foreground">
               {formatRupiah(totalRevenue)}
             </div>
             <p className="text-[11px] text-muted-foreground mt-1 flex items-center gap-1">
-              <span className="text-[#B08A4F] font-semibold">+24.8%</span>
+              <span className="text-[#D4AF37] font-semibold">+24.8%</span>
               <span>dari kuartal lalu</span>
             </p>
           </div>
@@ -84,14 +84,14 @@ export const AdminDashboardTab: React.FC = () => {
         <div className="rounded-xl border border-border bg-card p-5 shadow-xs space-y-2">
           <div className="flex items-center justify-between text-muted-foreground">
             <span className="text-xs font-medium">Total Pesanan &amp; Unit</span>
-            <ShoppingBag className="size-4 text-[#B08A4F]" />
+            <ShoppingBag className="size-4 text-[#D4AF37]" />
           </div>
           <div>
             <div className="text-2xl font-bold tracking-tight text-foreground">
               {orders.length} Pesanan
             </div>
             <p className="text-[11px] text-muted-foreground mt-1 flex items-center gap-1">
-              <span className="text-[#B08A4F] font-semibold">+{totalUnitsSold} flacon</span>
+              <span className="text-[#D4AF37] font-semibold">+{totalUnitsSold} flacon</span>
               <span>terkirim ke pelanggan</span>
             </p>
           </div>
@@ -100,7 +100,7 @@ export const AdminDashboardTab: React.FC = () => {
         <div className="rounded-xl border border-border bg-card p-5 shadow-xs space-y-2">
           <div className="flex items-center justify-between text-muted-foreground">
             <span className="text-xs font-medium">Formulasi Aktif (SKU)</span>
-            <Package className="size-4 text-[#B08A4F]" />
+            <Package className="size-4 text-[#D4AF37]" />
           </div>
           <div>
             <div className="text-2xl font-bold tracking-tight text-foreground">
@@ -108,7 +108,7 @@ export const AdminDashboardTab: React.FC = () => {
             </div>
             <p className="text-[11px] text-muted-foreground mt-1">
               {lowStockCount > 0 ? (
-                <span className="text-[#B08A4F] font-medium">
+                <span className="text-[#D4AF37] font-medium">
                   {lowStockCount} SKU stok di bawah 15 unit
                 </span>
               ) : (
@@ -121,14 +121,14 @@ export const AdminDashboardTab: React.FC = () => {
         <div className="rounded-xl border border-border bg-card p-5 shadow-xs space-y-2">
           <div className="flex items-center justify-between text-muted-foreground">
             <span className="text-xs font-medium">Member VIP Terdaftar</span>
-            <Users className="size-4 text-[#B08A4F]" />
+            <Users className="size-4 text-[#D4AF37]" />
           </div>
           <div>
             <div className="text-2xl font-bold tracking-tight text-foreground">
               {users.length} Anggota
             </div>
             <p className="text-[11px] text-muted-foreground mt-1 flex items-center gap-1">
-              <Sparkles className="size-3 text-[#B08A4F]" />
+              <Sparkles className="size-3 text-[#D4AF37]" />
               <span>98.4% tingkat kepuasan kulit</span>
             </p>
           </div>
@@ -152,13 +152,13 @@ export const AdminDashboardTab: React.FC = () => {
               const heightPercent = Math.max(18, Math.round((item.amount / maxAmount) * 100))
               return (
                 <div key={item.month} className="flex-1 flex flex-col items-center gap-2 group">
-                  <span className="text-[10px] text-[#B08A4F] font-mono opacity-80 group-hover:opacity-100">
+                  <span className="text-[10px] text-[#D4AF37] font-mono opacity-80 group-hover:opacity-100">
                     {(item.amount / 1000000).toFixed(1)}jt
                   </span>
                   <div className="w-full max-w-[48px] bg-background/60 rounded-t-md h-48 flex items-end overflow-hidden border border-border">
                     <div
                       style={{ height: `${heightPercent}%` }}
-                      className="w-full bg-[#B08A4F] rounded-t-md transition-all duration-500 group-hover:bg-[#9E7B44]"
+                      className="w-full bg-[#D4AF37] rounded-t-md transition-all duration-500 group-hover:bg-[#E5C453]"
                     />
                   </div>
                   <span className="text-xs font-medium text-muted-foreground">{item.month}</span>
@@ -169,7 +169,7 @@ export const AdminDashboardTab: React.FC = () => {
 
           <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground pt-2">
             <span className="flex items-center gap-1.5">
-              <span className="size-2.5 rounded-full bg-[#B08A4F]" />
+              <span className="size-2.5 rounded-full bg-[#D4AF37]" />
               <span>Omzet Kotor Bulanan</span>
             </span>
             <span className="font-semibold text-foreground">
@@ -191,7 +191,7 @@ export const AdminDashboardTab: React.FC = () => {
             {orders.slice(0, 5).map(order => (
               <div key={order.id} className="flex items-center justify-between gap-3 text-xs">
                 <div className="flex items-center gap-3 truncate">
-                  <div className="size-9 rounded-full bg-[#B08A4F]/20 border border-[#B08A4F]/40 flex items-center justify-center font-bold text-[#B08A4F] text-xs shrink-0">
+                  <div className="size-9 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/40 flex items-center justify-center font-bold text-[#D4AF37] text-xs shrink-0">
                     {order.customerName.charAt(0)}
                   </div>
                   <div className="truncate">
@@ -204,7 +204,7 @@ export const AdminDashboardTab: React.FC = () => {
 
                 <div className="text-right shrink-0">
                   <p className="font-bold text-foreground">{formatRupiah(order.total)}</p>
-                  <span className="inline-block text-[10px] font-semibold text-[#B08A4F]">
+                  <span className="inline-block text-[10px] font-semibold text-[#D4AF37]">
                     {order.status}
                   </span>
                 </div>

@@ -41,7 +41,7 @@ export const App: React.FC = () => {
 
   // Public Luxury Cosmetics Boutique
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground antialiased selection:bg-[#B08A4F]/30 selection:text-[#B08A4F]">
+    <div className="flex min-h-screen flex-col bg-background text-foreground antialiased selection:bg-[#D4AF37]/30 selection:text-[#D4AF37]">
       <Toaster
         position="bottom-right"
         theme={theme}

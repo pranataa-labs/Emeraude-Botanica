@@ -1,94 +1,96 @@
-/* ÉMERAUDE BOTANICA — Ivory, Sage, Emerald, Forest & Antique Gold Luxury Design System
-   Exact Palette from Reference Image:
-   - #F2EBDD (Ivory)
-   - #78947F (Sage)
-   - #185844 (Emerald)
-   - #102F27 (Forest)
-   - #B08A4F (Antique Gold)
+/* ÉMERAUDE BOTANICA — Royal 24K Gold & Deep Footer Midnight Forest Design System
+   Exact Palette:
+   - #091D18 (Deep Midnight Forest — Footer Green Primary Base)
+   - #102F27 (Imperial Forest Velvet)
+   - #185844 (Rich Botanical Emerald)
+   - #78947F (Botanical Sage Mist)
+   - #F2EBDD (Velvet Warm Ivory)
+   - #D4AF37 (Strong Radiant 24K Royal Gold)
 */
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
 :root {
   --radius: 0.625rem;
-  /* Light Mode: Warm Ivory (#F2EBDD) & Sage (#78947F) with Deep Forest (#102F27) */
+  /* Light Mode: Warm Ivory (#F2EBDD) & Deep Footer Green (#091D18) with Strong Gold (#D4AF37) */
   --background: #F2EBDD;
-  --foreground: #102F27;
+  --foreground: #091D18;
   --card: #FFFFFF;
-  --card-foreground: #102F27;
+  --card-foreground: #091D18;
   --popover: #FFFFFF;
-  --popover-foreground: #102F27;
-  --primary: #185844;
+  --popover-foreground: #091D18;
+  --primary: #091D18;
   --primary-foreground: #F2EBDD;
-  --secondary: #E3EDE5;
-  --secondary-foreground: #102F27;
+  --secondary: #E4EEE6;
+  --secondary-foreground: #091D18;
   --muted: #E8EFEA;
-  --muted-foreground: #4D6B54;
-  --accent: #E3EDE5;
-  --accent-foreground: #102F27;
+  --muted-foreground: #385E46;
+  --accent: #E4EEE6;
+  --accent-foreground: #091D18;
   --destructive: #B91C1C;
-  --border: rgba(24, 88, 68, 0.18);
-  --input: rgba(24, 88, 68, 0.22);
-  --ring: #B08A4F;
+  --border: rgba(9, 29, 24, 0.2);
+  --input: rgba(9, 29, 24, 0.25);
+  --ring: #D4AF37;
 
-  /* Custom Brand Swatches from Image */
+  /* Custom Brand Swatches */
   --color-ivory: #F2EBDD;
   --color-sage: #78947F;
   --color-emerald: #185844;
   --color-forest: #102F27;
-  --color-antique-gold: #B08A4F;
+  --color-footer-green: #091D18;
+  --color-gold-strong: #D4AF37;
 
-  --chart-1: #102F27;
+  --chart-1: #091D18;
   --chart-2: #185844;
-  --chart-3: #B08A4F;
+  --chart-3: #D4AF37;
   --chart-4: #78947F;
-  --chart-5: #C4A46E;
+  --chart-5: #E8C86A;
 
-  --sidebar: #102F27;
+  --sidebar: #091D18;
   --sidebar-foreground: #F2EBDD;
-  --sidebar-primary: #B08A4F;
-  --sidebar-primary-foreground: #102F27;
+  --sidebar-primary: #D4AF37;
+  --sidebar-primary-foreground: #091D18;
   --sidebar-accent: #185844;
   --sidebar-accent-foreground: #F2EBDD;
-  --sidebar-border: rgba(176, 138, 79, 0.22);
-  --sidebar-ring: #B08A4F;
+  --sidebar-border: rgba(212, 175, 55, 0.3);
+  --sidebar-ring: #D4AF37;
 }
 
 .dark {
-  /* Dark Mode (Default): Forest (#102F27) & Emerald (#185844) with Ivory (#F2EBDD), Sage (#78947F) & Antique Gold (#B08A4F) */
-  --background: #102F27;
+  /* Dark Mode (Default): Deep Footer Forest (#091D18) & Imperial Velvet (#102F27) with 24K Royal Gold (#D4AF37) */
+  --background: #091D18;
   --foreground: #F2EBDD;
-  --card: #185844;
+  --card: #102F27;
   --card-foreground: #F2EBDD;
-  --popover: #185844;
+  --popover: #102F27;
   --popover-foreground: #F2EBDD;
-  --primary: #B08A4F;
-  --primary-foreground: #102F27;
-  --secondary: #245849;
+  --primary: #D4AF37;
+  --primary-foreground: #091D18;
+  --secondary: #185844;
   --secondary-foreground: #F2EBDD;
-  --muted: #0B241E;
-  --muted-foreground: #A8C2AF;
-  --accent: #245849;
+  --muted: #051410;
+  --muted-foreground: #B2CCC0;
+  --accent: #185844;
   --accent-foreground: #F2EBDD;
   --destructive: #F87171;
-  --border: rgba(176, 138, 79, 0.28);
-  --input: rgba(242, 235, 221, 0.2);
-  --ring: #B08A4F;
+  --border: rgba(212, 175, 55, 0.35);
+  --input: rgba(242, 235, 221, 0.22);
+  --ring: #D4AF37;
 
-  --chart-1: #B08A4F;
-  --chart-2: #78947F;
-  --chart-3: #185844;
+  --chart-1: #D4AF37;
+  --chart-2: #185844;
+  --chart-3: #78947F;
   --chart-4: #F2EBDD;
-  --chart-5: #C4A46E;
+  --chart-5: #E8C86A;
 
-  --sidebar: #0B241E;
+  --sidebar: #051410;
   --sidebar-foreground: #F2EBDD;
-  --sidebar-primary: #B08A4F;
-  --sidebar-primary-foreground: #102F27;
-  --sidebar-accent: #185844;
+  --sidebar-primary: #D4AF37;
+  --sidebar-primary-foreground: #091D18;
+  --sidebar-accent: #102F27;
   --sidebar-accent-foreground: #F2EBDD;
-  --sidebar-border: rgba(176, 138, 79, 0.25);
-  --sidebar-ring: #B08A4F;
+  --sidebar-border: rgba(212, 175, 55, 0.35);
+  --sidebar-ring: #D4AF37;
 }
 
 @theme inline {
@@ -163,17 +165,21 @@
   }
 }
 
-/* Silk Botanical Floral Effect inspired by the uploaded reference image */
+/* Deep Footer Midnight Forest Silk background with luminous 24K Gold shimmer */
 .emerald-silk-bg {
   background:
     radial-gradient(ellipse 85% 65% at 20% 15%, rgba(24, 88, 68, 0.95) 0%, transparent 68%),
-    radial-gradient(ellipse 70% 50% at 85% 80%, rgba(176, 138, 79, 0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 45% at 50% 60%, rgba(120, 148, 127, 0.12) 0%, transparent 55%),
-    linear-gradient(135deg, #091D18 0%, #102F27 38%, #185844 70%, #0B241E 100%);
+    radial-gradient(ellipse 70% 50% at 85% 80%, rgba(212, 175, 55, 0.3) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 45% at 50% 60%, rgba(120, 148, 127, 0.16) 0%, transparent 55%),
+    linear-gradient(135deg, #051410 0%, #091D18 35%, #102F27 68%, #185844 100%);
 }
 
 .gold-gradient-text {
-  background: linear-gradient(135deg, #F2EBDD 0%, #DFC99E 45%, #B08A4F 100%);
+  background: linear-gradient(135deg, #FFF7E2 0%, #F5D77F 35%, #D4AF37 70%, #AA820A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.gold-glow {
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
 }

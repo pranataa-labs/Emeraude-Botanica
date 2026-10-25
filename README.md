@@ -8,12 +8,12 @@
 [![Vite](https://img.shields.io/badge/Vite-6.2.0-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.3-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![Vitest](https://img.shields.io/badge/Vitest-3.2.7-FCC72B?style=for-the-badge&logo=vitest)](https://vitest.dev/)
-[![Design System](https://img.shields.io/badge/Palette-Ivory_%7C_Sage_%7C_Emerald_%7C_Forest_%7C_Antique_Gold-185844?style=for-the-badge)](https://github.com/pranataa-labs)
-[![License](https://img.shields.io/badge/License-MIT-B08A4F.svg?style=for-the-badge)](LICENSE)
+[![Design System](https://img.shields.io/badge/Palette-Ivory_%7C_Sage_%7C_Emerald_%7C_Forest_%7C_24K_Royal_Gold-185844?style=for-the-badge)](https://github.com/pranataa-labs)
+[![License](https://img.shields.io/badge/License-MIT-D4AF37.svg?style=for-the-badge)](LICENSE)
 
 <br/>
 
-*Aplikasi e-commerce kosmetik botani dan perawatan kulit mewah dengan arsitektur dua sisi (**Public Luxury Boutique & Maison Admin Backoffice**) yang dirancang menggunakan palet eksklusif **Ivory, Sage, Emerald, Forest & Antique Gold** terinspirasi dari keanggunan kelopak bunga zamrud botani dan emas antik.*
+*Aplikasi e-commerce kosmetik botani dan perawatan kulit mewah dengan arsitektur dua sisi (**Public Luxury Boutique & Maison Admin Backoffice**) yang dirancang menggunakan palet eksklusif **Ivory, Sage, Emerald, Forest & 24K Royal Gold** terinspirasi dari keanggunan kelopak bunga zamrud botani dan emas 24K berkilau.*
 
 ---
 
@@ -27,7 +27,7 @@
 | <img src="https://via.placeholder.com/20/78947F/78947F.png" width="20" height="20" /> | **`#78947F`** | **SAGE** | Aksen mist botani, badge formulasi, chip kebutuhan kulit, dan teks sekunder |
 | <img src="https://via.placeholder.com/20/185844/185844.png" width="20" height="20" /> | **`#185844`** | **EMERALD** | Permukaan kartu produk, panel velvet zamrud, dan tombol aksi Mode Terang |
 | <img src="https://via.placeholder.com/20/102F27/102F27.png" width="20" height="20" /> | **`#102F27`** | **FOREST** | Latar belakang sutra utama (Dark Mode Default) & Tipografi Gelap (Mode Terang) |
-| <img src="https://via.placeholder.com/20/B08A4F/B08A4F.png" width="20" height="20" /> | **`#B08A4F`** | **ANTIQUE GOLD** | Emblem daun botani, tombol CTA utama, garis tepi emas 24K, dan rating bintang |
+| <img src="https://via.placeholder.com/20/D4AF37/D4AF37.png" width="20" height="20" /> | **`#D4AF37`** | **24K ROYAL GOLD** | Emblem daun botani, tombol CTA utama, garis tepi emas 24K, dan rating bintang |
 
 ---
 
@@ -37,7 +37,7 @@
 - **Hero Silk Floral & Interactive Swatch Bar**:
   - Menampilkan emblem daun botani emas di dalam bingkai berlekuk klasik (*scalloped vintage crest*).
   - Bar pencarian interaktif dan filter cepat (*Malachite*, *Ceramide*, *24K Gold*, *Lip Velvet*, *Bakuchiol*, *Matcha*).
-  - Bar 5 kotak warna interaktif (`#F2EBDD`, `#78947F`, `#185844`, `#102F27`, `#B08A4F`) yang dapat diklik untuk menyalin kode hex secara instan.
+  - Bar 5 kotak warna interaktif (`#F2EBDD`, `#78947F`, `#185844`, `#102F27`, `#D4AF37`) yang dapat diklik untuk menyalin kode hex secara instan.
 - **Katalog 12 Produk Kosmetik & Skincare Mewah**:
   - Filter kebutuhan kulit (*Kulit Kering*, *Kulit Berminyak & Acne*, *Kulit Sensitif*, *Anti-Aging & Kusam*).
   - 6 kategori kosmetik (*Serum & Essence*, *Moisturizer & Cream*, *Cleanser & Toner*, *Lip & Cheek Couture*, *Eye & Night Ritual*, *Body & Wellness*).

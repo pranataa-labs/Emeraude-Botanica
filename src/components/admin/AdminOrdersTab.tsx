@@ -44,13 +44,13 @@ export const AdminOrdersTab: React.FC = () => {
       {/* Toolbar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="relative w-full max-w-xs">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-3.5 text-[#B08A4F]" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-3.5 text-[#D4AF37]" />
           <input
             type="text"
             placeholder="Cari No. Invoice, pelanggan, atau resi..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full h-9 rounded-md border border-border bg-card pl-9 pr-3 text-xs focus:border-[#B08A4F] focus:outline-none"
+            className="w-full h-9 rounded-md border border-border bg-card pl-9 pr-3 text-xs focus:border-[#D4AF37] focus:outline-none"
           />
         </div>
 
@@ -61,7 +61,7 @@ export const AdminOrdersTab: React.FC = () => {
               onClick={() => setStatusFilter(st)}
               className={`shrink-0 rounded-md px-2.5 py-1 text-xs font-medium transition ${
                 statusFilter === st
-                  ? 'bg-[#B08A4F] text-[#102F27] font-bold'
+                  ? 'bg-[#D4AF37] text-[#102F27] font-bold'
                   : 'border border-border bg-card text-muted-foreground hover:text-foreground'
               }`}
             >
@@ -74,7 +74,7 @@ export const AdminOrdersTab: React.FC = () => {
       {/* Orders Table */}
       <div className="overflow-x-auto rounded-xl border border-border bg-card shadow-xs">
         <table className="w-full text-left text-xs">
-          <thead className="border-b border-border bg-background/60 text-[11px] uppercase tracking-wider text-[#B08A4F]">
+          <thead className="border-b border-border bg-background/60 text-[11px] uppercase tracking-wider text-[#D4AF37]">
             <tr>
               <th className="py-3 px-4">Invoice &amp; Tanggal</th>
               <th className="py-3 px-4">Pelanggan &amp; Kota</th>
@@ -87,13 +87,13 @@ export const AdminOrdersTab: React.FC = () => {
             {filtered.map(order => (
               <tr key={order.id} className="hover:bg-accent/40 transition">
                 <td className="py-3.5 px-4">
-                  <div className="font-mono font-bold text-[#B08A4F]">{order.id}</div>
+                  <div className="font-mono font-bold text-[#D4AF37]">{order.id}</div>
                   <div className="text-[10px] text-muted-foreground">
                     {new Date(order.createdAt).toLocaleDateString('id-ID')}
                   </div>
                   {order.trackingNumber && (
                     <div className="mt-0.5 flex items-center gap-1 text-[10px] font-mono text-muted-foreground">
-                      <Truck className="size-3 text-[#B08A4F]" />
+                      <Truck className="size-3 text-[#D4AF37]" />
                       <span>{order.trackingNumber}</span>
                     </div>
                   )}
@@ -116,7 +116,7 @@ export const AdminOrdersTab: React.FC = () => {
                     ))}
                   </div>
                   {order.complimentarySample && (
-                    <div className="mt-1 flex items-center gap-1 text-[10px] text-[#B08A4F]">
+                    <div className="mt-1 flex items-center gap-1 text-[10px] text-[#D4AF37]">
                       <Gift className="size-3" />
                       <span className="truncate">{order.complimentarySample}</span>
                     </div>
@@ -132,7 +132,7 @@ export const AdminOrdersTab: React.FC = () => {
                   <select
                     value={order.status}
                     onChange={e => updateOrderStatus(order.id, e.target.value as OrderStatus)}
-                    className="h-8 rounded-md border border-[#B08A4F]/40 bg-background px-2.5 text-xs font-semibold text-[#B08A4F] focus:border-[#B08A4F] focus:outline-none"
+                    className="h-8 rounded-md border border-[#D4AF37]/40 bg-background px-2.5 text-xs font-semibold text-[#D4AF37] focus:border-[#D4AF37] focus:outline-none"
                   >
                     {ORDER_STATUSES.map(st => (
                       <option key={st} value={st}>

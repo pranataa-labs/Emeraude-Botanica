@@ -18,11 +18,11 @@ export const HeroBanner: React.FC = () => {
   }
 
   return (
-    <section className="relative overflow-hidden border-b border-[#B08A4F]/30 emerald-silk-bg py-12 sm:py-16 lg:py-20 text-[#F2EBDD]">
+    <section className="relative overflow-hidden border-b border-[#D4AF37]/30 emerald-silk-bg py-12 sm:py-16 lg:py-20 text-[#F2EBDD]">
       {/* Silk folds & gold ambient glow */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(176,138,79,0.18),transparent_55%)]" />
       <div className="pointer-events-none absolute -top-24 -left-24 size-96 rounded-full bg-[#185844]/50 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-24 -right-24 size-96 rounded-full bg-[#B08A4F]/15 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -right-24 size-96 rounded-full bg-[#D4AF37]/15 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-7">
         {/* Iconic Gold Botanical Crest */}
@@ -31,8 +31,8 @@ export const HeroBanner: React.FC = () => {
             <BotanicalCrest size="lg" />
           </div>
 
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#B08A4F]/40 bg-[#102F27]/85 px-4 py-1 text-[11px] uppercase tracking-[0.22em] text-[#F2EBDD] shadow-sm backdrop-blur-xs">
-            <Sparkles className="size-3 text-[#B08A4F]" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#102F27]/85 px-4 py-1 text-[11px] uppercase tracking-[0.22em] text-[#F2EBDD] shadow-sm backdrop-blur-xs">
+            <Sparkles className="size-3 text-[#D4AF37]" />
             <span>Haute Cosmétique &amp; Botanical Wellness</span>
           </div>
         </div>
@@ -43,24 +43,24 @@ export const HeroBanner: React.FC = () => {
             Émeraude Botanica
           </h1>
 
-          {/* Delicate Antique Gold Divider Line */}
-          <div className="mx-auto h-px w-48 bg-gradient-to-r from-transparent via-[#B08A4F] to-transparent" />
+          {/* Delicate 24K Royal Gold Divider Line */}
+          <div className="mx-auto h-px w-48 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
 
           <p className="font-serif italic text-lg sm:text-2xl text-[#F2EBDD] tracking-wide">
-            Ivory, Sage, Emerald, Forest &amp; Antique Gold Palette
+            Ivory, Sage, Emerald, Forest &amp; 24K Royal Gold Palette
           </p>
 
           <p className="text-xs sm:text-sm text-[#F2EBDD]/85 max-w-2xl mx-auto font-sans leading-relaxed">
             Diciptakan di laboratorium botani dengan perpaduan mineral zamrud <strong>Malachite</strong>,{' '}
-            ekstrak <strong>Sage</strong> murni, dan sentuhan <strong>Antique Gold 24K</strong>.
+            ekstrak <strong>Sage</strong> murni, dan sentuhan <strong>24K Royal Gold</strong>.
             Hadirkan kemewahan perawatan kulit kelas haute di setiap sentuhan.
           </p>
         </div>
 
         {/* Live Search Bar */}
         <div className="max-w-xl mx-auto pt-1">
-          <div className="relative flex items-center shadow-lg rounded-lg overflow-hidden border border-[#B08A4F]/45 bg-[#102F27]/90 focus-within:border-[#B08A4F] focus-within:ring-2 focus-within:ring-[#B08A4F]/30 transition">
-            <Search className="size-4 text-[#B08A4F] ml-4 shrink-0" />
+          <div className="relative flex items-center shadow-lg rounded-lg overflow-hidden border border-[#D4AF37]/45 bg-[#102F27]/90 focus-within:border-[#D4AF37] focus-within:ring-2 focus-within:ring-[#D4AF37]/30 transition">
+            <Search className="size-4 text-[#D4AF37] ml-4 shrink-0" />
             <input
               type="text"
               placeholder="Cari serum zamrud, lip velvet, bakuchiol, ceramide, atau manfaat..."
@@ -71,7 +71,7 @@ export const HeroBanner: React.FC = () => {
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="mr-3 text-xs text-[#B08A4F] hover:text-[#F2EBDD] font-medium"
+                className="mr-3 text-xs text-[#D4AF37] hover:text-[#F2EBDD] font-medium"
               >
                 Reset
               </button>
@@ -85,7 +85,7 @@ export const HeroBanner: React.FC = () => {
               <button
                 key={tag}
                 onClick={() => setSearchQuery(tag)}
-                className="rounded-md border border-[#B08A4F]/30 bg-[#185844]/70 px-2.5 py-0.5 text-[11px] text-[#F2EBDD] hover:border-[#B08A4F] hover:bg-[#B08A4F] hover:text-[#102F27] transition font-medium"
+                className="rounded-md border border-[#D4AF37]/30 bg-[#185844]/70 px-2.5 py-0.5 text-[11px] text-[#F2EBDD] hover:border-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#102F27] transition font-medium"
               >
                 {tag}
               </button>
@@ -105,13 +105,13 @@ export const HeroBanner: React.FC = () => {
                 title={`Klik untuk menyalin ${swatch.hex} — ${swatch.name}`}
               >
                 <div
-                  className="w-full aspect-square max-w-[76px] rounded-md border border-[#F2EBDD]/80 shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:border-[#B08A4F]"
+                  className="w-full aspect-square max-w-[76px] rounded-md border border-[#F2EBDD]/80 shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:border-[#D4AF37]"
                   style={{ backgroundColor: swatch.hex }}
                 />
-                <span className="mt-2 font-mono text-[10px] sm:text-xs tracking-wider text-[#F2EBDD] font-bold group-hover:text-[#B08A4F] transition">
+                <span className="mt-2 font-mono text-[10px] sm:text-xs tracking-wider text-[#F2EBDD] font-bold group-hover:text-[#D4AF37] transition">
                   {swatch.hex}
                 </span>
-                <span className="text-[10px] uppercase tracking-widest text-[#B08A4F] font-semibold truncate max-w-full">
+                <span className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-semibold truncate max-w-full">
                   {swatch.name}
                 </span>
               </button>
@@ -120,18 +120,18 @@ export const HeroBanner: React.FC = () => {
         </div>
 
         {/* Key Luxury Promises */}
-        <div className="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto border-t border-[#B08A4F]/25 text-xs text-[#F2EBDD]/90">
+        <div className="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto border-t border-[#D4AF37]/25 text-xs text-[#F2EBDD]/90">
           <div className="flex items-center justify-center gap-2">
-            <Droplets className="size-4 text-[#B08A4F] shrink-0" />
+            <Droplets className="size-4 text-[#D4AF37] shrink-0" />
             <span>Cold-Pressed Botanical &amp; Peptide</span>
           </div>
           <div className="flex items-center justify-center gap-2">
-            <ShieldCheck className="size-4 text-[#B08A4F] shrink-0" />
+            <ShieldCheck className="size-4 text-[#D4AF37] shrink-0" />
             <span>BPOM RI &amp; Halal Certified</span>
           </div>
           <div className="flex items-center justify-center gap-2">
-            <Award className="size-4 text-[#B08A4F] shrink-0" />
-            <span>Kemasan Eksklusif Emerald &amp; Antique Gold</span>
+            <Award className="size-4 text-[#D4AF37] shrink-0" />
+            <span>Kemasan Eksklusif Emerald &amp; 24K Royal Gold</span>
           </div>
         </div>
       </div>

@@ -8,12 +8,12 @@ export const Footer: React.FC = () => {
   const { setSelectedCategory, setActiveView, openAuthModal } = useCosmetics()
 
   return (
-    <footer className="border-t border-[#B08A4F]/25 bg-[#091D18] text-[#F2EBDD]">
+    <footer className="border-t border-[#D4AF37]/25 bg-[#091D18] text-[#F2EBDD]">
       {/* Luxury Assurance Pillars */}
-      <div className="border-b border-[#B08A4F]/15 py-8">
+      <div className="border-b border-[#D4AF37]/15 py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="flex items-start gap-3">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#B08A4F]/30 text-[#B08A4F]">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#D4AF37]/30 text-[#D4AF37]">
               <Sparkles className="size-5" />
             </div>
             <div>
@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex items-start gap-3">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#B08A4F]/30 text-[#B08A4F]">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#D4AF37]/30 text-[#D4AF37]">
               <ShieldCheck className="size-5" />
             </div>
             <div>
@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex items-start gap-3">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#B08A4F]/30 text-[#B08A4F]">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#D4AF37]/30 text-[#D4AF37]">
               <Award className="size-5" />
             </div>
             <div>
@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex items-start gap-3">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#B08A4F]/30 text-[#B08A4F]">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#D4AF37]/30 text-[#D4AF37]">
               <HeartHandshake className="size-5" />
             </div>
             <div>
@@ -81,22 +81,22 @@ export const Footer: React.FC = () => {
                 <span className="font-serif text-2xl font-bold tracking-[0.15em] text-[#F2EBDD] uppercase block leading-none">
                   Émeraude Botanica
                 </span>
-                <span className="text-[10px] uppercase tracking-[0.28em] text-[#B08A4F] font-medium">
-                  Ivory, Sage, Emerald, Forest & Antique Gold
+                <span className="text-[10px] uppercase tracking-[0.28em] text-[#D4AF37] font-medium">
+                  Ivory, Sage, Emerald, Forest & 24K Royal Gold
                 </span>
               </div>
             </div>
 
             <p className="text-xs text-[#F2EBDD]/80 leading-relaxed max-w-md">
               Maison kosmetik dan perawatan kulit botani mewah yang memadukan ilmu dermatologi modern
-              dengan keanggunan palet <strong>Ivory, Sage, Emerald, Forest & Antique Gold</strong>. Setiap formula dirancang sebagai
+              dengan keanggunan palet <strong>Ivory, Sage, Emerald, Forest & 24K Royal Gold</strong>. Setiap formula dirancang sebagai
               ritual keanggunan abadi.
             </p>
 
             {/* Exact 5-Color Swatch Reference Bar */}
             <div className="pt-2">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-[#B08A4F] mb-2 font-semibold">
-                Signature Color Identity — Ivory, Sage, Emerald, Forest & Antique Gold
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[#D4AF37] mb-2 font-semibold">
+                Signature Color Identity — Ivory, Sage, Emerald, Forest & 24K Royal Gold
               </p>
               <div className="flex items-center gap-2">
                 {BRAND_SWATCHES.map(swatch => (
@@ -120,7 +120,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Koleksi */}
           <div className="md:col-span-3 space-y-2.5 text-xs">
-            <h4 className="font-serif text-sm font-bold uppercase tracking-[0.18em] text-[#B08A4F]">
+            <h4 className="font-serif text-sm font-bold uppercase tracking-[0.18em] text-[#D4AF37]">
               Koleksi Haute
             </h4>
             <ul className="space-y-2 text-[#F2EBDD]/80">
@@ -141,7 +141,7 @@ export const Footer: React.FC = () => {
                       setActiveView('store')
                       window.scrollTo({ top: 400, behavior: 'smooth' })
                     }}
-                    className="hover:text-[#B08A4F] transition"
+                    className="hover:text-[#D4AF37] transition"
                   >
                     {cat}
                   </button>
@@ -152,30 +152,30 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Layanan Pelanggan & Demo */}
           <div className="md:col-span-4 space-y-3 text-xs">
-            <h4 className="font-serif text-sm font-bold uppercase tracking-[0.18em] text-[#B08A4F]">
+            <h4 className="font-serif text-sm font-bold uppercase tracking-[0.18em] text-[#D4AF37]">
               Maison Concierge & Akses Demo
             </h4>
             <p className="text-[#F2EBDD]/80 leading-relaxed">
               Butik Flagship: Plaza Senayan Level 1 — Suite Émeraude 108, Jakarta Selatan.
               Layanan Konsultasi Kulit Privat tersedia setiap hari (10.00 – 22.00 WIB).
             </p>
-            <div className="rounded-lg border border-[#B08A4F]/25 bg-[#185844]/70 p-3 space-y-1.5">
-              <p className="text-[11px] font-semibold text-[#B08A4F]">
+            <div className="rounded-lg border border-[#D4AF37]/25 bg-[#185844]/70 p-3 space-y-1.5">
+              <p className="text-[11px] font-semibold text-[#D4AF37]">
                 Akun Demo Siap Pakai (Klik Masuk):
               </p>
               <p className="text-[11px] text-[#F2EBDD]">
                 • <strong>Admin Backoffice:</strong>{' '}
-                <code className="text-[#B08A4F]">admin@example.com</code> /{' '}
+                <code className="text-[#D4AF37]">admin@example.com</code> /{' '}
                 <code>password123</code>
               </p>
               <p className="text-[11px] text-[#F2EBDD]">
                 • <strong>Member VIP:</strong>{' '}
-                <code className="text-[#B08A4F]">user@example.com</code> /{' '}
+                <code className="text-[#D4AF37]">user@example.com</code> /{' '}
                 <code>password123</code>
               </p>
               <button
                 onClick={() => openAuthModal('login')}
-                className="mt-1 inline-block text-[11px] font-semibold text-[#B08A4F] underline hover:text-[#F2EBDD]"
+                className="mt-1 inline-block text-[11px] font-semibold text-[#D4AF37] underline hover:text-[#F2EBDD]"
               >
                 Buka Modal Login Cepat →
               </button>
@@ -183,9 +183,9 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-[#B08A4F]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#78947F]/60">
+        <div className="mt-10 pt-6 border-t border-[#D4AF37]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#78947F]/60">
           <p>© 2026 Émeraude Botanica Haute Cosmétique. Seluruh hak cipta dilindungi.</p>
-          <p>Palette: #F2EBDD (Ivory) • #78947F (Sage) • #185844 (Emerald) • #102F27 (Forest) • #B08A4F (Antique Gold)</p>
+          <p>Palette: #F2EBDD (Ivory) • #78947F (Sage) • #185844 (Emerald) • #102F27 (Forest) • #D4AF37 (24K Royal Gold)</p>
         </div>
       </div>
     </footer>

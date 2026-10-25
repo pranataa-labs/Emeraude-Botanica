@@ -40,13 +40,13 @@ export const CartDrawer: React.FC = () => {
       onClick={() => setIsCartOpen(false)}
     >
       <div
-        className="flex h-full w-full max-w-md flex-col border-l border-[#B08A4F]/35 bg-background shadow-2xl animate-in slide-in-from-right duration-250"
+        className="flex h-full w-full max-w-md flex-col border-l border-[#D4AF37]/35 bg-background shadow-2xl animate-in slide-in-from-right duration-250"
         onClick={e => e.stopPropagation()}
       >
         {/* Drawer Header */}
         <div className="flex items-center justify-between border-b border-border px-5 py-4">
           <div className="flex items-center gap-2.5">
-            <ShoppingBag className="size-5 text-[#B08A4F]" />
+            <ShoppingBag className="size-5 text-[#D4AF37]" />
             <div>
               <h3 className="font-serif text-lg font-bold text-foreground">
                 Tas Belanja Maison
@@ -69,9 +69,9 @@ export const CartDrawer: React.FC = () => {
         <div className="border-b border-border bg-card/70 px-5 py-3 space-y-1.5">
           <div className="flex items-center justify-between text-[11px]">
             <span className="flex items-center gap-1.5 font-medium text-foreground">
-              <Truck className="size-3.5 text-[#B08A4F]" />
+              <Truck className="size-3.5 text-[#D4AF37]" />
               {remainingForFreeShipping === 0 ? (
-                <span className="text-[#B08A4F] font-semibold">
+                <span className="text-[#D4AF37] font-semibold">
                   Selamat! Anda mendapatkan Gratis Pengiriman Eksklusif
                 </span>
               ) : (
@@ -80,11 +80,11 @@ export const CartDrawer: React.FC = () => {
                 </span>
               )}
             </span>
-            <span className="font-mono text-[10px] text-[#B08A4F] font-bold">{progress}%</span>
+            <span className="font-mono text-[10px] text-[#D4AF37] font-bold">{progress}%</span>
           </div>
           <div className="h-1.5 w-full rounded-full bg-muted overflow-hidden">
             <div
-              className="h-full bg-[#B08A4F] transition-all duration-500"
+              className="h-full bg-[#D4AF37] transition-all duration-500"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -94,7 +94,7 @@ export const CartDrawer: React.FC = () => {
         <div className="flex-1 overflow-y-auto p-5 space-y-4">
           {cart.length === 0 ? (
             <div className="flex h-full flex-col items-center justify-center text-center space-y-3 py-12">
-              <div className="flex size-14 items-center justify-center rounded-full border border-[#B08A4F]/30 bg-card text-[#B08A4F]">
+              <div className="flex size-14 items-center justify-center rounded-full border border-[#D4AF37]/30 bg-card text-[#D4AF37]">
                 <ShoppingBag className="size-6 stroke-[1.5]" />
               </div>
               <h4 className="font-serif text-lg font-semibold text-foreground">
@@ -105,7 +105,7 @@ export const CartDrawer: React.FC = () => {
               </p>
               <button
                 onClick={() => setIsCartOpen(false)}
-                className="mt-2 rounded-md bg-[#B08A4F] px-4 py-2 text-xs font-bold text-[#102F27] hover:bg-[#9E7B44] transition"
+                className="mt-2 rounded-md bg-[#D4AF37] px-4 py-2 text-xs font-bold text-[#102F27] hover:bg-[#E5C453] transition"
               >
                 Jelajahi Koleksi
               </button>
@@ -120,7 +120,7 @@ export const CartDrawer: React.FC = () => {
                       key={product.id}
                       className="flex gap-3 rounded-xl border border-border bg-card p-3 shadow-2xs"
                     >
-                      <div className="size-18 shrink-0 overflow-hidden rounded-lg border border-[#B08A4F]/20 bg-[#102F27]">
+                      <div className="size-18 shrink-0 overflow-hidden rounded-lg border border-[#D4AF37]/20 bg-[#102F27]">
                         <ProductImage
                           src={product.imageUrl}
                           alt={product.name}
@@ -168,7 +168,7 @@ export const CartDrawer: React.FC = () => {
                             </button>
                           </div>
 
-                          <span className="text-xs font-bold text-[#B08A4F]">
+                          <span className="text-xs font-bold text-[#D4AF37]">
                             {formatRupiah(unitPrice * quantity)}
                           </span>
                         </div>
@@ -179,8 +179,8 @@ export const CartDrawer: React.FC = () => {
               </div>
 
               {/* Complimentary Luxury Sample Selector */}
-              <div className="rounded-xl border border-[#B08A4F]/35 bg-card/80 p-3.5 space-y-2">
-                <div className="flex items-center gap-1.5 text-xs font-semibold text-[#B08A4F]">
+              <div className="rounded-xl border border-[#D4AF37]/35 bg-card/80 p-3.5 space-y-2">
+                <div className="flex items-center gap-1.5 text-xs font-semibold text-[#D4AF37]">
                   <Gift className="size-4" />
                   <span>Complimentary Luxury Sample (Gratis):</span>
                 </div>
@@ -193,7 +193,7 @@ export const CartDrawer: React.FC = () => {
                       key={sample}
                       className={`flex items-center gap-2 rounded-lg border p-2 text-xs cursor-pointer transition ${
                         selectedSample === sample
-                          ? 'border-[#B08A4F] bg-[#B08A4F]/15 text-foreground font-semibold'
+                          ? 'border-[#D4AF37] bg-[#D4AF37]/15 text-foreground font-semibold'
                           : 'border-border bg-background/50 text-muted-foreground hover:text-foreground'
                       }`}
                     >
@@ -202,9 +202,9 @@ export const CartDrawer: React.FC = () => {
                         name="luxury-sample"
                         checked={selectedSample === sample}
                         onChange={() => setSelectedSample(sample)}
-                        className="accent-[#B08A4F]"
+                        className="accent-[#D4AF37]"
                       />
-                      <Sparkles className="size-3 text-[#B08A4F] shrink-0" />
+                      <Sparkles className="size-3 text-[#D4AF37] shrink-0" />
                       <span className="truncate">{sample}</span>
                     </label>
                   ))}
@@ -220,11 +220,11 @@ export const CartDrawer: React.FC = () => {
             <div className="space-y-1 text-xs">
               <div className="flex items-center justify-between text-muted-foreground">
                 <span>Complimentary Sample</span>
-                <span className="text-[#B08A4F] font-medium">GRATIS</span>
+                <span className="text-[#D4AF37] font-medium">GRATIS</span>
               </div>
               <div className="flex items-center justify-between text-sm font-bold text-foreground pt-1">
                 <span>Subtotal Pesanan</span>
-                <span className="text-base text-[#B08A4F]">{formatRupiah(cartSubtotal)}</span>
+                <span className="text-base text-[#D4AF37]">{formatRupiah(cartSubtotal)}</span>
               </div>
             </div>
 
@@ -240,7 +240,7 @@ export const CartDrawer: React.FC = () => {
                   setIsCartOpen(false)
                   setActiveView('checkout')
                 }}
-                className="flex-1 flex items-center justify-center gap-2 h-10 rounded-md bg-[#B08A4F] text-[#102F27] text-xs font-bold hover:bg-[#9E7B44] transition shadow-sm"
+                className="flex-1 flex items-center justify-center gap-2 h-10 rounded-md bg-[#D4AF37] text-[#102F27] text-xs font-bold hover:bg-[#E5C453] transition shadow-sm"
               >
                 <span>Lanjut ke Checkout</span>
                 <ArrowRight className="size-4 stroke-[2.2]" />

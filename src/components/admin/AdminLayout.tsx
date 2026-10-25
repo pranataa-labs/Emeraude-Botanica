@@ -32,7 +32,7 @@ export const AdminLayout: React.FC = () => {
         <div className="pt-2 flex flex-col gap-2.5">
           <button
             onClick={() => login('admin@example.com', 'password123')}
-            className="flex items-center justify-center gap-2 h-10 rounded-md bg-[#B08A4F] text-[#102F27] font-bold text-xs hover:bg-[#9E7B44] transition shadow-xs"
+            className="flex items-center justify-center gap-2 h-10 rounded-md bg-[#D4AF37] text-[#102F27] font-bold text-xs hover:bg-[#E5C453] transition shadow-xs"
           >
             <LogIn className="size-4" />
             <span>Masuk Instan sebagai Demo Admin (admin@example.com)</span>

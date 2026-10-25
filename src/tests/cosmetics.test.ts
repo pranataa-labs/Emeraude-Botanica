@@ -9,9 +9,9 @@ import {
 } from '../data/seedData'
 
 describe('Émeraude Botanica — Luxury Cosmetics Store Suite', () => {
-  it('validates the exact 5-color Ivory, Sage, Emerald, Forest & Antique Gold luxury palette from reference image', () => {
+  it('validates the exact 5-color Ivory, Sage, Emerald, Forest & 24K Royal Gold luxury palette from reference image', () => {
     const hexCodes = BRAND_SWATCHES.map(s => s.hex)
-    expect(hexCodes).toEqual(['#F2EBDD', '#78947F', '#185844', '#102F27', '#B08A4F'])
+    expect(hexCodes).toEqual(['#F2EBDD', '#78947F', '#185844', '#102F27', '#D4AF37'])
   })
 
   it('seeds 12 luxury cosmetic and skincare products with BPOM numbers and key ingredients', () => {
