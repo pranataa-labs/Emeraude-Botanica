@@ -8,36 +8,36 @@
 [![Vite](https://img.shields.io/badge/Vite-6.2.0-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.3-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![Vitest](https://img.shields.io/badge/Vitest-3.2.7-FCC72B?style=for-the-badge&logo=vitest)](https://vitest.dev/)
-[![Design System](https://img.shields.io/badge/Palette-Emerald_%26_Cream-0F3D34?style=for-the-badge)](https://github.com/pranataa-labs)
-[![License](https://img.shields.io/badge/License-MIT-C8A96A.svg?style=for-the-badge)](LICENSE)
+[![Design System](https://img.shields.io/badge/Palette-Ivory_%7C_Sage_%7C_Emerald_%7C_Forest_%7C_Antique_Gold-185844?style=for-the-badge)](https://github.com/pranataa-labs)
+[![License](https://img.shields.io/badge/License-MIT-B08A4F.svg?style=for-the-badge)](LICENSE)
 
 <br/>
 
-*Aplikasi e-commerce kosmetik botani dan perawatan kulit mewah dengan arsitektur dua sisi (**Public Luxury Boutique & Maison Admin Backoffice**) yang dirancang menggunakan palet eksklusif **Emerald & Cream** terinspirasi dari keanggunan sutra zamrud kerajaan dan aksen emas 24K.*
+*Aplikasi e-commerce kosmetik botani dan perawatan kulit mewah dengan arsitektur dua sisi (**Public Luxury Boutique & Maison Admin Backoffice**) yang dirancang menggunakan palet eksklusif **Ivory, Sage, Emerald, Forest & Antique Gold** terinspirasi dari keanggunan kelopak bunga zamrud botani dan emas antik.*
 
 ---
 
 </div>
 
-## 🎨 Palet Identitas Desain — Emerald & Cream
+## 🎨 Palet Identitas Desain — Sesuai Gambar Referensi
 
-| Nama Warna | Kode Hex | Peran Visual dalam Aplikasi |
-| :--- | :--- | :--- |
-| **Imperial Deep Emerald** | `#0F3D34` | Latar belakang sutra utama (Dark Mode) & tipografi utama (Light Mode) |
-| **Botanical Forest Silk** | `#134E43` | Permukaan kartu produk, panel velvet zamrud, dan aksen sekunder |
-| **Soft Sage Dew** | `#E6F0E9` | Aksen mist botani, badge formulasi, dan teks sekunder |
-| **Warm Alabaster Cream** | `#F7F6F1` | Latar belakang utama (Light Mode) & tipografi gading kontras tinggi |
-| **Champagne Botanical Gold** | `#C8A96A` | Emblem daun botani, tombol CTA utama, garis tepi emas, dan bintang rating |
+| Swatch | Kode Hex | Label Warna | Peran Visual dalam Aplikasi |
+| :---: | :---: | :--- | :--- |
+| <img src="https://via.placeholder.com/20/F2EBDD/F2EBDD.png" width="20" height="20" /> | **`#F2EBDD`** | **IVORY** | Latar utama Mode Terang (*Alabaster/Warm Ivory*) & Tipografi Gading Kontras Tinggi (Mode Gelap) |
+| <img src="https://via.placeholder.com/20/78947F/78947F.png" width="20" height="20" /> | **`#78947F`** | **SAGE** | Aksen mist botani, badge formulasi, chip kebutuhan kulit, dan teks sekunder |
+| <img src="https://via.placeholder.com/20/185844/185844.png" width="20" height="20" /> | **`#185844`** | **EMERALD** | Permukaan kartu produk, panel velvet zamrud, dan tombol aksi Mode Terang |
+| <img src="https://via.placeholder.com/20/102F27/102F27.png" width="20" height="20" /> | **`#102F27`** | **FOREST** | Latar belakang sutra utama (Dark Mode Default) & Tipografi Gelap (Mode Terang) |
+| <img src="https://via.placeholder.com/20/B08A4F/B08A4F.png" width="20" height="20" /> | **`#B08A4F`** | **ANTIQUE GOLD** | Emblem daun botani, tombol CTA utama, garis tepi emas 24K, dan rating bintang |
 
 ---
 
 ## 🌟 Fitur Utama
 
 ### 1. Sisi Pelanggan (Public Luxury Boutique)
-- **Hero Emerald Silk & Interactive Swatch Bar**:
+- **Hero Silk Floral & Interactive Swatch Bar**:
   - Menampilkan emblem daun botani emas di dalam bingkai berlekuk klasik (*scalloped vintage crest*).
   - Bar pencarian interaktif dan filter cepat (*Malachite*, *Ceramide*, *24K Gold*, *Lip Velvet*, *Bakuchiol*, *Matcha*).
-  - Bar 5 kotak warna interaktif (`#0F3D34`, `#134E43`, `#E6F0E9`, `#F7F6F1`, `#C8A96A`) yang dapat diklik untuk menyalin kode hex secara instan.
+  - Bar 5 kotak warna interaktif (`#F2EBDD`, `#78947F`, `#185844`, `#102F27`, `#B08A4F`) yang dapat diklik untuk menyalin kode hex secara instan.
 - **Katalog 12 Produk Kosmetik & Skincare Mewah**:
   - Filter kebutuhan kulit (*Kulit Kering*, *Kulit Berminyak & Acne*, *Kulit Sensitif*, *Anti-Aging & Kusam*).
   - 6 kategori kosmetik (*Serum & Essence*, *Moisturizer & Cream*, *Cleanser & Toner*, *Lip & Cheek Couture*, *Eye & Night Ritual*, *Body & Wellness*).

@@ -8,61 +8,61 @@ export const Footer: React.FC = () => {
   const { setSelectedCategory, setActiveView, openAuthModal } = useCosmetics()
 
   return (
-    <footer className="border-t border-[#C8A96A]/25 bg-[#092822] text-[#F7F6F1]">
+    <footer className="border-t border-[#B08A4F]/25 bg-[#091D18] text-[#F2EBDD]">
       {/* Luxury Assurance Pillars */}
-      <div className="border-b border-[#C8A96A]/15 py-8">
+      <div className="border-b border-[#B08A4F]/15 py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="flex items-start gap-3">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#134E43] border border-[#C8A96A]/30 text-[#C8A96A]">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#B08A4F]/30 text-[#B08A4F]">
               <Sparkles className="size-5" />
             </div>
             <div>
-              <h4 className="font-serif text-base font-semibold text-[#F7F6F1]">
+              <h4 className="font-serif text-base font-semibold text-[#F2EBDD]">
                 100% Botanical Actives
               </h4>
-              <p className="text-xs text-[#E6F0E9]/75 mt-0.5 leading-relaxed">
+              <p className="text-xs text-[#F2EBDD]/75 mt-0.5 leading-relaxed">
                 Ekstrak dingin organik murni dengan bioteknologi peptida & emas koloid 24K.
               </p>
             </div>
           </div>
 
           <div className="flex items-start gap-3">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#134E43] border border-[#C8A96A]/30 text-[#C8A96A]">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#B08A4F]/30 text-[#B08A4F]">
               <ShieldCheck className="size-5" />
             </div>
             <div>
-              <h4 className="font-serif text-base font-semibold text-[#F7F6F1]">
+              <h4 className="font-serif text-base font-semibold text-[#F2EBDD]">
                 BPOM RI & Dermatologist Tested
               </h4>
-              <p className="text-xs text-[#E6F0E9]/75 mt-0.5 leading-relaxed">
+              <p className="text-xs text-[#F2EBDD]/75 mt-0.5 leading-relaxed">
                 Teruji klinis hipoalergenik, bebas paraben, sulfat, dan ramah kulit sensitif.
               </p>
             </div>
           </div>
 
           <div className="flex items-start gap-3">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#134E43] border border-[#C8A96A]/30 text-[#C8A96A]">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#B08A4F]/30 text-[#B08A4F]">
               <Award className="size-5" />
             </div>
             <div>
-              <h4 className="font-serif text-base font-semibold text-[#F7F6F1]">
+              <h4 className="font-serif text-base font-semibold text-[#F2EBDD]">
                 Kemasan Zamrud Berkelanjutan
               </h4>
-              <p className="text-xs text-[#E6F0E9]/75 mt-0.5 leading-relaxed">
+              <p className="text-xs text-[#F2EBDD]/75 mt-0.5 leading-relaxed">
                 Botol kaca emerald UV-protective yang menjaga kemurnian bahan aktif.
               </p>
             </div>
           </div>
 
           <div className="flex items-start gap-3">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#134E43] border border-[#C8A96A]/30 text-[#C8A96A]">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#B08A4F]/30 text-[#B08A4F]">
               <HeartHandshake className="size-5" />
             </div>
             <div>
-              <h4 className="font-serif text-base font-semibold text-[#F7F6F1]">
+              <h4 className="font-serif text-base font-semibold text-[#F2EBDD]">
                 Cruelty-Free & Halal Certified
               </h4>
-              <p className="text-xs text-[#E6F0E9]/75 mt-0.5 leading-relaxed">
+              <p className="text-xs text-[#F2EBDD]/75 mt-0.5 leading-relaxed">
                 100% Vegan formulation tanpa pengujian hewan dan tersertifikasi resmi.
               </p>
             </div>
@@ -78,25 +78,25 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-3">
               <BotanicalCrest size="sm" />
               <div>
-                <span className="font-serif text-2xl font-bold tracking-[0.15em] text-[#F7F6F1] uppercase block leading-none">
+                <span className="font-serif text-2xl font-bold tracking-[0.15em] text-[#F2EBDD] uppercase block leading-none">
                   Émeraude Botanica
                 </span>
-                <span className="text-[10px] uppercase tracking-[0.28em] text-[#C8A96A] font-medium">
-                  Emerald & Cream Luxury Wellness
+                <span className="text-[10px] uppercase tracking-[0.28em] text-[#B08A4F] font-medium">
+                  Ivory, Sage, Emerald, Forest & Antique Gold
                 </span>
               </div>
             </div>
 
-            <p className="text-xs text-[#E6F0E9]/80 leading-relaxed max-w-md">
+            <p className="text-xs text-[#F2EBDD]/80 leading-relaxed max-w-md">
               Maison kosmetik dan perawatan kulit botani mewah yang memadukan ilmu dermatologi modern
-              dengan keanggunan palet <strong>Emerald & Cream</strong>. Setiap formula dirancang sebagai
+              dengan keanggunan palet <strong>Ivory, Sage, Emerald, Forest & Antique Gold</strong>. Setiap formula dirancang sebagai
               ritual keanggunan abadi.
             </p>
 
             {/* Exact 5-Color Swatch Reference Bar */}
             <div className="pt-2">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-[#C8A96A] mb-2 font-semibold">
-                Signature Color Identity — Emerald & Cream
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[#B08A4F] mb-2 font-semibold">
+                Signature Color Identity — Ivory, Sage, Emerald, Forest & Antique Gold
               </p>
               <div className="flex items-center gap-2">
                 {BRAND_SWATCHES.map(swatch => (
@@ -106,10 +106,10 @@ export const Footer: React.FC = () => {
                     title={`${swatch.name} (${swatch.hex})`}
                   >
                     <div
-                      className="w-10 h-10 rounded-md border border-[#F7F6F1]/30 shadow-sm transition-transform group-hover:scale-105"
+                      className="w-10 h-10 rounded-md border border-[#F2EBDD]/30 shadow-sm transition-transform group-hover:scale-105"
                       style={{ backgroundColor: swatch.hex }}
                     />
-                    <span className="mt-1 font-mono text-[9px] text-[#E6F0E9]/80">
+                    <span className="mt-1 font-mono text-[9px] text-[#F2EBDD]/80">
                       {swatch.code}
                     </span>
                   </div>
@@ -120,10 +120,10 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Koleksi */}
           <div className="md:col-span-3 space-y-2.5 text-xs">
-            <h4 className="font-serif text-sm font-bold uppercase tracking-[0.18em] text-[#C8A96A]">
+            <h4 className="font-serif text-sm font-bold uppercase tracking-[0.18em] text-[#B08A4F]">
               Koleksi Haute
             </h4>
-            <ul className="space-y-2 text-[#E6F0E9]/80">
+            <ul className="space-y-2 text-[#F2EBDD]/80">
               {(
                 [
                   'Serum & Essence',
@@ -141,7 +141,7 @@ export const Footer: React.FC = () => {
                       setActiveView('store')
                       window.scrollTo({ top: 400, behavior: 'smooth' })
                     }}
-                    className="hover:text-[#C8A96A] transition"
+                    className="hover:text-[#B08A4F] transition"
                   >
                     {cat}
                   </button>
@@ -152,30 +152,30 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Layanan Pelanggan & Demo */}
           <div className="md:col-span-4 space-y-3 text-xs">
-            <h4 className="font-serif text-sm font-bold uppercase tracking-[0.18em] text-[#C8A96A]">
+            <h4 className="font-serif text-sm font-bold uppercase tracking-[0.18em] text-[#B08A4F]">
               Maison Concierge & Akses Demo
             </h4>
-            <p className="text-[#E6F0E9]/80 leading-relaxed">
+            <p className="text-[#F2EBDD]/80 leading-relaxed">
               Butik Flagship: Plaza Senayan Level 1 — Suite Émeraude 108, Jakarta Selatan.
               Layanan Konsultasi Kulit Privat tersedia setiap hari (10.00 – 22.00 WIB).
             </p>
-            <div className="rounded-lg border border-[#C8A96A]/25 bg-[#134E43]/70 p-3 space-y-1.5">
-              <p className="text-[11px] font-semibold text-[#C8A96A]">
+            <div className="rounded-lg border border-[#B08A4F]/25 bg-[#185844]/70 p-3 space-y-1.5">
+              <p className="text-[11px] font-semibold text-[#B08A4F]">
                 Akun Demo Siap Pakai (Klik Masuk):
               </p>
-              <p className="text-[11px] text-[#F7F6F1]">
+              <p className="text-[11px] text-[#F2EBDD]">
                 • <strong>Admin Backoffice:</strong>{' '}
-                <code className="text-[#C8A96A]">admin@example.com</code> /{' '}
+                <code className="text-[#B08A4F]">admin@example.com</code> /{' '}
                 <code>password123</code>
               </p>
-              <p className="text-[11px] text-[#F7F6F1]">
+              <p className="text-[11px] text-[#F2EBDD]">
                 • <strong>Member VIP:</strong>{' '}
-                <code className="text-[#C8A96A]">user@example.com</code> /{' '}
+                <code className="text-[#B08A4F]">user@example.com</code> /{' '}
                 <code>password123</code>
               </p>
               <button
                 onClick={() => openAuthModal('login')}
-                className="mt-1 inline-block text-[11px] font-semibold text-[#C8A96A] underline hover:text-[#F7F6F1]"
+                className="mt-1 inline-block text-[11px] font-semibold text-[#B08A4F] underline hover:text-[#F2EBDD]"
               >
                 Buka Modal Login Cepat →
               </button>
@@ -183,9 +183,9 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-[#C8A96A]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#E6F0E9]/60">
+        <div className="mt-10 pt-6 border-t border-[#B08A4F]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#78947F]/60">
           <p>© 2026 Émeraude Botanica Haute Cosmétique. Seluruh hak cipta dilindungi.</p>
-          <p>Palette: #0F3D34 • #134E43 • #E6F0E9 • #F7F6F1 • #C8A96A</p>
+          <p>Palette: #F2EBDD (Ivory) • #78947F (Sage) • #185844 (Emerald) • #102F27 (Forest) • #B08A4F (Antique Gold)</p>
         </div>
       </div>
     </footer>

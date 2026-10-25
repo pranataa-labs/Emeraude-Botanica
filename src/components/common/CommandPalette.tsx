@@ -51,12 +51,12 @@ export const CommandPalette: React.FC = () => {
       onClick={() => setIsCmdKOpen(false)}
     >
       <div
-        className="w-full max-w-xl rounded-xl border border-[#C8A96A]/40 bg-card shadow-2xl overflow-hidden animate-in zoom-in-95 duration-150"
+        className="w-full max-w-xl rounded-xl border border-[#B08A4F]/40 bg-card shadow-2xl overflow-hidden animate-in zoom-in-95 duration-150"
         onClick={e => e.stopPropagation()}
       >
         {/* Search Input Bar */}
         <div className="flex items-center border-b border-border px-4">
-          <Search className="size-4 text-[#C8A96A] shrink-0" />
+          <Search className="size-4 text-[#B08A4F] shrink-0" />
           <input
             type="text"
             autoFocus
@@ -76,7 +76,7 @@ export const CommandPalette: React.FC = () => {
         {/* Results */}
         <div className="max-h-96 overflow-y-auto p-2 space-y-4 text-xs">
           <div>
-            <p className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#C8A96A]">
+            <p className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#B08A4F]">
               Koleksi Kosmetik & Skincare ({filteredProducts.length})
             </p>
             {filteredProducts.length === 0 ? (
@@ -95,7 +95,7 @@ export const CommandPalette: React.FC = () => {
                     className="flex w-full items-center justify-between gap-3 rounded-lg px-2.5 py-2 hover:bg-accent text-left transition"
                   >
                     <div className="flex items-center gap-2.5 truncate">
-                      <Sparkles className="size-3.5 text-[#C8A96A] shrink-0" />
+                      <Sparkles className="size-3.5 text-[#B08A4F] shrink-0" />
                       <div className="truncate">
                         <p className="font-semibold text-foreground truncate">{product.name}</p>
                         <p className="text-[11px] text-muted-foreground truncate">
@@ -103,7 +103,7 @@ export const CommandPalette: React.FC = () => {
                         </p>
                       </div>
                     </div>
-                    <span className="font-bold text-[#C8A96A] shrink-0">
+                    <span className="font-bold text-[#B08A4F] shrink-0">
                       {formatRupiah(product.discountPrice ?? product.price)}
                     </span>
                   </button>
@@ -114,7 +114,7 @@ export const CommandPalette: React.FC = () => {
 
           {/* Quick Navigation */}
           <div className="border-t border-border pt-2">
-            <p className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#C8A96A]">
+            <p className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#B08A4F]">
               Pintasan Cepat Maison
             </p>
             <div className="grid grid-cols-2 gap-1 mt-1">
@@ -125,7 +125,7 @@ export const CommandPalette: React.FC = () => {
                 }}
                 className="flex items-center gap-2 rounded-md px-2.5 py-2 hover:bg-accent text-left"
               >
-                <ShoppingBag className="size-3.5 text-[#C8A96A]" />
+                <ShoppingBag className="size-3.5 text-[#B08A4F]" />
                 <span>Buka Tas Belanja</span>
               </button>
               <button
@@ -135,7 +135,7 @@ export const CommandPalette: React.FC = () => {
                 }}
                 className="flex items-center gap-2 rounded-md px-2.5 py-2 hover:bg-accent text-left"
               >
-                <Package className="size-3.5 text-[#C8A96A]" />
+                <Package className="size-3.5 text-[#B08A4F]" />
                 <span>Lacak Pesanan Saya</span>
               </button>
               <button
@@ -145,7 +145,7 @@ export const CommandPalette: React.FC = () => {
                 }}
                 className="flex items-center gap-2 rounded-md px-2.5 py-2 hover:bg-accent text-left"
               >
-                <ShieldCheck className="size-3.5 text-[#C8A96A]" />
+                <ShieldCheck className="size-3.5 text-[#B08A4F]" />
                 <span>Maison Admin Backoffice</span>
               </button>
               <button
@@ -156,9 +156,9 @@ export const CommandPalette: React.FC = () => {
                 className="flex items-center gap-2 rounded-md px-2.5 py-2 hover:bg-accent text-left"
               >
                 {theme === 'dark' ? (
-                  <Sun className="size-3.5 text-[#C8A96A]" />
+                  <Sun className="size-3.5 text-[#B08A4F]" />
                 ) : (
-                  <Moon className="size-3.5 text-[#C8A96A]" />
+                  <Moon className="size-3.5 text-[#B08A4F]" />
                 )}
                 <span>
                   Mode {theme === 'dark' ? 'Alabaster Cream' : 'Deep Emerald Silk'}

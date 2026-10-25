@@ -30,13 +30,13 @@ export const Header: React.FC = () => {
   return (
     <>
       {/* Top Luxury Announcement Ribbon */}
-      <div className="w-full bg-[#092822] text-[#E6F0E9] border-b border-[#C8A96A]/25 py-1.5 px-4 text-center text-[11px] tracking-wider">
+      <div className="w-full bg-[#091D18] text-[#78947F] border-b border-[#B08A4F]/25 py-1.5 px-4 text-center text-[11px] tracking-wider">
         <div className="mx-auto max-w-7xl flex items-center justify-center gap-2">
-          <Sparkles className="size-3 text-[#C8A96A] shrink-0" />
+          <Sparkles className="size-3 text-[#B08A4F] shrink-0" />
           <span>
             COMPLIMENTARY LUXURY GIFT BOX & FREE SHIPPING UNTUK PESANAN DI ATAS{' '}
-            <strong className="text-[#C8A96A]">RP 500.000</strong> • KODE VOUCHER:{' '}
-            <strong className="text-[#F7F6F1] underline decoration-[#C8A96A]">EMERALD15</strong>
+            <strong className="text-[#B08A4F]">RP 500.000</strong> • KODE VOUCHER:{' '}
+            <strong className="text-[#F2EBDD] underline decoration-[#B08A4F]">EMERALD15</strong>
           </span>
         </div>
       </div>
@@ -57,7 +57,7 @@ export const Header: React.FC = () => {
                 <span className="font-serif text-xl font-bold tracking-[0.14em] text-foreground block leading-none uppercase">
                   Émeraude
                 </span>
-                <span className="text-[9px] uppercase tracking-[0.28em] text-[#C8A96A] font-semibold block mt-0.5">
+                <span className="text-[9px] uppercase tracking-[0.28em] text-[#B08A4F] font-semibold block mt-0.5">
                   Botanica • Paris
                 </span>
               </div>
@@ -68,7 +68,7 @@ export const Header: React.FC = () => {
                 onClick={() => setActiveView('store')}
                 className={`px-3 py-1.5 rounded-md transition ${
                   activeView === 'store'
-                    ? 'bg-[#C8A96A]/15 text-[#C8A96A] border border-[#C8A96A]/30 font-semibold'
+                    ? 'bg-[#B08A4F]/15 text-[#B08A4F] border border-[#B08A4F]/30 font-semibold'
                     : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                 }`}
               >
@@ -78,7 +78,7 @@ export const Header: React.FC = () => {
                 onClick={() => setActiveView('orders')}
                 className={`px-3 py-1.5 rounded-md transition ${
                   activeView === 'orders'
-                    ? 'bg-[#C8A96A]/15 text-[#C8A96A] border border-[#C8A96A]/30 font-semibold'
+                    ? 'bg-[#B08A4F]/15 text-[#B08A4F] border border-[#B08A4F]/30 font-semibold'
                     : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                 }`}
               >
@@ -94,8 +94,8 @@ export const Header: React.FC = () => {
                 }}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md transition ${
                   activeView === 'admin'
-                    ? 'bg-[#C8A96A] text-[#0F3D34] font-bold'
-                    : 'text-[#C8A96A] font-semibold hover:bg-[#C8A96A]/10'
+                    ? 'bg-[#B08A4F] text-[#102F27] font-bold'
+                    : 'text-[#B08A4F] font-semibold hover:bg-[#B08A4F]/10'
                 }`}
               >
                 <ShieldCheck className="size-3.5" />
@@ -109,9 +109,9 @@ export const Header: React.FC = () => {
             {/* Search Trigger (⌘K) */}
             <button
               onClick={() => setIsCmdKOpen(true)}
-              className="hidden sm:flex items-center gap-2 h-9 w-44 md:w-60 rounded-md border border-border bg-card/60 px-3 text-xs text-muted-foreground hover:border-[#C8A96A] transition"
+              className="hidden sm:flex items-center gap-2 h-9 w-44 md:w-60 rounded-md border border-border bg-card/60 px-3 text-xs text-muted-foreground hover:border-[#B08A4F] transition"
             >
-              <Search className="size-3.5 text-[#C8A96A]" />
+              <Search className="size-3.5 text-[#B08A4F]" />
               <span className="flex-1 text-left truncate">Cari serum, lip velvet...</span>
               <kbd className="pointer-events-none rounded border border-border bg-background px-1.5 py-0.5 text-[10px] font-mono font-medium">
                 ⌘K
@@ -123,35 +123,35 @@ export const Header: React.FC = () => {
               className="flex sm:hidden size-9 items-center justify-center rounded-md border border-border hover:bg-muted transition text-muted-foreground"
               aria-label="Cari Produk"
             >
-              <Search className="size-4 text-[#C8A96A]" />
+              <Search className="size-4 text-[#B08A4F]" />
             </button>
 
             {/* Theme Switcher (Emerald Silk vs Alabaster Cream) */}
             <button
               onClick={toggleTheme}
-              className="flex size-9 items-center justify-center rounded-md border border-border hover:border-[#C8A96A] hover:bg-muted text-muted-foreground hover:text-foreground transition"
+              className="flex size-9 items-center justify-center rounded-md border border-border hover:border-[#B08A4F] hover:bg-muted text-muted-foreground hover:text-foreground transition"
               title={
                 theme === 'dark'
-                  ? 'Beralih ke Mode Alabaster Cream (#F7F6F1)'
-                  : 'Beralih ke Mode Deep Emerald Silk (#0F3D34)'
+                  ? 'Beralih ke Mode Alabaster Cream (#F2EBDD)'
+                  : 'Beralih ke Mode Deep Emerald Silk (#102F27)'
               }
             >
               {theme === 'dark' ? (
-                <Sun className="size-4 text-[#C8A96A]" />
+                <Sun className="size-4 text-[#B08A4F]" />
               ) : (
-                <Moon className="size-4 text-[#0F3D34]" />
+                <Moon className="size-4 text-[#102F27]" />
               )}
             </button>
 
             {/* Shopping Bag Button */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative flex size-9 items-center justify-center rounded-md border border-border hover:border-[#C8A96A] hover:bg-muted text-foreground transition"
+              className="relative flex size-9 items-center justify-center rounded-md border border-border hover:border-[#B08A4F] hover:bg-muted text-foreground transition"
               aria-label="Tas Belanja"
             >
-              <ShoppingBag className="size-4 text-[#C8A96A]" />
+              <ShoppingBag className="size-4 text-[#B08A4F]" />
               {cartItemCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 flex size-5 items-center justify-center rounded-full bg-[#C8A96A] text-[#0F3D34] text-[10px] font-bold shadow-xs animate-in zoom-in-75">
+                <span className="absolute -top-1.5 -right-1.5 flex size-5 items-center justify-center rounded-full bg-[#B08A4F] text-[#102F27] text-[10px] font-bold shadow-xs animate-in zoom-in-75">
                   {cartItemCount}
                 </span>
               )}
@@ -160,15 +160,15 @@ export const Header: React.FC = () => {
             {/* User Account / Role Menu */}
             {currentUser ? (
               <div className="relative group pl-1">
-                <button className="flex items-center gap-2 rounded-md border border-border bg-card/60 px-2.5 py-1.5 text-xs font-medium hover:border-[#C8A96A] transition">
+                <button className="flex items-center gap-2 rounded-md border border-border bg-card/60 px-2.5 py-1.5 text-xs font-medium hover:border-[#B08A4F] transition">
                   {currentUser.avatarUrl ? (
                     <img
                       src={currentUser.avatarUrl}
                       alt={currentUser.name}
-                      className="size-5 rounded-full object-cover border border-[#C8A96A]/40"
+                      className="size-5 rounded-full object-cover border border-[#B08A4F]/40"
                     />
                   ) : (
-                    <UserIcon className="size-4 text-[#C8A96A]" />
+                    <UserIcon className="size-4 text-[#B08A4F]" />
                   )}
                   <span className="hidden lg:inline max-w-[115px] truncate">
                     {currentUser.name}
@@ -176,8 +176,8 @@ export const Header: React.FC = () => {
                   <span
                     className={`rounded px-1.5 py-0.5 text-[9px] font-bold tracking-wider uppercase ${
                       currentUser.role === 'admin'
-                        ? 'bg-[#C8A96A] text-[#0F3D34]'
-                        : 'bg-[#E6F0E9]/20 text-[#C8A96A] border border-[#C8A96A]/30'
+                        ? 'bg-[#B08A4F] text-[#102F27]'
+                        : 'bg-[#78947F]/20 text-[#B08A4F] border border-[#B08A4F]/30'
                     }`}
                   >
                     {currentUser.role === 'admin' ? 'DIRECTOR' : 'VIP'}
@@ -190,7 +190,7 @@ export const Header: React.FC = () => {
                     <p className="font-semibold text-foreground truncate">{currentUser.name}</p>
                     <p className="text-muted-foreground text-[11px] truncate">{currentUser.email}</p>
                     {currentUser.skinProfile && (
-                      <p className="text-[10px] text-[#C8A96A] mt-0.5">
+                      <p className="text-[10px] text-[#B08A4F] mt-0.5">
                         Profil Kulit: {currentUser.skinProfile}
                       </p>
                     )}
@@ -201,14 +201,14 @@ export const Header: React.FC = () => {
                       onClick={() => setActiveView('orders')}
                       className="flex w-full items-center gap-2 rounded px-2.5 py-1.5 hover:bg-accent text-left"
                     >
-                      <Package className="size-3.5 text-[#C8A96A]" />
+                      <Package className="size-3.5 text-[#B08A4F]" />
                       <span>Riwayat Pesanan Saya</span>
                     </button>
 
                     {currentUser.role === 'admin' && (
                       <button
                         onClick={() => setActiveView('admin')}
-                        className="flex w-full items-center gap-2 rounded px-2.5 py-1.5 hover:bg-accent text-left font-semibold text-[#C8A96A]"
+                        className="flex w-full items-center gap-2 rounded px-2.5 py-1.5 hover:bg-accent text-left font-semibold text-[#B08A4F]"
                       >
                         <ShieldCheck className="size-3.5" />
                         <span>Buka Maison Backoffice</span>
@@ -231,13 +231,13 @@ export const Header: React.FC = () => {
               <div className="flex items-center gap-1.5">
                 <button
                   onClick={() => openAuthModal('login')}
-                  className="h-9 px-3 rounded-md border border-border text-foreground text-xs font-medium hover:border-[#C8A96A] hover:bg-muted transition"
+                  className="h-9 px-3 rounded-md border border-border text-foreground text-xs font-medium hover:border-[#B08A4F] hover:bg-muted transition"
                 >
                   Masuk
                 </button>
                 <button
                   onClick={() => openAuthModal('register')}
-                  className="h-9 px-3 rounded-md bg-[#C8A96A] text-[#0F3D34] text-xs font-bold hover:bg-[#d4b87c] transition shadow-xs"
+                  className="h-9 px-3 rounded-md bg-[#B08A4F] text-[#102F27] text-xs font-bold hover:bg-[#9E7B44] transition shadow-xs"
                 >
                   Daftar VIP
                 </button>

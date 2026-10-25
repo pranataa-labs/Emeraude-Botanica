@@ -46,7 +46,7 @@ export const AdminAnalyticsTab: React.FC = () => {
         {/* Category Distribution */}
         <div className="rounded-xl border border-border bg-card p-5 space-y-4 shadow-xs">
           <div className="flex items-center gap-2">
-            <TrendingUp className="size-4 text-[#C8A96A]" />
+            <TrendingUp className="size-4 text-[#B08A4F]" />
             <h3 className="font-serif text-lg font-bold text-foreground">
               Distribusi Kategori &amp; Harga Rata-Rata
             </h3>
@@ -59,12 +59,12 @@ export const AdminAnalyticsTab: React.FC = () => {
                   <span className="font-semibold text-foreground">{stat.category}</span>
                   <span className="text-muted-foreground">
                     {stat.count} SKU • Rata-rata{' '}
-                    <strong className="text-[#C8A96A]">{formatRupiah(stat.avgPrice)}</strong>
+                    <strong className="text-[#B08A4F]">{formatRupiah(stat.avgPrice)}</strong>
                   </span>
                 </div>
                 <div className="h-2 w-full rounded-full bg-background overflow-hidden border border-border">
                   <div
-                    className="h-full bg-[#C8A96A]"
+                    className="h-full bg-[#B08A4F]"
                     style={{ width: `${Math.min(100, stat.totalReviews / 4)}%` }}
                   />
                 </div>
@@ -76,7 +76,7 @@ export const AdminAnalyticsTab: React.FC = () => {
         {/* Top Performing Products */}
         <div className="rounded-xl border border-border bg-card p-5 space-y-4 shadow-xs">
           <div className="flex items-center gap-2">
-            <Award className="size-4 text-[#C8A96A]" />
+            <Award className="size-4 text-[#B08A4F]" />
             <h3 className="font-serif text-lg font-bold text-foreground">
               5 Produk Kosmetik Paling Diminati
             </h3>
@@ -89,7 +89,7 @@ export const AdminAnalyticsTab: React.FC = () => {
                 className="flex items-center justify-between gap-3 rounded-lg border border-border bg-background/60 p-3"
               >
                 <div className="flex items-center gap-3 truncate">
-                  <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-[#C8A96A] text-[#0F3D34] font-bold text-[11px]">
+                  <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-[#B08A4F] text-[#102F27] font-bold text-[11px]">
                     #{idx + 1}
                   </span>
                   <div className="truncate">
@@ -101,15 +101,15 @@ export const AdminAnalyticsTab: React.FC = () => {
                     </p>
                   </div>
                 </div>
-                <span className="font-bold text-[#C8A96A] shrink-0">
+                <span className="font-bold text-[#B08A4F] shrink-0">
                   {formatRupiah(product.discountPrice ?? product.price)}
                 </span>
               </div>
             ))}
           </div>
 
-          <div className="rounded-lg border border-[#C8A96A]/30 bg-[#C8A96A]/10 p-3 flex items-center gap-2 text-xs text-foreground">
-            <Sparkles className="size-4 text-[#C8A96A] shrink-0" />
+          <div className="rounded-lg border border-[#B08A4F]/30 bg-[#B08A4F]/10 p-3 flex items-center gap-2 text-xs text-foreground">
+            <Sparkles className="size-4 text-[#B08A4F] shrink-0" />
             <span>
               Total <strong>{orders.length}</strong> transaksi berhasil dengan tingkat konversi
               voucher <strong>EMERALD15</strong> tertinggi pada kategori Serum &amp; Lip Couture.

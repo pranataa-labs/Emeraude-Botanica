@@ -86,7 +86,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
               <span className="font-serif font-bold text-sm tracking-widest uppercase block text-sidebar-foreground">
                 Émeraude Maison
               </span>
-              <span className="text-[10px] text-[#C8A96A] block truncate">
+              <span className="text-[10px] text-[#B08A4F] block truncate">
                 Backoffice Suite • v2.5
               </span>
             </div>
@@ -99,7 +99,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
         {navItems.map((group, gIdx) => (
           <div key={gIdx} className="space-y-1">
             {!isCollapsed && (
-              <p className="px-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#C8A96A]/85">
+              <p className="px-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#B08A4F]/85">
                 {group.group}
               </p>
             )}
@@ -114,7 +114,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
                     title={isCollapsed ? item.label : undefined}
                     className={`flex w-full items-center gap-3 rounded-md px-3 py-2 text-xs font-medium transition ${
                       isActive
-                        ? 'bg-[#C8A96A] text-[#0F3D34] font-bold shadow-xs'
+                        ? 'bg-[#B08A4F] text-[#102F27] font-bold shadow-xs'
                         : 'text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-foreground'
                     }`}
                   >
@@ -126,9 +126,9 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
                       <span
                         className={`rounded-full px-1.5 py-0.5 text-[10px] font-bold ${
                           isActive
-                            ? 'bg-[#0F3D34] text-[#C8A96A]'
+                            ? 'bg-[#102F27] text-[#B08A4F]'
                             : item.badgeHighlight
-                            ? 'bg-[#C8A96A]/20 text-[#C8A96A] border border-[#C8A96A]/40'
+                            ? 'bg-[#B08A4F]/20 text-[#B08A4F] border border-[#B08A4F]/40'
                             : 'bg-sidebar-accent text-sidebar-foreground'
                         }`}
                       >
@@ -149,7 +149,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
             className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-xs font-medium text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-foreground transition"
             title="Lihat Butik Publik"
           >
-            <ExternalLink className="size-4 shrink-0 text-[#C8A96A]" />
+            <ExternalLink className="size-4 shrink-0 text-[#B08A4F]" />
             {!isCollapsed && <span className="flex-1 text-left">Lihat Butik Publik</span>}
           </button>
         </div>
@@ -158,16 +158,16 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
       {/* Sidebar Footer User Info */}
       <div className="border-t border-sidebar-border p-3">
         {!isCollapsed ? (
-          <div className="flex items-center justify-between gap-2 rounded-lg bg-[#134E43]/70 p-2 border border-[#C8A96A]/25">
+          <div className="flex items-center justify-between gap-2 rounded-lg bg-[#185844]/70 p-2 border border-[#B08A4F]/25">
             <div className="flex items-center gap-2 truncate">
               {currentUser?.avatarUrl ? (
                 <img
                   src={currentUser.avatarUrl}
                   alt=""
-                  className="size-7 rounded-full object-cover shrink-0 border border-[#C8A96A]/40"
+                  className="size-7 rounded-full object-cover shrink-0 border border-[#B08A4F]/40"
                 />
               ) : (
-                <div className="size-7 rounded-full bg-[#C8A96A] text-[#0F3D34] flex items-center justify-center text-xs font-bold shrink-0">
+                <div className="size-7 rounded-full bg-[#B08A4F] text-[#102F27] flex items-center justify-center text-xs font-bold shrink-0">
                   A
                 </div>
               )}
@@ -175,7 +175,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
                 <p className="font-semibold text-sidebar-foreground truncate">
                   {currentUser?.name || 'Director'}
                 </p>
-                <p className="text-[10px] text-[#E6F0E9]/70 truncate">{currentUser?.email}</p>
+                <p className="text-[10px] text-[#78947F]/70 truncate">{currentUser?.email}</p>
               </div>
             </div>
 
@@ -185,7 +185,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
                 setActiveView('store')
               }}
               title="Keluar dari Backoffice"
-              className="rounded p-1 text-[#E6F0E9]/70 hover:bg-destructive/20 hover:text-destructive transition"
+              className="rounded p-1 text-[#78947F]/70 hover:bg-destructive/20 hover:text-destructive transition"
             >
               <LogOut className="size-3.5" />
             </button>
@@ -197,7 +197,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
               setActiveView('store')
             }}
             title="Keluar dari Backoffice"
-            className="flex size-9 items-center justify-center rounded-lg hover:bg-destructive/20 hover:text-destructive text-[#E6F0E9]/70 transition"
+            className="flex size-9 items-center justify-center rounded-lg hover:bg-destructive/20 hover:text-destructive text-[#78947F]/70 transition"
           >
             <LogOut className="size-4" />
           </button>

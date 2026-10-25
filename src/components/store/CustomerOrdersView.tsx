@@ -21,7 +21,7 @@ export const CustomerOrdersView: React.FC = () => {
     <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border pb-4">
         <div>
-          <span className="text-[10px] uppercase tracking-[0.22em] text-[#C8A96A] font-semibold">
+          <span className="text-[10px] uppercase tracking-[0.22em] text-[#B08A4F] font-semibold">
             Maison Concierge Tracking
           </span>
           <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground">
@@ -31,7 +31,7 @@ export const CustomerOrdersView: React.FC = () => {
 
         <button
           onClick={() => setActiveView('store')}
-          className="inline-flex items-center gap-2 self-start rounded-md bg-[#C8A96A] px-4 py-2 text-xs font-bold text-[#0F3D34] hover:bg-[#d4b87c] transition"
+          className="inline-flex items-center gap-2 self-start rounded-md bg-[#B08A4F] px-4 py-2 text-xs font-bold text-[#102F27] hover:bg-[#9E7B44] transition"
         >
           <ShoppingBag className="size-3.5" />
           <span>Belanja Produk Baru</span>
@@ -40,7 +40,7 @@ export const CustomerOrdersView: React.FC = () => {
 
       {orders.length === 0 ? (
         <div className="rounded-xl border border-dashed border-border py-16 text-center space-y-3">
-          <Package className="mx-auto size-10 text-[#C8A96A]" />
+          <Package className="mx-auto size-10 text-[#B08A4F]" />
           <h3 className="font-serif text-lg font-semibold text-foreground">
             Belum Ada Riwayat Pesanan
           </h3>
@@ -61,7 +61,7 @@ export const CustomerOrdersView: React.FC = () => {
                 {/* Top Header */}
                 <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-3 text-xs">
                   <div className="flex items-center gap-3">
-                    <span className="font-mono font-bold text-sm text-[#C8A96A]">{order.id}</span>
+                    <span className="font-mono font-bold text-sm text-[#B08A4F]">{order.id}</span>
                     <span className="text-muted-foreground">•</span>
                     <span className="text-muted-foreground">
                       {new Date(order.createdAt).toLocaleDateString('id-ID', {
@@ -73,7 +73,7 @@ export const CustomerOrdersView: React.FC = () => {
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <span className="rounded-md border border-[#C8A96A]/40 bg-[#C8A96A]/15 px-2.5 py-0.5 text-[11px] font-bold text-[#C8A96A]">
+                    <span className="rounded-md border border-[#B08A4F]/40 bg-[#B08A4F]/15 px-2.5 py-0.5 text-[11px] font-bold text-[#B08A4F]">
                       {order.status}
                     </span>
                     {order.trackingNumber && (
@@ -94,7 +94,7 @@ export const CustomerOrdersView: React.FC = () => {
                           <div
                             className={`flex size-6 items-center justify-center rounded-full text-[10px] font-bold border transition ${
                               isDone
-                                ? 'bg-[#C8A96A] text-[#0F3D34] border-[#C8A96A]'
+                                ? 'bg-[#B08A4F] text-[#102F27] border-[#B08A4F]'
                                 : 'bg-background text-muted-foreground border-border'
                             }`}
                           >
@@ -102,7 +102,7 @@ export const CustomerOrdersView: React.FC = () => {
                           </div>
                           <span
                             className={`text-[10px] font-medium ${
-                              isDone ? 'text-[#C8A96A]' : 'text-muted-foreground'
+                              isDone ? 'text-[#B08A4F]' : 'text-muted-foreground'
                             }`}
                           >
                             {step}
@@ -128,7 +128,7 @@ export const CustomerOrdersView: React.FC = () => {
                       </div>
                     ))}
                     {order.complimentarySample && (
-                      <div className="flex items-center gap-1.5 text-[11px] text-[#C8A96A]">
+                      <div className="flex items-center gap-1.5 text-[11px] text-[#B08A4F]">
                         <Gift className="size-3.5" />
                         <span>Complimentary Gift: {order.complimentarySample}</span>
                       </div>
@@ -137,7 +137,7 @@ export const CustomerOrdersView: React.FC = () => {
 
                   <div className="md:col-span-5 rounded-lg border border-border bg-background/60 p-3 space-y-1 text-[11px]">
                     <div className="flex items-center gap-1.5 font-semibold text-foreground">
-                      <MapPin className="size-3.5 text-[#C8A96A]" />
+                      <MapPin className="size-3.5 text-[#B08A4F]" />
                       <span>{order.customerName}</span>
                     </div>
                     <p className="text-muted-foreground">
@@ -145,10 +145,10 @@ export const CustomerOrdersView: React.FC = () => {
                     </p>
                     <div className="pt-1 flex items-center justify-between border-t border-border mt-2">
                       <span className="text-muted-foreground flex items-center gap-1">
-                        <Truck className="size-3 text-[#C8A96A]" />
+                        <Truck className="size-3 text-[#B08A4F]" />
                         <span>{order.paymentMethod}</span>
                       </span>
-                      <span className="text-sm font-bold text-[#C8A96A]">
+                      <span className="text-sm font-bold text-[#B08A4F]">
                         Total: {formatRupiah(order.total)}
                       </span>
                     </div>

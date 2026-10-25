@@ -45,7 +45,7 @@ export const AdminProductsTab: React.FC = () => {
             setEditingProduct(null)
             setIsSheetOpen(true)
           }}
-          className="inline-flex items-center gap-1.5 h-9 px-4 rounded-md bg-[#C8A96A] text-[#0F3D34] text-xs font-bold hover:bg-[#d4b87c] transition shadow-xs self-start sm:self-auto"
+          className="inline-flex items-center gap-1.5 h-9 px-4 rounded-md bg-[#B08A4F] text-[#102F27] text-xs font-bold hover:bg-[#9E7B44] transition shadow-xs self-start sm:self-auto"
         >
           <Plus className="size-4 stroke-[2.2]" />
           <span>Tambah Produk Baru</span>
@@ -55,13 +55,13 @@ export const AdminProductsTab: React.FC = () => {
       {/* Filter Bar */}
       <div className="flex items-center justify-between gap-3">
         <div className="relative w-full max-w-xs">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-3.5 text-[#C8A96A]" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-3.5 text-[#B08A4F]" />
           <input
             type="text"
             placeholder="Cari nama produk, kategori, atau No. BPOM..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full h-9 rounded-md border border-border bg-card pl-9 pr-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+            className="w-full h-9 rounded-md border border-border bg-card pl-9 pr-3 text-xs focus:border-[#B08A4F] focus:outline-none"
           />
         </div>
         <span className="text-xs text-muted-foreground">
@@ -72,7 +72,7 @@ export const AdminProductsTab: React.FC = () => {
       {/* Data Table */}
       <div className="overflow-x-auto rounded-xl border border-border bg-card shadow-xs">
         <table className="w-full text-left text-xs">
-          <thead className="border-b border-border bg-background/60 text-[11px] uppercase tracking-wider text-[#C8A96A]">
+          <thead className="border-b border-border bg-background/60 text-[11px] uppercase tracking-wider text-[#B08A4F]">
             <tr>
               <th className="py-3 px-4">Produk &amp; Bahan Aktif</th>
               <th className="py-3 px-4">Kategori</th>
@@ -94,12 +94,12 @@ export const AdminProductsTab: React.FC = () => {
                   </div>
                 </td>
                 <td className="py-3 px-4">
-                  <span className="rounded-md border border-[#C8A96A]/30 bg-background/60 px-2 py-0.5 text-[11px] font-medium text-foreground">
+                  <span className="rounded-md border border-[#B08A4F]/30 bg-background/60 px-2 py-0.5 text-[11px] font-medium text-foreground">
                     {product.category}
                   </span>
                 </td>
                 <td className="py-3 px-4">
-                  <div className="flex items-center gap-1 font-mono text-[11px] text-[#C8A96A]">
+                  <div className="flex items-center gap-1 font-mono text-[11px] text-[#B08A4F]">
                     <ShieldCheck className="size-3" />
                     <span>{product.bpomNumber}</span>
                   </div>
@@ -120,7 +120,7 @@ export const AdminProductsTab: React.FC = () => {
                     className={`inline-flex items-center rounded-md px-2 py-0.5 text-[11px] font-semibold ${
                       product.stock < 15
                         ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
-                        : 'bg-[#C8A96A]/15 text-[#C8A96A] border border-[#C8A96A]/30'
+                        : 'bg-[#B08A4F]/15 text-[#B08A4F] border border-[#B08A4F]/30'
                     }`}
                   >
                     {product.stock} unit
@@ -133,7 +133,7 @@ export const AdminProductsTab: React.FC = () => {
                         setEditingProduct(product)
                         setIsSheetOpen(true)
                       }}
-                      className="rounded-md border border-border p-1.5 text-muted-foreground hover:border-[#C8A96A] hover:text-[#C8A96A] transition"
+                      className="rounded-md border border-border p-1.5 text-muted-foreground hover:border-[#B08A4F] hover:text-[#B08A4F] transition"
                       title="Edit Produk"
                     >
                       <Pencil className="size-3.5" />

@@ -140,12 +140,12 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
       onClick={onClose}
     >
       <div
-        className="flex h-full w-full max-w-lg flex-col border-l border-[#C8A96A]/40 bg-background shadow-2xl animate-in slide-in-from-right duration-200"
+        className="flex h-full w-full max-w-lg flex-col border-l border-[#B08A4F]/40 bg-background shadow-2xl animate-in slide-in-from-right duration-200"
         onClick={e => e.stopPropagation()}
       >
         <div className="flex items-center justify-between border-b border-border px-6 py-4">
           <div className="flex items-center gap-2">
-            <Sparkles className="size-4 text-[#C8A96A]" />
+            <Sparkles className="size-4 text-[#B08A4F]" />
             <h3 className="font-serif text-xl font-bold text-foreground">
               {editingProduct ? 'Edit Formulasi Kosmetik' : 'Tambah Produk Haute Baru'}
             </h3>
@@ -167,7 +167,7 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
               placeholder="Contoh: L’Élixir d’Émeraude Youth Serum"
               value={name}
               onChange={e => setName(e.target.value)}
-              className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+              className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#B08A4F] focus:outline-none"
             />
           </div>
 
@@ -179,7 +179,7 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
               placeholder="Contoh: Concentrated Malachite Peptide & 24K Gold"
               value={subtitle}
               onChange={e => setSubtitle(e.target.value)}
-              className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+              className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#B08A4F] focus:outline-none"
             />
           </div>
 
@@ -189,7 +189,7 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
               <select
                 value={category}
                 onChange={e => setCategory(e.target.value as Exclude<CosmeticCategory, 'Semua'>)}
-                className="w-full h-9 rounded-md border border-input bg-card px-2.5 text-xs focus:border-[#C8A96A] focus:outline-none"
+                className="w-full h-9 rounded-md border border-input bg-card px-2.5 text-xs focus:border-[#B08A4F] focus:outline-none"
               >
                 {CATEGORIES.map(c => (
                   <option key={c} value={c}>
@@ -204,7 +204,7 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
               <select
                 value={badge}
                 onChange={e => setBadge(e.target.value as CosmeticProduct['badge'] | '')}
-                className="w-full h-9 rounded-md border border-input bg-card px-2.5 text-xs focus:border-[#C8A96A] focus:outline-none"
+                className="w-full h-9 rounded-md border border-input bg-card px-2.5 text-xs focus:border-[#B08A4F] focus:outline-none"
               >
                 <option value="">Tanpa Badge</option>
                 <option value="Best Seller">Best Seller</option>
@@ -223,7 +223,7 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
                 required
                 value={price}
                 onChange={e => setPrice(e.target.value)}
-                className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+                className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#B08A4F] focus:outline-none"
               />
             </div>
 
@@ -234,7 +234,7 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
                 placeholder="Opsional"
                 value={discountPrice}
                 onChange={e => setDiscountPrice(e.target.value)}
-                className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+                className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#B08A4F] focus:outline-none"
               />
             </div>
 
@@ -245,7 +245,7 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
                 required
                 value={stock}
                 onChange={e => setStock(e.target.value)}
-                className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+                className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#B08A4F] focus:outline-none"
               />
             </div>
           </div>
@@ -258,7 +258,7 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
                 required
                 value={volume}
                 onChange={e => setVolume(e.target.value)}
-                className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+                className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#B08A4F] focus:outline-none"
               />
             </div>
 
@@ -269,7 +269,7 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
                 required
                 value={bpomNumber}
                 onChange={e => setBpomNumber(e.target.value)}
-                className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs font-mono focus:border-[#C8A96A] focus:outline-none"
+                className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs font-mono focus:border-[#B08A4F] focus:outline-none"
               />
             </div>
           </div>
@@ -284,7 +284,7 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
                   onClick={() => toggleSkinOption(opt)}
                   className={`rounded-md px-2.5 py-1 text-[11px] font-medium border transition ${
                     skinTypes.includes(opt)
-                      ? 'border-[#C8A96A] bg-[#C8A96A]/20 text-[#C8A96A]'
+                      ? 'border-[#B08A4F] bg-[#B08A4F]/20 text-[#B08A4F]'
                       : 'border-border bg-card text-muted-foreground'
                   }`}
                 >
@@ -303,7 +303,7 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
               required
               value={ingredientsText}
               onChange={e => setIngredientsText(e.target.value)}
-              className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+              className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#B08A4F] focus:outline-none"
             />
           </div>
 
@@ -314,7 +314,7 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
               required
               value={description}
               onChange={e => setDescription(e.target.value)}
-              className="w-full rounded-md border border-input bg-card p-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+              className="w-full rounded-md border border-input bg-card p-3 text-xs focus:border-[#B08A4F] focus:outline-none"
             />
           </div>
 
@@ -325,7 +325,7 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
               required
               value={ritualUsage}
               onChange={e => setRitualUsage(e.target.value)}
-              className="w-full rounded-md border border-input bg-card p-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+              className="w-full rounded-md border border-input bg-card p-3 text-xs focus:border-[#B08A4F] focus:outline-none"
             />
           </div>
 
@@ -335,7 +335,7 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
               type="url"
               value={imageUrl}
               onChange={e => setImageUrl(e.target.value)}
-              className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+              className="w-full h-9 rounded-md border border-input bg-card px-3 text-xs focus:border-[#B08A4F] focus:outline-none"
             />
           </div>
 
@@ -349,7 +349,7 @@ export const ProductFormSheet: React.FC<ProductFormSheetProps> = ({
             </button>
             <button
               type="submit"
-              className="flex items-center gap-1.5 h-9 px-4 rounded-md bg-[#C8A96A] text-[#0F3D34] text-xs font-bold hover:bg-[#d4b87c] transition shadow-xs"
+              className="flex items-center gap-1.5 h-9 px-4 rounded-md bg-[#B08A4F] text-[#102F27] text-xs font-bold hover:bg-[#9E7B44] transition shadow-xs"
             >
               <Save className="size-3.5" />
               <span>Simpan Formulasi</span>

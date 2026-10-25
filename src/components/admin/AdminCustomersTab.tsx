@@ -34,10 +34,10 @@ export const AdminCustomersTab: React.FC = () => {
                   <img
                     src={user.avatarUrl}
                     alt={user.name}
-                    className="size-12 rounded-full object-cover border border-[#C8A96A]/40"
+                    className="size-12 rounded-full object-cover border border-[#B08A4F]/40"
                   />
                 ) : (
-                  <div className="size-12 rounded-full bg-[#C8A96A] text-[#0F3D34] flex items-center justify-center font-bold text-sm">
+                  <div className="size-12 rounded-full bg-[#B08A4F] text-[#102F27] flex items-center justify-center font-bold text-sm">
                     {user.name.charAt(0)}
                   </div>
                 )}
@@ -47,10 +47,10 @@ export const AdminCustomersTab: React.FC = () => {
                       {user.name}
                     </h3>
                     {user.role === 'admin' && (
-                      <ShieldCheck className="size-4 text-[#C8A96A] shrink-0" />
+                      <ShieldCheck className="size-4 text-[#B08A4F] shrink-0" />
                     )}
                   </div>
-                  <span className="inline-block rounded bg-[#C8A96A]/15 border border-[#C8A96A]/35 px-2 py-0.5 text-[10px] font-bold uppercase text-[#C8A96A] mt-0.5">
+                  <span className="inline-block rounded bg-[#B08A4F]/15 border border-[#B08A4F]/35 px-2 py-0.5 text-[10px] font-bold uppercase text-[#B08A4F] mt-0.5">
                     {user.role === 'admin' ? 'Maison Director' : 'VIP Emerald Member'}
                   </span>
                 </div>
@@ -58,17 +58,17 @@ export const AdminCustomersTab: React.FC = () => {
 
               <div className="space-y-1.5 text-xs border-t border-border pt-3">
                 <div className="flex items-center gap-2 text-muted-foreground">
-                  <Mail className="size-3.5 text-[#C8A96A]" />
+                  <Mail className="size-3.5 text-[#B08A4F]" />
                   <span className="truncate">{user.email}</span>
                 </div>
                 {user.phone && (
                   <div className="flex items-center gap-2 text-muted-foreground">
-                    <Phone className="size-3.5 text-[#C8A96A]" />
+                    <Phone className="size-3.5 text-[#B08A4F]" />
                     <span>{user.phone}</span>
                   </div>
                 )}
                 <div className="flex items-center gap-2 text-foreground">
-                  <Sparkles className="size-3.5 text-[#C8A96A]" />
+                  <Sparkles className="size-3.5 text-[#B08A4F]" />
                   <span>Profil Kulit: {user.skinProfile || 'Normal — Combination'}</span>
                 </div>
               </div>
@@ -80,7 +80,7 @@ export const AdminCustomersTab: React.FC = () => {
                 </div>
                 <div className="text-right">
                   <span className="text-[10px] text-muted-foreground block">Total Belanja VIP</span>
-                  <span className="font-bold text-[#C8A96A]">{formatRupiah(totalSpent)}</span>
+                  <span className="font-bold text-[#B08A4F]">{formatRupiah(totalSpent)}</span>
                 </div>
               </div>
             </div>

@@ -1,7 +1,7 @@
 # Project: Emeraude-Botanica
 
 **Stack:** React 19, TypeScript 5, Vite 6, Tailwind CSS v4, Vitest, Lucide Icons  
-**Design System:** Emerald & Cream Luxury Aesthetic (`#0F3D34`, `#134E43`, `#E6F0E9`, `#F7F6F1`, `#C8A96A`) with satnaing/shadcn-admin Architecture.  
+**Design System:** Emerald & Cream Luxury Aesthetic (`#102F27`, `#185844`, `#78947F`, `#F2EBDD`, `#B08A4F`) with satnaing/shadcn-admin Architecture.  
 **Standards:** Terintegrasi penuh dengan [Workflow Master](https://github.com/pranataa-labs/workflow-master).
 
 ---
@@ -22,5 +22,5 @@ Semua pekerjaan rekayasa pada repositori ini WAJIB mematuhi 9 tahapan alur kerja
 
 ## 2. Aturan Spesifik Proyek
 - Terapkan arsitektur dua sisi (Public Boutique + Maison Admin Backoffice).
-- Pertahankan palet warna Emerald & Cream mewah: `#0F3D34`, `#134E43`, `#E6F0E9`, `#F7F6F1`, `#C8A96A`.
+- Pertahankan palet warna Emerald & Cream mewah: `#102F27`, `#185844`, `#78947F`, `#F2EBDD`, `#B08A4F`.
 - Sediakan data seeder realistis kosmetik dan akun demo siap pakai.

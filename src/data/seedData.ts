@@ -1,11 +1,11 @@
 import { CosmeticProduct, Order, UserAccount } from '@/types'
 
 export const BRAND_SWATCHES = [
-  { hex: '#0F3D34', code: '0F3D34', name: 'Imperial Deep Emerald', role: 'Primary Luxury Backdrop' },
-  { hex: '#134E43', code: '134E43', name: 'Botanical Forest Silk', role: 'Elevated Velvet Surface' },
-  { hex: '#E6F0E9', code: 'E6F0E9', name: 'Soft Sage Dew', role: 'Botanical Mist & Accent' },
-  { hex: '#F7F6F1', code: 'F7F6F1', name: 'Alabaster Cream', role: 'Warm Ivory Typography' },
-  { hex: '#C8A96A', code: 'C8A96A', name: 'Champagne Gold', role: '24K Gilded Signature' },
+  { hex: '#F2EBDD', code: 'F2EBDD', name: 'Ivory', role: 'Warm Ivory Velvet' },
+  { hex: '#78947F', code: '78947F', name: 'Sage', role: 'Botanical Sage Tint' },
+  { hex: '#185844', code: '185844', name: 'Emerald', role: 'Rich Imperial Emerald' },
+  { hex: '#102F27', code: '102F27', name: 'Forest', role: 'Deep Midnight Forest' },
+  { hex: '#B08A4F', code: 'B08A4F', name: 'Antique Gold', role: '24K Antique Gold Signature' },
 ] as const
 
 export const COMPLIMENTARY_SAMPLES = [

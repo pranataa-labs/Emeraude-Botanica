@@ -38,7 +38,7 @@ export const ProductDetailModal: React.FC = () => {
       onClick={() => setSelectedProduct(null)}
     >
       <div
-        className="relative w-full max-w-3xl rounded-xl border border-[#C8A96A]/40 bg-background p-6 shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto animate-in zoom-in-95 duration-150"
+        className="relative w-full max-w-3xl rounded-xl border border-[#B08A4F]/40 bg-background p-6 shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto animate-in zoom-in-95 duration-150"
         onClick={e => e.stopPropagation()}
       >
         <button
@@ -51,7 +51,7 @@ export const ProductDetailModal: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Left: Product Flacon Image & Assurance */}
           <div className="md:col-span-5 flex flex-col items-center">
-            <div className="relative overflow-hidden rounded-xl shadow-lg border border-[#C8A96A]/35 w-full aspect-[4/5] bg-[#0F3D34]">
+            <div className="relative overflow-hidden rounded-xl shadow-lg border border-[#B08A4F]/35 w-full aspect-[4/5] bg-[#102F27]">
               <ProductImage
                 src={selectedProduct.imageUrl}
                 alt={selectedProduct.name}
@@ -61,7 +61,7 @@ export const ProductDetailModal: React.FC = () => {
                 className="w-full h-full object-cover"
               />
               {selectedProduct.badge && (
-                <span className="absolute top-3 left-3 rounded bg-[#C8A96A] text-[#0F3D34] text-[10px] font-bold px-2.5 py-0.5 tracking-wider uppercase shadow-xs">
+                <span className="absolute top-3 left-3 rounded bg-[#B08A4F] text-[#102F27] text-[10px] font-bold px-2.5 py-0.5 tracking-wider uppercase shadow-xs">
                   {selectedProduct.badge}
                 </span>
               )}
@@ -70,7 +70,7 @@ export const ProductDetailModal: React.FC = () => {
             <div className="mt-4 w-full rounded-lg border border-border bg-card/70 p-3 space-y-1.5 text-[11px]">
               <div className="flex items-center justify-between">
                 <span className="text-muted-foreground">Nomor Registrasi BPOM:</span>
-                <span className="font-mono font-semibold text-[#C8A96A]">
+                <span className="font-mono font-semibold text-[#B08A4F]">
                   {selectedProduct.bpomNumber}
                 </span>
               </div>
@@ -81,7 +81,7 @@ export const ProductDetailModal: React.FC = () => {
               <div className="flex items-center justify-between">
                 <span className="text-muted-foreground">Sertifikasi Formula:</span>
                 <span className="font-semibold text-foreground flex items-center gap-1">
-                  <ShieldCheck className="size-3.5 text-[#C8A96A]" />
+                  <ShieldCheck className="size-3.5 text-[#B08A4F]" />
                   <span>100% Vegan &amp; Halal</span>
                 </span>
               </div>
@@ -92,11 +92,11 @@ export const ProductDetailModal: React.FC = () => {
           <div className="md:col-span-7 flex flex-col justify-between space-y-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="rounded bg-[#C8A96A]/20 border border-[#C8A96A]/40 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#C8A96A]">
+                <span className="rounded bg-[#B08A4F]/20 border border-[#B08A4F]/40 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#B08A4F]">
                   {selectedProduct.category}
                 </span>
-                <div className="flex items-center gap-1 text-xs text-[#C8A96A] font-semibold">
-                  <Star className="size-3.5 fill-[#C8A96A] text-[#C8A96A]" />
+                <div className="flex items-center gap-1 text-xs text-[#B08A4F] font-semibold">
+                  <Star className="size-3.5 fill-[#B08A4F] text-[#B08A4F]" />
                   <span>{selectedProduct.rating}</span>
                   <span className="text-muted-foreground font-normal">
                     ({selectedProduct.reviewCount} ulasan terverifikasi)
@@ -107,7 +107,7 @@ export const ProductDetailModal: React.FC = () => {
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground leading-tight">
                 {selectedProduct.name}
               </h2>
-              <p className="text-xs font-medium text-[#C8A96A] mt-0.5">
+              <p className="text-xs font-medium text-[#B08A4F] mt-0.5">
                 {selectedProduct.subtitle}
               </p>
 
@@ -121,7 +121,7 @@ export const ProductDetailModal: React.FC = () => {
                     <span className="text-sm text-muted-foreground line-through">
                       {formatRupiah(selectedProduct.price)}
                     </span>
-                    <span className="rounded bg-[#C8A96A]/20 text-[#C8A96A] border border-[#C8A96A]/40 text-xs font-semibold px-1.5 py-0.5">
+                    <span className="rounded bg-[#B08A4F]/20 text-[#B08A4F] border border-[#B08A4F]/40 text-xs font-semibold px-1.5 py-0.5">
                       Hemat {discountPercent}%
                     </span>
                   </>
@@ -129,14 +129,14 @@ export const ProductDetailModal: React.FC = () => {
               </div>
 
               {selectedProduct.luxuryQuote && (
-                <div className="mt-3 border-l-2 border-[#C8A96A] pl-3 italic text-xs text-muted-foreground font-serif">
+                <div className="mt-3 border-l-2 border-[#B08A4F] pl-3 italic text-xs text-muted-foreground font-serif">
                   &ldquo;{selectedProduct.luxuryQuote}&rdquo;
                 </div>
               )}
 
               {/* Description */}
               <div className="mt-3.5">
-                <h4 className="text-[11px] font-semibold uppercase tracking-wider text-[#C8A96A] mb-1">
+                <h4 className="text-[11px] font-semibold uppercase tracking-wider text-[#B08A4F] mb-1">
                   Deskripsi Formulasi
                 </h4>
                 <p className="text-xs text-foreground/90 leading-relaxed">
@@ -146,7 +146,7 @@ export const ProductDetailModal: React.FC = () => {
 
               {/* Key Active Ingredients */}
               <div className="mt-3.5">
-                <h4 className="text-[11px] font-semibold uppercase tracking-wider text-[#C8A96A] mb-1.5 flex items-center gap-1">
+                <h4 className="text-[11px] font-semibold uppercase tracking-wider text-[#B08A4F] mb-1.5 flex items-center gap-1">
                   <Sparkles className="size-3" />
                   <span>Kandungan Aktif Utama (Key Actives)</span>
                 </h4>
@@ -154,7 +154,7 @@ export const ProductDetailModal: React.FC = () => {
                   {selectedProduct.keyIngredients.map(ing => (
                     <span
                       key={ing}
-                      className="rounded-md border border-[#C8A96A]/35 bg-card px-2.5 py-1 text-xs font-medium text-foreground"
+                      className="rounded-md border border-[#B08A4F]/35 bg-card px-2.5 py-1 text-xs font-medium text-foreground"
                     >
                       {ing}
                     </span>
@@ -164,7 +164,7 @@ export const ProductDetailModal: React.FC = () => {
 
               {/* Ritual Usage */}
               <div className="mt-3.5 rounded-lg border border-border bg-card/60 p-3">
-                <h4 className="text-[11px] font-semibold uppercase tracking-wider text-[#C8A96A] mb-1 flex items-center gap-1">
+                <h4 className="text-[11px] font-semibold uppercase tracking-wider text-[#B08A4F] mb-1 flex items-center gap-1">
                   <Droplets className="size-3" />
                   <span>Ritual Pemakaian</span>
                 </h4>
@@ -186,7 +186,7 @@ export const ProductDetailModal: React.FC = () => {
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center gap-1 text-xs font-medium text-[#C8A96A]">
+                <div className="flex items-center gap-1 text-xs font-medium text-[#B08A4F]">
                   <CheckCircle2 className="size-3.5" />
                   <span>Stok: {selectedProduct.stock} unit</span>
                 </div>
@@ -214,7 +214,7 @@ export const ProductDetailModal: React.FC = () => {
               <button
                 onClick={handleAddToCart}
                 disabled={selectedProduct.stock <= 0}
-                className="flex-1 flex items-center justify-center gap-2 h-10 rounded-md bg-[#C8A96A] text-[#0F3D34] text-xs font-bold hover:bg-[#d4b87c] transition shadow-xs disabled:opacity-50"
+                className="flex-1 flex items-center justify-center gap-2 h-10 rounded-md bg-[#B08A4F] text-[#102F27] text-xs font-bold hover:bg-[#9E7B44] transition shadow-xs disabled:opacity-50"
               >
                 <ShoppingBag className="size-4 stroke-[2.2]" />
                 <span>Tambah ke Tas Belanja</span>
@@ -223,12 +223,12 @@ export const ProductDetailModal: React.FC = () => {
               <button
                 type="button"
                 onClick={() => toggleWishlist(selectedProduct.id)}
-                className="flex size-10 items-center justify-center rounded-md border border-border bg-card hover:border-[#C8A96A] transition"
+                className="flex size-10 items-center justify-center rounded-md border border-border bg-card hover:border-[#B08A4F] transition"
                 title="Simpan ke Favorit"
               >
                 <Heart
                   className={`size-4 ${
-                    isWishlisted ? 'fill-[#C8A96A] text-[#C8A96A]' : 'text-muted-foreground'
+                    isWishlisted ? 'fill-[#B08A4F] text-[#B08A4F]' : 'text-muted-foreground'
                   }`}
                 />
               </button>

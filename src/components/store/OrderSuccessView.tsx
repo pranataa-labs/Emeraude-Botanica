@@ -13,7 +13,7 @@ export const OrderSuccessView: React.FC = () => {
         <p className="text-sm text-muted-foreground">Belum ada pesanan terbaru.</p>
         <button
           onClick={() => setActiveView('store')}
-          className="rounded-md bg-[#C8A96A] px-4 py-2 text-xs font-bold text-[#0F3D34]"
+          className="rounded-md bg-[#B08A4F] px-4 py-2 text-xs font-bold text-[#102F27]"
         >
           Kembali ke Koleksi
         </button>
@@ -23,10 +23,10 @@ export const OrderSuccessView: React.FC = () => {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-12 sm:py-16">
-      <div className="rounded-2xl border border-[#C8A96A]/45 bg-card p-6 sm:p-8 shadow-xl space-y-6 text-center">
+      <div className="rounded-2xl border border-[#B08A4F]/45 bg-card p-6 sm:p-8 shadow-xl space-y-6 text-center">
         <div className="flex flex-col items-center space-y-2">
           <BotanicalCrest size="md" />
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#C8A96A]/20 border border-[#C8A96A]/40 px-3 py-1 text-xs font-semibold text-[#C8A96A]">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#B08A4F]/20 border border-[#B08A4F]/40 px-3 py-1 text-xs font-semibold text-[#B08A4F]">
             <CheckCircle2 className="size-4" />
             <span>Pesanan Diterima oleh Maison Émeraude</span>
           </div>
@@ -44,7 +44,7 @@ export const OrderSuccessView: React.FC = () => {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 border-b border-border pb-3">
             <div>
               <span className="text-[10px] text-muted-foreground block">No. Invoice</span>
-              <span className="font-mono font-bold text-[#C8A96A]">{lastPlacedOrder.id}</span>
+              <span className="font-mono font-bold text-[#B08A4F]">{lastPlacedOrder.id}</span>
             </div>
             <div>
               <span className="text-[10px] text-muted-foreground block">Resi Kurir</span>
@@ -58,7 +58,7 @@ export const OrderSuccessView: React.FC = () => {
             </div>
             <div>
               <span className="text-[10px] text-muted-foreground block">Status</span>
-              <span className="font-bold text-[#C8A96A]">{lastPlacedOrder.status}</span>
+              <span className="font-bold text-[#B08A4F]">{lastPlacedOrder.status}</span>
             </div>
           </div>
 
@@ -75,7 +75,7 @@ export const OrderSuccessView: React.FC = () => {
               </div>
             ))}
             {lastPlacedOrder.complimentarySample && (
-              <div className="flex justify-between text-[#C8A96A] pt-1">
+              <div className="flex justify-between text-[#B08A4F] pt-1">
                 <span className="flex items-center gap-1">
                   <Gift className="size-3.5" />
                   <span>Bonus: {lastPlacedOrder.complimentarySample}</span>
@@ -87,7 +87,7 @@ export const OrderSuccessView: React.FC = () => {
 
           <div className="border-t border-border pt-2.5 flex justify-between text-sm font-bold">
             <span className="text-foreground">Total Dibayarkan</span>
-            <span className="text-[#C8A96A]">{formatRupiah(lastPlacedOrder.total)}</span>
+            <span className="text-[#B08A4F]">{formatRupiah(lastPlacedOrder.total)}</span>
           </div>
         </div>
 
@@ -95,15 +95,15 @@ export const OrderSuccessView: React.FC = () => {
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
           <button
             onClick={() => window.print()}
-            className="inline-flex items-center gap-1.5 h-10 px-4 rounded-md border border-border bg-background text-xs font-medium text-foreground hover:border-[#C8A96A] transition"
+            className="inline-flex items-center gap-1.5 h-10 px-4 rounded-md border border-border bg-background text-xs font-medium text-foreground hover:border-[#B08A4F] transition"
           >
-            <Printer className="size-4 text-[#C8A96A]" />
+            <Printer className="size-4 text-[#B08A4F]" />
             <span>Cetak E-Invoice</span>
           </button>
 
           <button
             onClick={() => setActiveView('orders')}
-            className="inline-flex items-center gap-1.5 h-10 px-4 rounded-md border border-[#C8A96A] text-xs font-bold text-[#C8A96A] hover:bg-[#C8A96A]/15 transition"
+            className="inline-flex items-center gap-1.5 h-10 px-4 rounded-md border border-[#B08A4F] text-xs font-bold text-[#B08A4F] hover:bg-[#B08A4F]/15 transition"
           >
             <Package className="size-4" />
             <span>Lacak Status Pesanan</span>
@@ -111,7 +111,7 @@ export const OrderSuccessView: React.FC = () => {
 
           <button
             onClick={() => setActiveView('store')}
-            className="inline-flex items-center gap-1.5 h-10 px-5 rounded-md bg-[#C8A96A] text-[#0F3D34] text-xs font-bold hover:bg-[#d4b87c] transition shadow-sm"
+            className="inline-flex items-center gap-1.5 h-10 px-5 rounded-md bg-[#B08A4F] text-[#102F27] text-xs font-bold hover:bg-[#9E7B44] transition shadow-sm"
           >
             <span>Lanjut Berbelanja</span>
             <ArrowRight className="size-4" />

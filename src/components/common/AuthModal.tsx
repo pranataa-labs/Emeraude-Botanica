@@ -80,7 +80,7 @@ export const AuthModal: React.FC = () => {
       onClick={closeAuthModal}
     >
       <div
-        className="w-full max-w-md rounded-xl border border-[#C8A96A]/40 bg-card p-6 shadow-2xl space-y-5 animate-in zoom-in-95 duration-150"
+        className="w-full max-w-md rounded-xl border border-[#B08A4F]/40 bg-card p-6 shadow-2xl space-y-5 animate-in zoom-in-95 duration-150"
         onClick={e => e.stopPropagation()}
       >
         {/* Header */}
@@ -113,7 +113,7 @@ export const AuthModal: React.FC = () => {
             onClick={() => setMode('login')}
             className={`rounded-md py-1.5 transition ${
               mode === 'login'
-                ? 'bg-[#C8A96A] text-[#0F3D34] shadow-2xs font-bold'
+                ? 'bg-[#B08A4F] text-[#102F27] shadow-2xs font-bold'
                 : 'text-muted-foreground hover:text-foreground'
             }`}
           >
@@ -124,7 +124,7 @@ export const AuthModal: React.FC = () => {
             onClick={() => setMode('register')}
             className={`rounded-md py-1.5 transition ${
               mode === 'register'
-                ? 'bg-[#C8A96A] text-[#0F3D34] shadow-2xs font-bold'
+                ? 'bg-[#B08A4F] text-[#102F27] shadow-2xs font-bold'
                 : 'text-muted-foreground hover:text-foreground'
             }`}
           >
@@ -135,8 +135,8 @@ export const AuthModal: React.FC = () => {
         {mode === 'login' && (
           <>
             {/* Instant One-Click Demo Login Buttons */}
-            <div className="rounded-lg border border-[#C8A96A]/30 bg-background/60 p-3 space-y-2">
-              <p className="text-[11px] font-semibold text-[#C8A96A] flex items-center gap-1.5">
+            <div className="rounded-lg border border-[#B08A4F]/30 bg-background/60 p-3 space-y-2">
+              <p className="text-[11px] font-semibold text-[#B08A4F] flex items-center gap-1.5">
                 <Sparkles className="size-3.5" />
                 <span>Akses Cepat Akun Demo (1-Klik):</span>
               </p>
@@ -144,15 +144,15 @@ export const AuthModal: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleQuickDemoLogin('user@example.com', 'password123', false)}
-                  className="flex items-center justify-center gap-1.5 rounded-md border border-[#C8A96A]/40 bg-card px-2.5 py-2 text-[11px] font-semibold text-foreground hover:border-[#C8A96A] hover:bg-accent transition"
+                  className="flex items-center justify-center gap-1.5 rounded-md border border-[#B08A4F]/40 bg-card px-2.5 py-2 text-[11px] font-semibold text-foreground hover:border-[#B08A4F] hover:bg-accent transition"
                 >
-                  <UserIcon className="size-3.5 text-[#C8A96A]" />
+                  <UserIcon className="size-3.5 text-[#B08A4F]" />
                   <span>Demo Member VIP</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => handleQuickDemoLogin('admin@example.com', 'password123', true)}
-                  className="flex items-center justify-center gap-1.5 rounded-md bg-[#C8A96A]/20 border border-[#C8A96A] px-2.5 py-2 text-[11px] font-bold text-[#C8A96A] hover:bg-[#C8A96A] hover:text-[#0F3D34] transition"
+                  className="flex items-center justify-center gap-1.5 rounded-md bg-[#B08A4F]/20 border border-[#B08A4F] px-2.5 py-2 text-[11px] font-bold text-[#B08A4F] hover:bg-[#B08A4F] hover:text-[#102F27] transition"
                 >
                   <ShieldCheck className="size-3.5" />
                   <span>Demo Admin Backoffice</span>
@@ -171,7 +171,7 @@ export const AuthModal: React.FC = () => {
                     placeholder="user@example.com"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
-                    className="w-full h-9 rounded-md border border-input bg-background pl-9 pr-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+                    className="w-full h-9 rounded-md border border-input bg-background pl-9 pr-3 text-xs focus:border-[#B08A4F] focus:outline-none"
                   />
                 </div>
               </div>
@@ -186,7 +186,7 @@ export const AuthModal: React.FC = () => {
                     placeholder="password123"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
-                    className="w-full h-9 rounded-md border border-input bg-background pl-9 pr-9 text-xs focus:border-[#C8A96A] focus:outline-none"
+                    className="w-full h-9 rounded-md border border-input bg-background pl-9 pr-9 text-xs focus:border-[#B08A4F] focus:outline-none"
                   />
                   <button
                     type="button"
@@ -200,7 +200,7 @@ export const AuthModal: React.FC = () => {
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 h-10 rounded-md bg-[#C8A96A] text-[#0F3D34] font-bold text-xs hover:bg-[#d4b87c] transition shadow-xs mt-2"
+                className="w-full flex items-center justify-center gap-2 h-10 rounded-md bg-[#B08A4F] text-[#102F27] font-bold text-xs hover:bg-[#9E7B44] transition shadow-xs mt-2"
               >
                 <span>Masuk ke Akun</span>
                 <ArrowRight className="size-3.5 stroke-[2.2]" />
@@ -221,7 +221,7 @@ export const AuthModal: React.FC = () => {
                   placeholder="Nama lengkap Anda"
                   value={name}
                   onChange={e => setName(e.target.value)}
-                  className="w-full h-9 rounded-md border border-input bg-background pl-9 pr-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+                  className="w-full h-9 rounded-md border border-input bg-background pl-9 pr-3 text-xs focus:border-[#B08A4F] focus:outline-none"
                 />
               </div>
             </div>
@@ -237,7 +237,7 @@ export const AuthModal: React.FC = () => {
                     placeholder="nama@email.com"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
-                    className="w-full h-9 rounded-md border border-input bg-background pl-8 pr-2 text-xs focus:border-[#C8A96A] focus:outline-none"
+                    className="w-full h-9 rounded-md border border-input bg-background pl-8 pr-2 text-xs focus:border-[#B08A4F] focus:outline-none"
                   />
                 </div>
               </div>
@@ -251,7 +251,7 @@ export const AuthModal: React.FC = () => {
                     placeholder="0812xxxxxxxx"
                     value={phone}
                     onChange={e => setPhone(e.target.value)}
-                    className="w-full h-9 rounded-md border border-input bg-background pl-8 pr-2 text-xs focus:border-[#C8A96A] focus:outline-none"
+                    className="w-full h-9 rounded-md border border-input bg-background pl-8 pr-2 text-xs focus:border-[#B08A4F] focus:outline-none"
                   />
                 </div>
               </div>
@@ -262,7 +262,7 @@ export const AuthModal: React.FC = () => {
               <select
                 value={skinProfile}
                 onChange={e => setSkinProfile(e.target.value)}
-                className="w-full h-9 rounded-md border border-input bg-background px-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+                className="w-full h-9 rounded-md border border-input bg-background px-3 text-xs focus:border-[#B08A4F] focus:outline-none"
               >
                 <option value="Kulit Kering & Sensitif">Kulit Kering & Sensitif</option>
                 <option value="Kulit Berminyak & Acne-Prone">Kulit Berminyak & Acne-Prone</option>
@@ -280,7 +280,7 @@ export const AuthModal: React.FC = () => {
                   placeholder="Min. 6 karakter"
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                  className="w-full h-9 rounded-md border border-input bg-background px-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+                  className="w-full h-9 rounded-md border border-input bg-background px-3 text-xs focus:border-[#B08A4F] focus:outline-none"
                 />
               </div>
               <div className="space-y-1">
@@ -291,14 +291,14 @@ export const AuthModal: React.FC = () => {
                   placeholder="Konfirmasi"
                   value={confirmPassword}
                   onChange={e => setConfirmPassword(e.target.value)}
-                  className="w-full h-9 rounded-md border border-input bg-background px-3 text-xs focus:border-[#C8A96A] focus:outline-none"
+                  className="w-full h-9 rounded-md border border-input bg-background px-3 text-xs focus:border-[#B08A4F] focus:outline-none"
                 />
               </div>
             </div>
 
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 h-10 rounded-md bg-[#C8A96A] text-[#0F3D34] font-bold text-xs hover:bg-[#d4b87c] transition shadow-xs mt-2"
+              className="w-full flex items-center justify-center gap-2 h-10 rounded-md bg-[#B08A4F] text-[#102F27] font-bold text-xs hover:bg-[#9E7B44] transition shadow-xs mt-2"
             >
               <span>Aktifkan Member VIP</span>
               <ArrowRight className="size-3.5 stroke-[2.2]" />
