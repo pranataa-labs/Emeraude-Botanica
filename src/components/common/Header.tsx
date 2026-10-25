@@ -78,7 +78,7 @@ export const Header: React.FC = () => {
                 : 'font-semibold'
             }`}
           >
-            Katalog Produk (120)
+            Katalog Produk
           </button>
           <button
             onClick={() => scrollToHomeSection('best-sellers-section')}
