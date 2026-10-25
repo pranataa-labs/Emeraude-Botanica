@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react'
 import { useCosmetics } from '@/context/CosmeticsContext'
-import { CosmeticCategory, SkinTypeFilter } from '@/types'
+import { CosmeticCategory } from '@/types'
 import { formatRupiah } from '@/lib/utils'
 import { ProductImage } from '@/components/common/BotanicalCrest'
 import {
@@ -16,12 +16,7 @@ import {
   IconCrueltyFree,
   IconCirclePlus,
 } from '@/components/common/BeautyIcons'
-import {
-  ArrowRight,
-  Heart,
-  SlidersHorizontal,
-  Compass,
-} from 'lucide-react'
+import { ArrowRight, Heart, Star } from 'lucide-react'
 import { toast } from 'sonner'
 
 interface CategoryItem {
@@ -41,40 +36,24 @@ const CATEGORY_STRIP_ITEMS: CategoryItem[] = [
   { id: 'all', label: 'ALL (120)', targetCategory: 'Semua', icon: IconTagNew },
 ]
 
-const SKIN_TYPES: SkinTypeFilter[] = [
-  'Semua Kulit',
-  'Kulit Kering',
-  'Kulit Berminyak & Acne',
-  'Kulit Sensitif',
-  'Anti-Aging & Kusam',
-]
-
 export const CatalogView: React.FC = () => {
   const {
     products,
-    selectedCategory,
-    setSelectedCategory,
-    selectedSkinType,
-    setSelectedSkinType,
-    searchQuery,
-    setSelectedProduct,
+    openProductPage,
+    navigateToCatalog,
     addToCart,
     wishlistIds,
     toggleWishlist,
   } = useCosmetics()
 
-  const [activeCategoryTab, setActiveCategoryTab] = useState<string>('all')
   const [newsletterEmail, setNewsletterEmail] = useState('')
 
-  const handleCategorySelect = (item: CategoryItem) => {
-    if (activeCategoryTab === item.id) {
-      setActiveCategoryTab('all')
-      setSelectedCategory('Semua')
-    } else {
-      setActiveCategoryTab(item.id)
-      setSelectedCategory(item.targetCategory)
-    }
-  }
+  // Home Page ONLY shows the Most Purchased / Best-Selling Products ("Produk Paling Banyak Dibeli")
+  const bestSellerProducts = useMemo(() => {
+    const flaggedBestSellers = products.filter(p => p.badge === 'Best Seller')
+    const pool = flaggedBestSellers.length >= 5 ? flaggedBestSellers : products
+    return [...pool].sort((a, b) => b.reviewCount - a.reviewCount).slice(0, 10)
+  }, [products])
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -86,63 +65,25 @@ export const CatalogView: React.FC = () => {
     setNewsletterEmail('')
   }
 
-  const filteredProducts = useMemo(() => {
-    return products.filter(product => {
-      const matchesCategory =
-        selectedCategory === 'Semua' || product.category === selectedCategory
-      const matchesSkin =
-        selectedSkinType === 'Semua Kulit' ||
-        product.skinTypes.includes(selectedSkinType as Exclude<SkinTypeFilter, 'Semua Kulit'>)
-      const q = searchQuery.trim().toLowerCase()
-      const matchesQuery =
-        !q ||
-        product.name.toLowerCase().includes(q) ||
-        product.subtitle.toLowerCase().includes(q) ||
-        product.category.toLowerCase().includes(q) ||
-        product.keyIngredients.some(ing => ing.toLowerCase().includes(q))
-
-      return matchesCategory && matchesSkin && matchesQuery
-    })
-  }, [products, selectedCategory, selectedSkinType, searchQuery])
-
   return (
     <div className="w-full">
-      {/* 1. HORIZONTAL CATEGORY ICON STRIP (Matching the Reference Image exactly) */}
+      {/* 1. HORIZONTAL CATEGORY ICON STRIP — Clicking navigates to the Dedicated Catalog Page */}
       <section className="border-b border-border/80 bg-background py-6 sm:py-8 transition-colors">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-4 sm:grid-cols-7 gap-2 sm:gap-4 text-center">
             {CATEGORY_STRIP_ITEMS.map(item => {
               const Icon = item.icon
-              const isSelected =
-                activeCategoryTab === item.id ||
-                (selectedCategory !== 'Semua' && selectedCategory === item.targetCategory)
 
               return (
                 <button
                   key={item.id}
-                  onClick={() => handleCategorySelect(item)}
-                  className={`group flex flex-col items-center justify-center p-3 rounded-xl transition duration-200 focus:outline-none ${
-                    isSelected
-                      ? 'bg-card text-[#091D18] dark:text-[#D4AF37] shadow-sm ring-1 ring-border'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-card/50'
-                  }`}
+                  onClick={() => navigateToCatalog(item.targetCategory)}
+                  className="group flex flex-col items-center justify-center p-3 rounded-xl transition duration-200 focus:outline-none text-muted-foreground hover:text-[#D4AF37] hover:bg-card/60 border border-transparent hover:border-[#D4AF37]/30"
                 >
-                  <div
-                    className={`flex size-12 sm:size-14 items-center justify-center rounded-lg transition-transform group-hover:scale-105 ${
-                      isSelected
-                        ? 'text-[#091D18] dark:text-[#D4AF37]'
-                        : 'text-foreground/75'
-                    }`}
-                  >
+                  <div className="flex size-12 sm:size-14 items-center justify-center rounded-lg transition-transform group-hover:scale-105 text-foreground/85 group-hover:text-[#D4AF37]">
                     <Icon className="size-6 sm:size-7" />
                   </div>
-                  <span
-                    className={`mt-2 font-sans text-[10px] sm:text-[11px] font-bold tracking-[0.14em] uppercase transition ${
-                      isSelected
-                        ? 'text-[#091D18] dark:text-[#D4AF37]'
-                        : 'text-muted-foreground group-hover:text-foreground'
-                    }`}
-                  >
+                  <span className="mt-2 font-sans text-[10px] sm:text-[11px] font-bold tracking-[0.14em] uppercase transition text-muted-foreground group-hover:text-[#D4AF37]">
                     {item.label}
                   </span>
                 </button>
@@ -152,151 +93,134 @@ export const CatalogView: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. BEST SELLERS SECTION (Matching the Reference Image Card Layout) */}
-      <section id="catalog-section" className="py-12 sm:py-16 bg-[#FBF9F4] dark:bg-[#071713] transition-colors">
+      {/* 2. BEST SELLERS ONLY ("PRODUK PALING BANYAK DIBELI") ON HOME PAGE */}
+      <section
+        id="best-sellers-section"
+        className="py-12 sm:py-16 bg-[#FBF9F4] dark:bg-[#071713] transition-colors"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
-          {/* Section Header: BEST SELLERS on Left, VIEW ALL on Right */}
+          {/* Section Header: BEST SELLERS on Left, VIEW ALL PAGE on Right */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/70 pb-4">
             <div>
-              <h2 className="font-serif text-xl sm:text-2xl font-bold tracking-[0.18em] uppercase text-[#091D18] dark:text-[#F2EBDD]">
-                {selectedCategory === 'Semua' ? 'Koleksi Kosmetik & Skincare' : selectedCategory}
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4AF37] block mb-1">
+                Best Sellers • Kurasi Terpopuler
+              </span>
+              <h2 className="font-serif text-xl sm:text-2xl font-bold tracking-[0.15em] uppercase text-[#091D18] dark:text-[#F2EBDD]">
+                Produk Paling Banyak Dibeli
               </h2>
               <p className="text-xs text-muted-foreground mt-0.5">
-                Menampilkan <strong className="text-foreground">{filteredProducts.length}</strong> formulasi botani aktif (20 per kategori)
+                Menampilkan 10 formulasi terlaris pilihan pelanggan. Klik produk untuk membuka halaman detailnya.
               </p>
             </div>
 
-            <div className="flex items-center gap-4">
-              {/* Skin Type Filter */}
-              <div className="flex items-center gap-1.5 text-xs">
-                <SlidersHorizontal className="size-3.5 text-muted-foreground" />
-                <span className="text-[11px] text-muted-foreground">Skin:</span>
-                <select
-                  value={selectedSkinType}
-                  onChange={e => setSelectedSkinType(e.target.value as SkinTypeFilter)}
-                  className="rounded-md border border-border bg-card px-2 py-1 text-xs text-foreground focus:outline-none"
-                >
-                  {SKIN_TYPES.map(st => (
-                    <option key={st} value={st}>
-                      {st}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <button
-                onClick={() => {
-                  setSelectedCategory('Semua')
-                  setActiveCategoryTab('all')
-                }}
-                className="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-foreground transition"
-              >
-                <span>View All (120)</span>
-                <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
-              </button>
-            </div>
+            <button
+              onClick={() => navigateToCatalog('Semua')}
+              className="group inline-flex items-center gap-2 rounded-lg border border-[#D4AF37]/50 bg-[#091D18] px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#091D18] transition self-start sm:self-auto"
+            >
+              <span>Lihat Semua Koleksi (120 Produk)</span>
+              <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
 
-          {/* Product Cards Grid: Shows all products for the selected category (20 items) */}
-          {filteredProducts.length === 0 ? (
-            <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-card/60 py-16 text-center space-y-3">
-              <Compass className="size-10 text-muted-foreground stroke-1" />
-              <h3 className="font-serif text-lg font-semibold text-foreground">
-                Tidak ada produk yang sesuai filter
-              </h3>
-              <p className="text-xs text-muted-foreground max-w-sm">
-                Silakan ubah kata kunci atau pilih kategori perawatan lainnya.
-              </p>
-              <button
-                onClick={() => {
-                  setSelectedCategory('Semua')
-                  setActiveCategoryTab('all')
-                  setSelectedSkinType('Semua Kulit')
-                }}
-                className="rounded-md bg-[#091D18] dark:bg-[#D4AF37] px-4 py-2 text-xs font-bold text-[#F2EBDD] dark:text-[#091D18]"
-              >
-                Tampilkan Seluruh Koleksi (120 Produk)
-              </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
-              {filteredProducts.map(product => {
-                const effectivePrice = product.discountPrice ?? product.price
-                const isWishlisted = wishlistIds.includes(product.id)
+          {/* Best Sellers Product Cards Grid (Clicking any card opens its dedicated page) */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+            {bestSellerProducts.map(product => {
+              const effectivePrice = product.discountPrice ?? product.price
+              const isWishlisted = wishlistIds.includes(product.id)
 
-                return (
-                  <div
-                    key={product.id}
-                    className="group flex flex-col justify-between rounded-xl bg-card border border-border/70 p-3 sm:p-4 shadow-xs transition duration-300 hover:shadow-md hover:border-border"
-                  >
-                    <div>
-                      {/* Product Image on Clean Soft Background */}
-                      <div
-                        onClick={() => setSelectedProduct(product)}
-                        className="relative aspect-square w-full overflow-hidden rounded-lg bg-[#EFECE6] dark:bg-[#0c221c] cursor-pointer mb-3.5"
-                      >
-                        <ProductImage
-                          src={product.imageUrl}
-                          alt={product.name}
-                          name={product.name}
-                          category={product.category}
-                          volume={product.volume}
-                          className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
+              return (
+                <div
+                  key={product.id}
+                  onClick={() => openProductPage(product)}
+                  className="group flex flex-col justify-between rounded-xl bg-card border border-border/70 p-3 sm:p-4 shadow-xs transition duration-300 hover:shadow-xl hover:border-[#D4AF37]/60 cursor-pointer"
+                >
+                  <div>
+                    {/* Product Image */}
+                    <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-[#EFECE6] dark:bg-[#0c221c] mb-3.5">
+                      <ProductImage
+                        src={product.imageUrl}
+                        alt={product.name}
+                        name={product.name}
+                        category={product.category}
+                        volume={product.volume}
+                        className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
 
-                        {/* Wishlist Button */}
-                        <button
-                          type="button"
-                          onClick={e => {
-                            e.stopPropagation()
-                            toggleWishlist(product.id)
-                          }}
-                          aria-label="Simpan ke Favorit"
-                          className="absolute top-2.5 right-2.5 flex size-7 items-center justify-center rounded-full bg-background/80 text-foreground shadow-xs hover:scale-110 transition z-10"
-                        >
-                          <Heart
-                            className={`size-3.5 ${
-                              isWishlisted ? 'fill-[#D4AF37] text-[#D4AF37]' : 'text-muted-foreground'
-                            }`}
-                          />
-                        </button>
-                      </div>
-
-                      {/* Product Title (Clean Bold Uppercase like Reference Image) */}
-                      <h3
-                        onClick={() => setSelectedProduct(product)}
-                        className="font-serif text-xs sm:text-sm font-bold uppercase tracking-wider text-foreground line-clamp-1 cursor-pointer hover:text-[#D4AF37] transition leading-snug"
-                        title={product.name}
-                      >
-                        {product.name}
-                      </h3>
-
-                      {/* Benefit / Subtitle Line */}
-                      <p className="text-[11px] text-muted-foreground mt-1 line-clamp-2 leading-relaxed">
-                        {product.subtitle}
-                      </p>
-                    </div>
-
-                    {/* Price and Circle Plus Add Button (Exact Reference Match) */}
-                    <div className="mt-4 pt-2.5 border-t border-border/50 flex items-center justify-between">
-                      <span className="text-xs sm:text-sm font-bold text-foreground">
-                        {formatRupiah(effectivePrice)}
+                      <span className="absolute top-2.5 left-2.5 rounded bg-[#D4AF37] text-[#091D18] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider shadow-xs">
+                        {product.badge || 'Best Seller'}
                       </span>
 
+                      {/* Wishlist Button */}
                       <button
-                        onClick={() => addToCart(product, 1)}
-                        className="text-[#091D18] dark:text-[#D4AF37] hover:scale-110 transition active:scale-95 focus:outline-none"
-                        title="Tambah ke Tas Belanja"
-                        aria-label={`Tambah ${product.name} ke tas`}
+                        type="button"
+                        onClick={e => {
+                          e.stopPropagation()
+                          toggleWishlist(product.id)
+                        }}
+                        aria-label="Simpan ke Favorit"
+                        className="absolute top-2.5 right-2.5 flex size-7 items-center justify-center rounded-full bg-background/80 text-foreground shadow-xs hover:scale-110 transition z-10"
                       >
-                        <IconCirclePlus className="size-7 sm:size-8" />
+                        <Heart
+                          className={`size-3.5 ${
+                            isWishlisted ? 'fill-[#D4AF37] text-[#D4AF37]' : 'text-muted-foreground'
+                          }`}
+                        />
                       </button>
                     </div>
+
+                    {/* Category & Verified Buyer Count */}
+                    <div className="flex items-center justify-between gap-1 text-[10px] text-[#D4AF37] mb-1">
+                      <span className="truncate font-semibold uppercase tracking-wider">
+                        {product.category}
+                      </span>
+                      <span className="flex items-center gap-0.5 shrink-0 font-bold">
+                        <Star className="size-2.5 fill-[#D4AF37] text-[#D4AF37]" />
+                        {product.rating} ({product.reviewCount})
+                      </span>
+                    </div>
+
+                    {/* Product Title */}
+                    <h3
+                      className="font-serif text-xs sm:text-sm font-bold uppercase tracking-wider text-foreground line-clamp-1 group-hover:text-[#D4AF37] transition leading-snug"
+                      title={product.name}
+                    >
+                      {product.name}
+                    </h3>
+
+                    {/* Benefit / Subtitle Line */}
+                    <p className="text-[11px] text-muted-foreground mt-1 line-clamp-2 leading-relaxed">
+                      {product.subtitle}
+                    </p>
                   </div>
-                )
-              })}
-            </div>
-          )}
+
+                  {/* Price and Circle Plus Add Button */}
+                  <div className="mt-4 pt-2.5 border-t border-border/50 flex items-center justify-between">
+                    <div>
+                      <span className="text-xs sm:text-sm font-bold text-foreground block">
+                        {formatRupiah(effectivePrice)}
+                      </span>
+                      <span className="text-[10px] text-[#D4AF37] font-medium">
+                        Buka Halaman →
+                      </span>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={e => {
+                        e.stopPropagation()
+                        addToCart(product, 1)
+                      }}
+                      className="text-[#091D18] dark:text-[#D4AF37] hover:scale-110 transition active:scale-95 focus:outline-none"
+                      title="Tambah ke Tas Belanja"
+                      aria-label={`Tambah ${product.name} ke tas`}
+                    >
+                      <IconCirclePlus className="size-7 sm:size-8" />
+                    </button>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </section>
 
@@ -304,12 +228,11 @@ export const CatalogView: React.FC = () => {
       <section className="py-10 sm:py-14 bg-background transition-colors">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
-            {/* Left Banner: THE RITUAL (Liquid water ripple background & product trio) */}
+            {/* Left Banner: THE RITUAL */}
             <div
               id="the-ritual-section"
               className="lg:col-span-6 relative overflow-hidden rounded-2xl border border-border/70 p-6 sm:p-10 flex flex-col justify-between min-h-[380px] bg-[#EBE7DF] dark:bg-[#0c221c]"
             >
-              {/* Ripple water texture backdrop */}
               <div
                 className="absolute inset-0 opacity-40 mix-blend-overlay bg-cover bg-center pointer-events-none"
                 style={{
@@ -331,11 +254,7 @@ export const CatalogView: React.FC = () => {
                 </p>
                 <div className="pt-2">
                   <button
-                    onClick={() => {
-                      setSelectedCategory('Eye & Night Ritual')
-                      const el = document.getElementById('catalog-section')
-                      if (el) el.scrollIntoView({ behavior: 'smooth' })
-                    }}
+                    onClick={() => navigateToCatalog('Eye & Night Ritual')}
                     className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#091D18] dark:text-[#D4AF37] hover:underline"
                   >
                     <span>Explore Collection</span>
@@ -344,7 +263,6 @@ export const CatalogView: React.FC = () => {
                 </div>
               </div>
 
-              {/* Product Trio on Stone Pedestal Image with Error Fallback */}
               <div className="relative z-10 self-end mt-4 sm:mt-0">
                 <img
                   src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&auto=format&fit=crop&q=80"
@@ -358,19 +276,17 @@ export const CatalogView: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Banner: OUR PROMISE (3 Line Icons on Left, Dewy Skin Portrait on Right) */}
+            {/* Right Banner: OUR PROMISE */}
             <div
               id="our-promise-section"
               className="lg:col-span-6 relative overflow-hidden rounded-2xl border border-border/70 bg-[#F4F0E8] dark:bg-[#0a1e18] p-6 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6"
             >
-              {/* Left Side: 3 Promises with Minimalist Line Icons */}
               <div className="space-y-6 max-w-xs text-left w-full sm:w-1/2">
                 <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-muted-foreground">
                   Our Promise
                 </span>
 
                 <div className="space-y-4">
-                  {/* Promise 1 */}
                   <div className="flex items-start gap-3">
                     <div className="mt-0.5 text-[#091D18] dark:text-[#D4AF37]">
                       <IconCleanSafe className="size-5" />
@@ -385,7 +301,6 @@ export const CatalogView: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Promise 2 */}
                   <div className="flex items-start gap-3">
                     <div className="mt-0.5 text-[#091D18] dark:text-[#D4AF37]">
                       <IconSustainable className="size-5" />
@@ -400,7 +315,6 @@ export const CatalogView: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Promise 3 */}
                   <div className="flex items-start gap-3">
                     <div className="mt-0.5 text-[#091D18] dark:text-[#D4AF37]">
                       <IconCrueltyFree className="size-5" />
@@ -417,7 +331,6 @@ export const CatalogView: React.FC = () => {
                 </div>
               </div>
 
-              {/* Right Side: Editorial Close-Up Portrait of Radiant Glowing Skin with Error Fallback */}
               <div className="w-full sm:w-1/2 flex justify-center sm:justify-end">
                 <div className="relative aspect-[3/4] w-48 sm:w-52 rounded-xl overflow-hidden shadow-lg border border-border/50">
                   <img
@@ -461,7 +374,7 @@ export const CatalogView: React.FC = () => {
               </div>
             </div>
 
-            {/* Newsletter: "LET'S GLOW TOGETHER" (With tactile grain button) */}
+            {/* Newsletter */}
             <div className="lg:col-span-6 space-y-2">
               <div className="text-left">
                 <h4 className="font-serif text-base sm:text-lg font-bold tracking-wide text-foreground">

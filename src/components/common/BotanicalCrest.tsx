@@ -1,92 +1,222 @@
 import React, { useState } from 'react'
 
-export const BotanicalCrest: React.FC<{ className?: string; size?: 'sm' | 'md' | 'lg' }> = ({
-  className = '',
-  size = 'md',
-}) => {
+export const BotanicalCrest: React.FC<{
+  className?: string
+  size?: 'sm' | 'md' | 'lg' | 'xl'
+}> = ({ className = '', size = 'md' }) => {
   const dimensions =
-    size === 'lg' ? 'w-16 h-16 sm:w-20 sm:h-20' : size === 'sm' ? 'w-8 h-8' : 'w-12 h-12'
+    size === 'xl'
+      ? 'w-24 h-24 sm:w-28 sm:h-28'
+      : size === 'lg'
+        ? 'w-16 h-16 sm:w-20 sm:h-20'
+        : size === 'sm'
+          ? 'w-10 h-10 sm:w-11 sm:h-11'
+          : 'w-13 h-13 sm:w-14 sm:h-14'
 
   return (
     <svg
-      viewBox="0 0 100 100"
+      viewBox="0 0 160 150"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`${dimensions} ${className} shrink-0`}
-      aria-label="Émeraude Botanica Haute Hallmark"
+      className={`${dimensions} ${className} shrink-0 select-none`}
+      aria-label="EHB — Émeraude Haute Botanique Gold Monogram"
     >
-      {/* 1. Outer Faceted Octagon / Emerald-Cut Cartouche */}
-      <polygon
-        points="28,4 72,4 96,28 96,72 72,96 28,96 4,72 4,28"
-        stroke="#D4AF37"
+      <defs>
+        <linearGradient id="ehbGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#F3DC8B" />
+          <stop offset="35%" stopColor="#D4AF37" />
+          <stop offset="70%" stopColor="#C59B27" />
+          <stop offset="100%" stopColor="#E6C659" />
+        </linearGradient>
+      </defs>
+
+      {/* ===================================================================
+          1. FRAGRANCE MIST SPRAY DROPLETS & SPARKLE (Upper-Left of Nozzle)
+         =================================================================== */}
+      {/* Spray trajectory lines / micro-mist */}
+      <circle cx="52" cy="19" r="1.4" fill="#D4AF37" opacity="0.9" />
+      <circle cx="44" cy="15" r="1.8" fill="#D4AF37" />
+      <circle cx="36" cy="11" r="1.3" fill="#D4AF37" opacity="0.85" />
+      <circle cx="28" cy="8" r="1.0" fill="#D4AF37" opacity="0.7" />
+
+      <circle cx="48" cy="23" r="1.6" fill="#D4AF37" opacity="0.95" />
+      <circle cx="39" cy="21" r="2.1" fill="#D4AF37" />
+      <circle cx="30" cy="19" r="1.5" fill="#D4AF37" opacity="0.85" />
+      <circle cx="22" cy="17" r="1.1" fill="#D4AF37" opacity="0.65" />
+
+      <circle cx="45" cy="28" r="1.5" fill="#D4AF37" opacity="0.9" />
+      <circle cx="35" cy="28" r="1.8" fill="#D4AF37" opacity="0.85" />
+      <circle cx="25" cy="29" r="1.2" fill="#D4AF37" opacity="0.75" />
+      <circle cx="17" cy="30" r="0.9" fill="#D4AF37" opacity="0.55" />
+
+      <circle cx="49" cy="12" r="1.1" fill="#D4AF37" opacity="0.75" />
+      <circle cx="32" cy="24" r="1.3" fill="#D4AF37" opacity="0.8" />
+      <circle cx="41" cy="33" r="1.1" fill="#D4AF37" opacity="0.7" />
+
+      {/* 4-Point Luxury Sparkle Star in the Mist */}
+      <path
+        d="M27 13 L28.2 16.3 L31.5 17.5 L28.2 18.7 L27 22 L25.8 18.7 L22.5 17.5 L25.8 16.3 Z"
+        fill="#F3DC8B"
+      />
+
+      {/* ===================================================================
+          2. PERFUME ATOMIZER NOZZLE CAP (Mounted on Main Vertical Stem)
+         =================================================================== */}
+      {/* Upper nozzle head */}
+      <rect
+        x="61"
+        y="14"
+        width="14"
+        height="9"
+        rx="1.5"
+        stroke="url(#ehbGoldGrad)"
         strokeWidth="2.2"
+        fill="#091D18"
+      />
+      {/* Tiny spray orifice dot */}
+      <circle cx="64.5" cy="18.5" r="1.4" fill="#D4AF37" />
+      {/* Nozzle collar / neck ring */}
+      <rect
+        x="58.5"
+        y="23"
+        width="19"
+        height="4.5"
+        rx="1"
+        fill="url(#ehbGoldGrad)"
+      />
+
+      {/* ===================================================================
+          3. UPPER CALLIGRAPHIC RIBBON SWASH (Arching from Nozzle to Right)
+         =================================================================== */}
+      <path
+        d="M75 18 C92 12, 118 14, 134 25 C144 32, 145 43, 136 47 C128 50, 121 44, 125 38 C128 33, 135 35, 134 40"
+        stroke="url(#ehbGoldGrad)"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <path
+        d="M76 20 C93 15, 116 17, 131 27"
+        stroke="#F3DC8B"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        opacity="0.75"
+        fill="none"
+      />
+
+      {/* ===================================================================
+          4. INTERTWINED HIGH-CONTRAST SERIF MONOGRAM: "E" + "H" + "B"
+         =================================================================== */}
+
+      {/* --- LETTER "E" (Left High-Fashion Bodoni Serif Structure) --- */}
+      {/* Top serif bar of E */}
+      <path
+        d="M40 36 H68"
+        stroke="url(#ehbGoldGrad)"
+        strokeWidth="2.6"
+        strokeLinecap="square"
+      />
+      {/* Top-left bracket serif of E */}
+      <path
+        d="M44 36 V45"
+        stroke="url(#ehbGoldGrad)"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
+      {/* Left vertical stem of E (also left pillar of H) */}
+      <rect x="52" y="36" width="5.5" height="68" fill="url(#ehbGoldGrad)" />
+      {/* Middle horizontal crossbar of E & H */}
+      <path
+        d="M43 68 H92"
+        stroke="url(#ehbGoldGrad)"
+        strokeWidth="2.8"
+        strokeLinecap="round"
+      />
+      {/* Middle E serif tick */}
+      <path
+        d="M43 63 V73"
+        stroke="url(#ehbGoldGrad)"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      {/* Bottom horizontal arm of E */}
+      <path
+        d="M40 104 H66"
+        stroke="url(#ehbGoldGrad)"
+        strokeWidth="2.6"
+        strokeLinecap="square"
+      />
+      {/* Bottom-left bracket serif of E */}
+      <path
+        d="M43 95 V104"
+        stroke="url(#ehbGoldGrad)"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
+
+      {/* --- LETTER "H" & "B" CENTRAL INTERLOCKING PILLAR --- */}
+      {/* Primary thick vertical stem descending directly from Atomizer Nozzle */}
+      <rect x="65" y="27.5" width="7" height="84" fill="url(#ehbGoldGrad)" />
+      {/* Base serif of central stem */}
+      <path
+        d="M59 111.5 H78"
+        stroke="url(#ehbGoldGrad)"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+      />
+
+      {/* Right vertical stem of H / Inner stem of B */}
+      <rect x="85" y="38" width="6.5" height="66" fill="url(#ehbGoldGrad)" />
+      {/* Top serif of right H/B stem */}
+      <path
+        d="M79 38 H98"
+        stroke="url(#ehbGoldGrad)"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
+
+      {/* --- LETTER "B" UPPER & LOWER HIGH-CONTRAST BOWLS --- */}
+      {/* Upper Bowl of B */}
+      <path
+        d="M91 38 H106 C119 38, 126 44, 126 53 C126 62, 118 68, 105 68 H91"
+        stroke="url(#ehbGoldGrad)"
+        strokeWidth="5.2"
+        strokeLinecap="round"
         strokeLinejoin="round"
+        fill="none"
+      />
+      {/* Inner thin hairline accent for Upper Bowl of B */}
+      <path
+        d="M106 40 C116 40, 121 45, 121 53 C121 61, 116 66, 105 66"
+        stroke="#F3DC8B"
+        strokeWidth="1.2"
+        opacity="0.7"
+        fill="none"
       />
 
-      {/* 2. Inner Concentric Bevel Framing */}
-      <polygon
-        points="31,10 69,10 90,31 90,69 69,90 31,90 10,69 10,31"
-        stroke="#D4AF37"
-        strokeWidth="0.8"
-        strokeOpacity="0.55"
+      {/* Lower Bowl of B */}
+      <path
+        d="M91 68 H109 C125 68, 134 76, 134 88 C134 100, 124 108, 106 108 H80"
+        stroke="url(#ehbGoldGrad)"
+        strokeWidth="5.8"
+        strokeLinecap="round"
         strokeLinejoin="round"
-      />
-
-      {/* 3. Corner Facet Accent Lines */}
-      <line x1="4" y1="28" x2="10" y2="31" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
-      <line x1="28" y1="4" x2="31" y2="10" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
-      <line x1="72" y1="4" x2="69" y2="10" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
-      <line x1="96" y1="28" x2="90" y2="31" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
-      <line x1="96" y1="72" x2="90" y2="69" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
-      <line x1="72" y1="96" x2="69" y2="90" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
-      <line x1="28" y1="96" x2="31" y2="90" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
-      <line x1="4" y1="72" x2="10" y2="69" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
-
-      {/* 4. Top Diamond Star Floret */}
-      <polygon
-        points="50,14 53,20 59,20 54,24 56,30 50,26 44,30 46,24 41,20 47,20"
-        fill="#D4AF37"
-      />
-
-      {/* 5. Center Stylized Interlocking Monogram "É" & Botanical Leaf Curves */}
-      {/* Central Stem */}
-      <line x1="50" y1="32" x2="50" y2="80" stroke="#D4AF37" strokeWidth="1.8" strokeLinecap="round" />
-
-      {/* Upper Symmetrical Botanical Wings / Curves */}
-      <path
-        d="M50 38C38 38 28 46 28 56C36 56 46 50 50 42"
-        stroke="#D4AF37"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        fill="none"
-      />
-      <path
-        d="M50 38C62 38 72 46 72 56C64 56 54 50 50 42"
-        stroke="#D4AF37"
-        strokeWidth="1.8"
-        strokeLinecap="round"
         fill="none"
       />
 
-      {/* Lower Botanical Curves Forming Architectural "É" Monogram Base */}
+      {/* ===================================================================
+          5. LOWER SWEEPING CALLIGRAPHIC LOOP & TEARDROP TERMINAL
+             (Matches the exact sweeping bottom curve in the reference image)
+         =================================================================== */}
       <path
-        d="M50 52C40 52 32 60 32 70C40 70 48 64 50 56"
-        stroke="#D4AF37"
-        strokeWidth="1.8"
+        d="M68 104 C56 122, 74 139, 101 135 C124 131, 144 114, 141 92 C139 78, 125 74, 113 81 C104 86, 104 97, 113 99 C119 100, 123 96, 121 91"
+        stroke="url(#ehbGoldGrad)"
+        strokeWidth="2.8"
         strokeLinecap="round"
         fill="none"
       />
-      <path
-        d="M50 52C60 52 68 60 68 70C60 70 52 64 50 56"
-        stroke="#D4AF37"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        fill="none"
-      />
-
-      {/* Bottom Architectural Base Bar */}
-      <line x1="38" y1="80" x2="62" y2="80" stroke="#D4AF37" strokeWidth="2.2" strokeLinecap="round" />
-      <line x1="42" y1="84" x2="58" y2="84" stroke="#D4AF37" strokeWidth="1.2" strokeLinecap="round" strokeOpacity="0.7" />
+      {/* Gold Teardrop Finial inside the lower B bowl */}
+      <circle cx="119.5" cy="91.5" r="3.4" fill="url(#ehbGoldGrad)" />
     </svg>
   )
 }
@@ -119,7 +249,7 @@ export const ProductImage: React.FC<ProductImageProps> = ({
         className={`relative flex flex-col items-center justify-between p-4 text-center select-none overflow-hidden bg-[#091D18] border border-[#D4AF37]/35 ${className}`}
       >
         <div className="text-[8px] uppercase tracking-[0.25em] text-[#F2EBDD]/70 font-semibold">
-          ÉMERAUDE BOTANICA
+          ÉMERAUDE HAUTE BOTANIQUE
         </div>
         <div className="my-auto flex flex-col items-center gap-2 py-2">
           <BotanicalCrest size="sm" />

@@ -8,14 +8,7 @@ import {
 import { ArrowRight, Sparkles } from 'lucide-react'
 
 export const HeroBanner: React.FC = () => {
-  const { setSelectedCategory } = useCosmetics()
-
-  const scrollToCatalog = () => {
-    const el = document.getElementById('catalog-section')
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
+  const { navigateToCatalog } = useCosmetics()
 
   return (
     <section className="relative overflow-hidden bg-[#FBF9F4] dark:bg-[#071713] transition-colors border-b border-border/70">
@@ -49,7 +42,7 @@ export const HeroBanner: React.FC = () => {
             {/* Action Button: Dark Matte with Tactile Grain Effect */}
             <div className="pt-2">
               <button
-                onClick={scrollToCatalog}
+                onClick={() => navigateToCatalog('Semua')}
                 className="group relative inline-flex items-center gap-3 rounded-md bg-[#091D18] hover:bg-[#102F27] dark:bg-[#D4AF37] dark:hover:bg-[#E5C453] text-[#F2EBDD] dark:text-[#091D18] px-7 py-3.5 text-xs sm:text-sm font-semibold tracking-wider uppercase transition shadow-md hover:shadow-lg focus:outline-none overflow-hidden"
               >
                 {/* Subtle Grain Overlay on the primary button */}
@@ -120,10 +113,7 @@ export const HeroBanner: React.FC = () => {
                   </p>
                 </div>
                 <button
-                  onClick={() => {
-                    setSelectedCategory('Serum & Essence')
-                    scrollToCatalog()
-                  }}
+                  onClick={() => navigateToCatalog('Serum & Essence')}
                   className="rounded-md bg-[#091D18] dark:bg-[#D4AF37] text-[#F2EBDD] dark:text-[#091D18] px-3 py-1.5 text-[11px] font-bold tracking-wider uppercase hover:opacity-90 transition shrink-0"
                 >
                   Lihat Koleksi

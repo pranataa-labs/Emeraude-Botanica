@@ -8,57 +8,51 @@ import {
   User as UserIcon,
   LogOut,
   ClipboardList,
-  ChevronDown,
 } from 'lucide-react'
 
 export const Header: React.FC = () => {
   const {
+    activeView,
     setActiveView,
+    navigateToCatalog,
     cartItemCount,
     setIsCartOpen,
     currentUser,
     logout,
     openAuthModal,
     setIsCmdKOpen,
-    setSelectedCategory,
   } = useCosmetics()
 
-  const scrollToCatalog = (cat?: string) => {
+  const scrollToHomeSection = (id: string) => {
     setActiveView('store')
-    if (cat) {
-      setSelectedCategory(cat as never)
-    }
-    const el = document.getElementById('catalog-section')
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
-  const scrollToSection = (id: string) => {
-    setActiveView('store')
-    const el = document.getElementById(id)
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' })
-    }
+    setTimeout(() => {
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
+      }
+    }, 50)
   }
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/80 bg-background/95 backdrop-blur-md transition-colors shadow-xs">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand Logo & Editorial Typography */}
+        {/* Brand EHB Gold Monogram Logo & Editorial Typography */}
         <button
-          onClick={() => setActiveView('store')}
+          onClick={() => {
+            setActiveView('store')
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          }}
           className="flex items-center gap-3 text-left transition hover:opacity-90 group focus:outline-none"
         >
           <div className="flex items-center justify-center transition-transform group-hover:scale-105">
-            <BotanicalCrest size="sm" />
+            <BotanicalCrest size="md" />
           </div>
           <div>
             <span className="font-serif text-2xl sm:text-3xl font-bold tracking-[0.22em] text-[#091D18] dark:text-[#F2EBDD] block leading-none uppercase">
               Émeraude
             </span>
             <span className="text-[9px] uppercase tracking-[0.38em] text-[#D4AF37] font-semibold block mt-1">
-              Haute Botanique
+              Haute Botanique • EHB
             </span>
           </div>
         </button>
@@ -66,32 +60,40 @@ export const Header: React.FC = () => {
         {/* Center Editorial Navigation Links */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-xs tracking-wider uppercase font-medium text-foreground/80">
           <button
-            onClick={() => scrollToCatalog()}
-            className="hover:text-[#D4AF37] transition flex items-center gap-1 focus:outline-none font-semibold"
+            onClick={() => {
+              setActiveView('store')
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            }}
+            className={`hover:text-[#D4AF37] transition focus:outline-none ${
+              activeView === 'store' ? 'text-[#D4AF37] font-bold' : ''
+            }`}
           >
-            <span>Shop</span>
-            <ChevronDown className="size-3" />
+            Beranda
           </button>
           <button
-            onClick={() => scrollToCatalog()}
+            onClick={() => navigateToCatalog('Semua')}
+            className={`hover:text-[#D4AF37] transition focus:outline-none ${
+              activeView === 'catalog' || activeView === 'product'
+                ? 'text-[#D4AF37] font-bold'
+                : 'font-semibold'
+            }`}
+          >
+            Katalog Produk (120)
+          </button>
+          <button
+            onClick={() => scrollToHomeSection('best-sellers-section')}
             className="hover:text-[#D4AF37] transition focus:outline-none"
           >
             Best Sellers
           </button>
           <button
-            onClick={() => scrollToCatalog()}
-            className="hover:text-[#D4AF37] transition focus:outline-none"
-          >
-            Collections
-          </button>
-          <button
-            onClick={() => scrollToSection('the-ritual-section')}
+            onClick={() => scrollToHomeSection('the-ritual-section')}
             className="hover:text-[#D4AF37] transition focus:outline-none"
           >
             The Ritual
           </button>
           <button
-            onClick={() => scrollToSection('our-promise-section')}
+            onClick={() => scrollToHomeSection('our-promise-section')}
             className="hover:text-[#D4AF37] transition focus:outline-none"
           >
             Our Promise

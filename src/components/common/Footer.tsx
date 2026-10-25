@@ -24,13 +24,10 @@ const IconYoutube: React.FC<{ className?: string }> = ({ className = 'size-4' })
 )
 
 export const Footer: React.FC = () => {
-  const { setSelectedCategory, setActiveView, openAuthModal } = useCosmetics()
+  const { navigateToCatalog, setActiveView, openAuthModal } = useCosmetics()
 
   const navigateCategory = (cat: string) => {
-    setActiveView('store')
-    setSelectedCategory(cat as never)
-    const el = document.getElementById('catalog-section')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    navigateToCatalog(cat as never)
   }
 
   return (
@@ -40,13 +37,13 @@ export const Footer: React.FC = () => {
           {/* Col 1: Brand Info & Socials (Matching Reference Image) */}
           <div className="md:col-span-4 space-y-4 text-left">
             <div className="flex items-center gap-3">
-              <BotanicalCrest size="sm" />
+              <BotanicalCrest size="md" />
               <div>
                 <span className="font-serif text-xl sm:text-2xl font-bold tracking-[0.2em] text-[#F2EBDD] block leading-none uppercase">
                   Émeraude
                 </span>
                 <span className="text-[9px] uppercase tracking-[0.35em] text-[#D4AF37] font-semibold block mt-1">
-                  Haute Botanique
+                  Haute Botanique • EHB
                 </span>
               </div>
             </div>

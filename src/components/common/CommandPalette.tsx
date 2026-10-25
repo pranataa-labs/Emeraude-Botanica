@@ -7,9 +7,8 @@ import {
   Sparkles,
   ShoppingBag,
   ShieldCheck,
-  Sun,
-  Moon,
   Package,
+  LayoutGrid,
 } from 'lucide-react'
 
 export const CommandPalette: React.FC = () => {
@@ -17,11 +16,10 @@ export const CommandPalette: React.FC = () => {
     isCmdKOpen,
     setIsCmdKOpen,
     products,
-    setSelectedProduct,
+    openProductPage,
+    navigateToCatalog,
     setActiveView,
     setIsCartOpen,
-    toggleTheme,
-    theme,
   } = useCosmetics()
 
   const [query, setQuery] = useState('')
@@ -77,11 +75,11 @@ export const CommandPalette: React.FC = () => {
         <div className="max-h-96 overflow-y-auto p-2 space-y-4 text-xs">
           <div>
             <p className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#D4AF37]">
-              Koleksi Kosmetik & Skincare ({filteredProducts.length})
+              Koleksi Kosmetik &amp; Skincare ({filteredProducts.length})
             </p>
             {filteredProducts.length === 0 ? (
               <p className="px-3 py-6 text-center text-muted-foreground">
-                Tidak ditemukan produk dengan kata kunci "{query}".
+                Tidak ditemukan produk dengan kata kunci &ldquo;{query}&rdquo;.
               </p>
             ) : (
               <div className="space-y-1 mt-1">
@@ -89,7 +87,7 @@ export const CommandPalette: React.FC = () => {
                   <button
                     key={product.id}
                     onClick={() => {
-                      setSelectedProduct(product)
+                      openProductPage(product)
                       setIsCmdKOpen(false)
                     }}
                     className="flex w-full items-center justify-between gap-3 rounded-lg px-2.5 py-2 hover:bg-accent text-left transition"
@@ -120,6 +118,16 @@ export const CommandPalette: React.FC = () => {
             <div className="grid grid-cols-2 gap-1 mt-1">
               <button
                 onClick={() => {
+                  navigateToCatalog('Semua')
+                  setIsCmdKOpen(false)
+                }}
+                className="flex items-center gap-2 rounded-md px-2.5 py-2 hover:bg-accent text-left"
+              >
+                <LayoutGrid className="size-3.5 text-[#D4AF37]" />
+                <span>Katalog Lengkap (120 Produk)</span>
+              </button>
+              <button
+                onClick={() => {
                   setIsCartOpen(true)
                   setIsCmdKOpen(false)
                 }}
@@ -147,22 +155,6 @@ export const CommandPalette: React.FC = () => {
               >
                 <ShieldCheck className="size-3.5 text-[#D4AF37]" />
                 <span>Maison Admin Backoffice</span>
-              </button>
-              <button
-                onClick={() => {
-                  toggleTheme()
-                  setIsCmdKOpen(false)
-                }}
-                className="flex items-center gap-2 rounded-md px-2.5 py-2 hover:bg-accent text-left"
-              >
-                {theme === 'dark' ? (
-                  <Sun className="size-3.5 text-[#D4AF37]" />
-                ) : (
-                  <Moon className="size-3.5 text-[#D4AF37]" />
-                )}
-                <span>
-                  Mode {theme === 'dark' ? 'Alabaster Cream' : 'Deep Emerald Silk'}
-                </span>
               </button>
             </div>
           </div>

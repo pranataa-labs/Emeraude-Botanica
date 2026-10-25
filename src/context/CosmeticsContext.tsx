@@ -78,8 +78,12 @@ interface CosmeticsContextType {
   closeAuthModal: () => void
 
   // Navigation / Shell
-  activeView: 'store' | 'admin' | 'orders' | 'checkout' | 'success'
-  setActiveView: (view: 'store' | 'admin' | 'orders' | 'checkout' | 'success') => void
+  activeView: 'store' | 'catalog' | 'product' | 'admin' | 'orders' | 'checkout' | 'success'
+  setActiveView: (
+    view: 'store' | 'catalog' | 'product' | 'admin' | 'orders' | 'checkout' | 'success'
+  ) => void
+  openProductPage: (product: CosmeticProduct) => void
+  navigateToCatalog: (category?: CosmeticCategory) => void
   lastPlacedOrder: Order | null
 
   // Theme & Cmd+K
@@ -227,7 +231,7 @@ export function CosmeticsProvider({ children }: { children: ReactNode }) {
   }
 
   const [activeView, setActiveView] = useState<
-    'store' | 'admin' | 'orders' | 'checkout' | 'success'
+    'store' | 'catalog' | 'product' | 'admin' | 'orders' | 'checkout' | 'success'
   >('store')
 
   const logout = () => {
@@ -487,6 +491,24 @@ export function CosmeticsProvider({ children }: { children: ReactNode }) {
   const [selectedProduct, setSelectedProduct] = useState<CosmeticProduct | null>(null)
   const [isCmdKOpen, setIsCmdKOpen] = useState(false)
 
+  const openProductPage = (product: CosmeticProduct) => {
+    setSelectedProduct(product)
+    setActiveView('product')
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
+  const navigateToCatalog = (category?: CosmeticCategory) => {
+    if (category) {
+      setSelectedCategory(category)
+    }
+    setActiveView('catalog')
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
@@ -540,6 +562,8 @@ export function CosmeticsProvider({ children }: { children: ReactNode }) {
         closeAuthModal,
         activeView,
         setActiveView,
+        openProductPage,
+        navigateToCatalog,
         lastPlacedOrder,
         theme,
         toggleTheme,
