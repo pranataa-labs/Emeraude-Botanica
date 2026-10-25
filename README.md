@@ -38,7 +38,7 @@
   - Menampilkan emblem daun botani emas di dalam bingkai berlekuk klasik (*scalloped vintage crest*).
   - Bar pencarian interaktif dan filter cepat (*Malachite*, *Ceramide*, *24K Gold*, *Lip Velvet*, *Bakuchiol*, *Matcha*).
   - Bar 5 kotak warna interaktif (`#F2EBDD`, `#78947F`, `#185844`, `#102F27`, `#D4AF37`) yang dapat diklik untuk menyalin kode hex secara instan.
-- **Katalog 12 Produk Kosmetik & Skincare Mewah**:
+- **Katalog 120 Produk Kosmetik & Skincare Mewah (20 Formulasi per Kategori)**:
   - Filter kebutuhan kulit (*Kulit Kering*, *Kulit Berminyak & Acne*, *Kulit Sensitif*, *Anti-Aging & Kusam*).
   - 6 kategori kosmetik (*Serum & Essence*, *Moisturizer & Cream*, *Cleanser & Toner*, *Lip & Cheek Couture*, *Eye & Night Ritual*, *Body & Wellness*).
   - Fitur simpan ke **Favorit (Wishlist)** dan sortir harga/rating.

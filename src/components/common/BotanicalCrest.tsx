@@ -5,72 +5,94 @@ export const BotanicalCrest: React.FC<{ className?: string; size?: 'sm' | 'md' |
   size = 'md',
 }) => {
   const dimensions =
-    size === 'lg' ? 'w-16 h-20' : size === 'sm' ? 'w-8 h-10' : 'w-11 h-14'
+    size === 'lg' ? 'w-16 h-16 sm:w-20 sm:h-20' : size === 'sm' ? 'w-8 h-8' : 'w-12 h-12'
 
   return (
     <svg
-      viewBox="0 0 80 100"
+      viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`${dimensions} ${className}`}
-      aria-hidden="true"
+      className={`${dimensions} ${className} shrink-0`}
+      aria-label="Émeraude Botanica Haute Hallmark"
     >
-      {/* Outer scalloped luxury frame matching the reference image */}
-      <path
-        d="M40 4C46 4 50 7 55 9C60 11 66 12 69 17C72 22 72 29 73 35C74 41 76 46 75 53C74 60 72 66 69 72C66 78 61 82 55 86C49 90 45 95 40 95C35 95 31 90 25 86C19 82 14 78 11 72C8 66 6 60 5 53C4 46 6 41 7 35C8 29 8 22 11 17C14 12 20 11 25 9C30 7 34 4 40 4Z"
+      {/* 1. Outer Faceted Octagon / Emerald-Cut Cartouche */}
+      <polygon
+        points="28,4 72,4 96,28 96,72 72,96 28,96 4,72 4,28"
         stroke="#D4AF37"
-        strokeWidth="1.5"
-        strokeOpacity="0.85"
+        strokeWidth="2.2"
+        strokeLinejoin="round"
       />
-      {/* Inner delicate frame */}
-      <path
-        d="M40 8C45 8 49 10.5 53.5 12.5C58 14.5 63 15.5 65.5 20C68 24.5 68 30.5 69 36C70 41.5 71.5 46 70.5 52.5C69.5 59 68 64 65.5 69.5C63 75 58.5 78.5 53.5 82C48.5 85.5 44.5 90 40 90C35.5 90 31.5 85.5 26.5 82C21.5 78.5 17 75 14.5 69.5C12 64 10.5 59 9.5 52.5C8.5 46 10 41.5 11 36C12 30.5 12 24.5 14.5 20C17 15.5 22 14.5 26.5 12.5C31 10.5 35 8 40 8Z"
+
+      {/* 2. Inner Concentric Bevel Framing */}
+      <polygon
+        points="31,10 69,10 90,31 90,69 69,90 31,90 10,69 10,31"
         stroke="#D4AF37"
         strokeWidth="0.8"
-        strokeOpacity="0.45"
+        strokeOpacity="0.55"
+        strokeLinejoin="round"
       />
-      {/* Central stem */}
+
+      {/* 3. Corner Facet Accent Lines */}
+      <line x1="4" y1="28" x2="10" y2="31" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
+      <line x1="28" y1="4" x2="31" y2="10" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
+      <line x1="72" y1="4" x2="69" y2="10" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
+      <line x1="96" y1="28" x2="90" y2="31" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
+      <line x1="96" y1="72" x2="90" y2="69" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
+      <line x1="72" y1="96" x2="69" y2="90" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
+      <line x1="28" y1="96" x2="31" y2="90" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
+      <line x1="4" y1="72" x2="10" y2="69" stroke="#D4AF37" strokeWidth="1" strokeOpacity="0.7" />
+
+      {/* 4. Top Diamond Star Floret */}
+      <polygon
+        points="50,14 53,20 59,20 54,24 56,30 50,26 44,30 46,24 41,20 47,20"
+        fill="#D4AF37"
+      />
+
+      {/* 5. Center Stylized Interlocking Monogram "É" & Botanical Leaf Curves */}
+      {/* Central Stem */}
+      <line x1="50" y1="32" x2="50" y2="80" stroke="#D4AF37" strokeWidth="1.8" strokeLinecap="round" />
+
+      {/* Upper Symmetrical Botanical Wings / Curves */}
       <path
-        d="M40 76V26"
+        d="M50 38C38 38 28 46 28 56C36 56 46 50 50 42"
         stroke="#D4AF37"
-        strokeWidth="1.6"
+        strokeWidth="1.8"
         strokeLinecap="round"
-      />
-      {/* Top apical leaf */}
-      <path
-        d="M40 20C36.5 25 36.5 31 40 35C43.5 31 43.5 25 40 20Z"
-        fill="#D4AF37"
-      />
-      {/* Upper pair of leaves */}
-      <path
-        d="M39 39C33 34 27 35 26 40C30 43 35 42 39 39Z"
-        fill="#D4AF37"
+        fill="none"
       />
       <path
-        d="M41 39C47 34 53 35 54 40C50 43 45 42 41 39Z"
-        fill="#D4AF37"
+        d="M50 38C62 38 72 46 72 56C64 56 54 50 50 42"
+        stroke="#D4AF37"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        fill="none"
       />
-      {/* Middle pair of leaves */}
+
+      {/* Lower Botanical Curves Forming Architectural "É" Monogram Base */}
       <path
-        d="M39 51C31 45 24 47 22 53C27 56 34 55 39 51Z"
-        fill="#D4AF37"
-      />
-      <path
-        d="M41 51C49 45 56 47 58 53C53 56 46 55 41 51Z"
-        fill="#D4AF37"
-      />
-      {/* Lower pair of leaves */}
-      <path
-        d="M39 63C32 58 26 60 25 65C29 68 35 67 39 63Z"
-        fill="#D4AF37"
+        d="M50 52C40 52 32 60 32 70C40 70 48 64 50 56"
+        stroke="#D4AF37"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        fill="none"
       />
       <path
-        d="M41 63C48 58 54 60 55 65C51 68 45 67 41 63Z"
-        fill="#D4AF37"
+        d="M50 52C60 52 68 60 68 70C60 70 52 64 50 56"
+        stroke="#D4AF37"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        fill="none"
       />
+
+      {/* Bottom Architectural Base Bar */}
+      <line x1="38" y1="80" x2="62" y2="80" stroke="#D4AF37" strokeWidth="2.2" strokeLinecap="round" />
+      <line x1="42" y1="84" x2="58" y2="84" stroke="#D4AF37" strokeWidth="1.2" strokeLinecap="round" strokeOpacity="0.7" />
     </svg>
   )
 }
+
+// Alias export for clarity
+export const EmeraudeLogo = BotanicalCrest
 
 interface ProductImageProps {
   src: string
@@ -94,22 +116,22 @@ export const ProductImage: React.FC<ProductImageProps> = ({
   if (!src || hasError) {
     return (
       <div
-        className={`relative flex flex-col items-center justify-between p-5 text-center select-none overflow-hidden emerald-silk-bg border border-[#D4AF37]/30 ${className}`}
+        className={`relative flex flex-col items-center justify-between p-4 text-center select-none overflow-hidden bg-[#091D18] border border-[#D4AF37]/35 ${className}`}
       >
-        <div className="text-[9px] uppercase tracking-[0.25em] text-[#F2EBDD]/80 font-medium">
+        <div className="text-[8px] uppercase tracking-[0.25em] text-[#F2EBDD]/70 font-semibold">
           ÉMERAUDE BOTANICA
         </div>
-        <div className="my-auto flex flex-col items-center gap-2">
-          <BotanicalCrest size="md" />
-          <p className="font-serif text-sm font-semibold text-[#F2EBDD] line-clamp-2 px-2">
+        <div className="my-auto flex flex-col items-center gap-2 py-2">
+          <BotanicalCrest size="sm" />
+          <p className="font-serif text-xs font-semibold text-[#F2EBDD] line-clamp-2 px-1">
             {name}
           </p>
-          <span className="text-[10px] text-[#D4AF37] uppercase tracking-widest">
+          <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest font-medium">
             {category}
           </span>
         </div>
         {volume && (
-          <div className="text-[10px] text-[#78947F] tracking-wider font-mono">
+          <div className="text-[9px] text-[#78947F] tracking-wider font-mono">
             {volume}
           </div>
         )}

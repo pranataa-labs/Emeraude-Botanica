@@ -14,8 +14,20 @@ describe('Émeraude Botanica — Luxury Cosmetics Store Suite', () => {
     expect(hexCodes).toEqual(['#F2EBDD', '#78947F', '#185844', '#102F27', '#D4AF37'])
   })
 
-  it('seeds 12 luxury cosmetic and skincare products with BPOM numbers and key ingredients', () => {
-    expect(INITIAL_PRODUCTS.length).toBe(12)
+  it('seeds 20 luxury cosmetic and skincare products per category with BPOM numbers and key ingredients', () => {
+    expect(INITIAL_PRODUCTS.length).toBe(120)
+    const categories = [
+      'Serum & Essence',
+      'Moisturizer & Cream',
+      'Cleanser & Toner',
+      'Lip & Cheek Couture',
+      'Eye & Night Ritual',
+      'Body & Wellness',
+    ]
+    for (const cat of categories) {
+      const catProducts = INITIAL_PRODUCTS.filter(p => p.category === cat)
+      expect(catProducts.length).toBe(20)
+    }
     for (const product of INITIAL_PRODUCTS) {
       expect(product.bpomNumber).toMatch(/^NA1826/)
       expect(product.keyIngredients.length).toBeGreaterThanOrEqual(3)

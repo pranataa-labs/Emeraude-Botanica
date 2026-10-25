@@ -96,6 +96,10 @@ export const HeroBanner: React.FC = () => {
               <img
                 src="https://images.unsplash.com/photo-1608248597359-009772a08343?w=1200&auto=format&fit=crop&q=85"
                 alt="Émeraude Botanica Skincare Collection on Travertine Stone Pedestal"
+                onError={e => {
+                  ;(e.currentTarget as HTMLImageElement).src =
+                    'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1200&auto=format&fit=crop&q=85'
+                }}
                 className="size-full object-cover object-center transform transition duration-700 hover:scale-102"
               />
 

@@ -247,7 +247,13 @@ export function CosmeticsProvider({ children }: { children: ReactNode }) {
   const [products, setProducts] = useState<CosmeticProduct[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.PRODUCTS)
-      return saved ? JSON.parse(saved) : INITIAL_PRODUCTS
+      if (saved) {
+        const parsed = JSON.parse(saved)
+        if (Array.isArray(parsed) && parsed.length >= 120) {
+          return parsed
+        }
+      }
+      return INITIAL_PRODUCTS
     } catch {
       return INITIAL_PRODUCTS
     }

@@ -35,10 +35,10 @@ const CATEGORY_STRIP_ITEMS: CategoryItem[] = [
   { id: 'cleansers', label: 'CLEANSERS', targetCategory: 'Cleanser & Toner', icon: IconPumpCleanser },
   { id: 'serums', label: 'SERUMS', targetCategory: 'Serum & Essence', icon: IconDropperSerum },
   { id: 'moisturizers', label: 'MOISTURIZERS', targetCategory: 'Moisturizer & Cream', icon: IconMoisturizerJar },
-  { id: 'suncare', label: 'SUN CARE', targetCategory: 'Moisturizer & Cream', icon: IconSunTube },
-  { id: 'masks', label: 'MASKS', targetCategory: 'Eye & Night Ritual', icon: IconFaceMask },
-  { id: 'sets', label: 'SETS & KITS', targetCategory: 'Body & Wellness', icon: IconGiftSet },
-  { id: 'new', label: 'NEW ARRIVALS', targetCategory: 'Semua', icon: IconTagNew },
+  { id: 'lipcheek', label: 'LIP & CHEEK', targetCategory: 'Lip & Cheek Couture', icon: IconSunTube },
+  { id: 'masks', label: 'MASKS & NIGHT', targetCategory: 'Eye & Night Ritual', icon: IconFaceMask },
+  { id: 'body', label: 'BODY & WELLNESS', targetCategory: 'Body & Wellness', icon: IconGiftSet },
+  { id: 'all', label: 'ALL (120)', targetCategory: 'Semua', icon: IconTagNew },
 ]
 
 const SKIN_TYPES: SkinTypeFilter[] = [
@@ -156,16 +156,19 @@ export const CatalogView: React.FC = () => {
       <section id="catalog-section" className="py-12 sm:py-16 bg-[#FBF9F4] dark:bg-[#071713] transition-colors">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
           {/* Section Header: BEST SELLERS on Left, VIEW ALL on Right */}
-          <div className="flex items-center justify-between border-b border-border/70 pb-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/70 pb-4">
             <div>
               <h2 className="font-serif text-xl sm:text-2xl font-bold tracking-[0.18em] uppercase text-[#091D18] dark:text-[#F2EBDD]">
-                Best Sellers
+                {selectedCategory === 'Semua' ? 'Koleksi Kosmetik & Skincare' : selectedCategory}
               </h2>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                Menampilkan <strong className="text-foreground">{filteredProducts.length}</strong> formulasi botani aktif (20 per kategori)
+              </p>
             </div>
 
             <div className="flex items-center gap-4">
-              {/* Optional Skin Type Filter */}
-              <div className="hidden md:flex items-center gap-1.5 text-xs">
+              {/* Skin Type Filter */}
+              <div className="flex items-center gap-1.5 text-xs">
                 <SlidersHorizontal className="size-3.5 text-muted-foreground" />
                 <span className="text-[11px] text-muted-foreground">Skin:</span>
                 <select
@@ -188,13 +191,13 @@ export const CatalogView: React.FC = () => {
                 }}
                 className="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-foreground transition"
               >
-                <span>View All</span>
+                <span>View All (120)</span>
                 <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
               </button>
             </div>
           </div>
 
-          {/* Product Cards Row / Grid (5 Columns like Reference Image) */}
+          {/* Product Cards Grid: Shows all products for the selected category (20 items) */}
           {filteredProducts.length === 0 ? (
             <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-card/60 py-16 text-center space-y-3">
               <Compass className="size-10 text-muted-foreground stroke-1" />
@@ -212,12 +215,12 @@ export const CatalogView: React.FC = () => {
                 }}
                 className="rounded-md bg-[#091D18] dark:bg-[#D4AF37] px-4 py-2 text-xs font-bold text-[#F2EBDD] dark:text-[#091D18]"
               >
-                Tampilkan Seluruh Koleksi
+                Tampilkan Seluruh Koleksi (120 Produk)
               </button>
             </div>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
-              {filteredProducts.slice(0, 10).map(product => {
+              {filteredProducts.map(product => {
                 const effectivePrice = product.discountPrice ?? product.price
                 const isWishlisted = wishlistIds.includes(product.id)
 
@@ -341,11 +344,15 @@ export const CatalogView: React.FC = () => {
                 </div>
               </div>
 
-              {/* Product Trio on Stone Pedestal Image */}
+              {/* Product Trio on Stone Pedestal Image with Error Fallback */}
               <div className="relative z-10 self-end mt-4 sm:mt-0">
                 <img
                   src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&auto=format&fit=crop&q=80"
                   alt="Émeraude Botanica Ritual Bottles"
+                  onError={e => {
+                    ;(e.currentTarget as HTMLImageElement).src =
+                      'https://images.unsplash.com/photo-1608248597359-0e6d526a6c58?w=800&auto=format&fit=crop&q=85'
+                  }}
                   className="w-48 sm:w-56 h-auto rounded-xl object-cover shadow-lg border border-border/40"
                 />
               </div>
@@ -410,12 +417,16 @@ export const CatalogView: React.FC = () => {
                 </div>
               </div>
 
-              {/* Right Side: Editorial Close-Up Portrait of Radiant Glowing Skin */}
+              {/* Right Side: Editorial Close-Up Portrait of Radiant Glowing Skin with Error Fallback */}
               <div className="w-full sm:w-1/2 flex justify-center sm:justify-end">
                 <div className="relative aspect-[3/4] w-48 sm:w-52 rounded-xl overflow-hidden shadow-lg border border-border/50">
                   <img
                     src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&auto=format&fit=crop&q=80"
                     alt="Radiant Dewy Skincare Model"
+                    onError={e => {
+                      ;(e.currentTarget as HTMLImageElement).src =
+                        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=80'
+                    }}
                     className="size-full object-cover object-center"
                   />
                 </div>
