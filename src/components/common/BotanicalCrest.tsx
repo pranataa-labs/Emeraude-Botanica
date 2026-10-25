@@ -6,9 +6,9 @@ export const BotanicalCrest: React.FC<{
 }> = ({ className = '', size = 'md' }) => {
   const dimensions =
     size === 'hero'
-      ? 'w-48 h-48 sm:w-60 sm:h-60'
+      ? 'w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96'
       : size === 'xl'
-        ? 'w-24 h-24 sm:w-28 sm:h-28'
+        ? 'w-28 h-28 sm:w-36 sm:h-36'
         : size === 'lg'
           ? 'w-16 h-16 sm:w-20 sm:h-20'
           : size === 'sm'
@@ -19,9 +19,9 @@ export const BotanicalCrest: React.FC<{
 
   return (
     <img
-      src="/logo.png"
-      alt="Émeraude Haute Botanique Gold Emblem"
-      className={`${dimensions} ${className} object-contain shrink-0 select-none drop-shadow-[0_4px_16px_rgba(212,175,55,0.35)] transition-transform duration-300`}
+      src="/logo.svg"
+      alt="Émeraude Haute Botanique Gold Lotus Emblem"
+      className={`${dimensions} ${className} object-contain shrink-0 select-none drop-shadow-[0_8px_24px_rgba(212,175,55,0.35)] transition-transform duration-300`}
       loading="eager"
     />
   )

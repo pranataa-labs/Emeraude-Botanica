@@ -6,7 +6,7 @@ import {
   IconClinicallyTested,
   IconSensitiveSkin,
 } from '@/components/common/BeautyIcons'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export const HeroBanner: React.FC = () => {
   const { navigateToCatalog } = useCosmetics()
@@ -14,7 +14,7 @@ export const HeroBanner: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-[#FBF9F4] dark:bg-[#071713] transition-colors border-b border-border/70">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Editorial Headline & Minimalist Promises */}
           <div className="lg:col-span-6 space-y-6 sm:space-y-8 text-left">
             {/* Overline Tag */}
@@ -40,8 +40,8 @@ export const HeroBanner: React.FC = () => {
               natural glow. Powered by cold-pressed Malachite mineral and organic peptides.
             </p>
 
-            {/* Action Button: Dark Matte with Tactile Grain Effect */}
-            <div className="pt-2">
+            {/* Action Buttons: Dark Matte with Tactile Grain Effect */}
+            <div className="pt-2 flex flex-wrap items-center gap-3">
               <button
                 onClick={() => navigateToCatalog('Semua')}
                 className="group relative inline-flex items-center gap-3 rounded-md bg-[#091D18] hover:bg-[#102F27] dark:bg-[#D4AF37] dark:hover:bg-[#E5C453] text-[#F2EBDD] dark:text-[#091D18] px-7 py-3.5 text-xs sm:text-sm font-semibold tracking-wider uppercase transition shadow-md hover:shadow-lg focus:outline-none overflow-hidden"
@@ -50,6 +50,13 @@ export const HeroBanner: React.FC = () => {
                 <span className="pointer-events-none absolute inset-0 opacity-15 bg-[radial-gradient(#FFF_1px,transparent_1px)] [background-size:8px_8px]" />
                 <span className="relative z-10 font-bold">Shop Now</span>
                 <ArrowRight className="relative z-10 size-4 transition-transform group-hover:translate-x-1" />
+              </button>
+
+              <button
+                onClick={() => navigateToCatalog('Semua')}
+                className="inline-flex items-center gap-2 rounded-md border border-[#D4AF37]/50 bg-transparent px-5 py-3.5 text-xs sm:text-sm font-semibold tracking-wider uppercase text-[#D4AF37] hover:bg-[#D4AF37]/10 transition"
+              >
+                <span>Lihat 120 Formulasi</span>
               </button>
             </div>
 
@@ -84,55 +91,29 @@ export const HeroBanner: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Prestigious EHB Gold Monogram Showcase (Replacing Image with Logo) */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative mx-auto w-full max-w-xl aspect-[4/3] sm:aspect-[16/11] rounded-2xl overflow-hidden shadow-2xl border border-[#D4AF37]/50 bg-[#061511] flex flex-col items-center justify-between p-6 sm:p-8 text-center">
-              {/* Luxury Gold Halo & Subtle Radial Grain */}
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.18)_0%,transparent_75%)]" />
-              <div className="pointer-events-none absolute inset-0 opacity-15 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:12px_12px]" />
+          {/* Right Column: Pure Floating Gold Lotus & Goddess Emblem (No Card around logo) */}
+          <div className="lg:col-span-6 relative flex flex-col items-center justify-center text-center py-6 lg:py-0">
+            {/* Subtle Ambient Gold Radial Glow behind the emblem */}
+            <div className="pointer-events-none absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.18)_0%,transparent_70%)] blur-2xl" />
 
-              {/* Top Haute Label */}
-              <div className="relative z-10 w-full flex items-center justify-between">
-                <span className="text-[10px] tracking-[0.25em] uppercase font-semibold text-[#D4AF37]/80">
-                  Haute Parfumerie &amp; Cosmétique
+            <div className="relative z-10 flex flex-col items-center justify-center space-y-4">
+              {/* Floating Pure Logo (SVG from Downloads) */}
+              <BotanicalCrest
+                size="hero"
+                className="hover:scale-105 transition-transform duration-500 cursor-pointer"
+              />
+
+              {/* Refined Brand Wordmark */}
+              <div className="space-y-1 pt-1">
+                <span className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-[0.26em] text-[#091D18] dark:text-[#F2EBDD] block uppercase">
+                  Émeraude
                 </span>
-                <div className="rounded-full bg-[#091D18]/90 border border-[#D4AF37]/40 px-3 py-1 text-[10px] tracking-widest uppercase font-semibold text-[#D4AF37] flex items-center gap-1.5 shadow-sm">
-                  <Sparkles className="size-3 text-[#D4AF37]" />
-                  <span>Paris 2026</span>
-                </div>
-              </div>
-
-              {/* Centerpiece: EHB Gold Monogram Emblem with Radiant Halo */}
-              <div className="relative z-10 my-auto flex flex-col items-center justify-center py-2 sm:py-3">
-                <div className="relative flex items-center justify-center p-3 sm:p-4 rounded-full border border-[#D4AF37]/35 bg-[#091D18]/70 shadow-[0_0_55px_rgba(212,175,55,0.2)]">
-                  <BotanicalCrest size="hero" />
-                </div>
-                <div className="mt-3 space-y-0.5">
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold tracking-[0.22em] uppercase text-[#F2EBDD]">
-                    Émeraude
-                  </h3>
-                  <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.42em] text-[#D4AF37] font-semibold">
-                    Haute Botanique
-                  </p>
-                </div>
-              </div>
-
-              {/* Bottom Info Bar */}
-              <div className="relative z-10 w-full rounded-xl bg-[#091D18]/85 backdrop-blur-md border border-[#D4AF37]/35 p-3 sm:p-3.5 flex items-center justify-between text-xs shadow-md">
-                <div className="text-left">
-                  <h4 className="font-serif font-bold text-[#F2EBDD] text-xs sm:text-sm">
-                    Koleksi Formulasi Botani Murni
-                  </h4>
-                  <p className="text-[11px] text-[#F2EBDD]/70">
-                    120 Produk • 100% Bersertifikasi BPOM &amp; Halal
-                  </p>
-                </div>
-                <button
-                  onClick={() => navigateToCatalog('Semua')}
-                  className="rounded-md bg-[#D4AF37] hover:bg-[#E5C453] text-[#091D18] px-3.5 py-1.5 text-[11px] font-bold tracking-wider uppercase transition shrink-0 shadow-sm"
-                >
-                  Lihat Koleksi
-                </button>
+                <span className="text-xs sm:text-sm uppercase tracking-[0.45em] text-[#D4AF37] font-semibold block">
+                  Haute Botanique
+                </span>
+                <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground block pt-0.5">
+                  Paris • 100% Pure Botanical Formulations
+                </span>
               </div>
             </div>
           </div>
