@@ -13,7 +13,7 @@
 
 <br/>
 
-<img src="./docs/screenshots/hero-preview.png" alt="Émeraude Botanica — Haute Cosmétique & Luxury Wellness" width="100%" style="border-radius: 14px; box-shadow: 0 12px 36px rgba(0,0,0,0.4);" />
+<img src="./docs/screenshots/emeraude-boutique-hero.png" alt="Émeraude Botanica — Haute Cosmétique & Luxury Wellness" width="100%" style="border-radius: 14px; box-shadow: 0 12px 36px rgba(0,0,0,0.4);" />
 
 <br/>
 <br/>
