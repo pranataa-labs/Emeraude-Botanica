@@ -3,13 +3,17 @@
 # 🌿 ÉMERAUDE BOTANICA
 ### *Haute Cosmétique, Luxury Skincare & Botanical Wellness Platform*
 
-[![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com/)
-[![Next.js](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/tailwind-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![WebRTC](https://img.shields.io/badge/webrtc-%23333333.svg?style=for-the-badge&logo=webrtc&logoColor=white)](https://webrtc.org/)
-[![Speech Synthesis](https://img.shields.io/badge/speech--synthesis-voice--ai-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis)
-[![Healthcare](https://img.shields.io/badge/healthcare-clinical--skincare-10B981?style=for-the-badge&logo=heart&logoColor=white)](https://pom.go.id/)
+[`laravel`](https://github.com/topics/laravel) • [`typescript`](https://github.com/topics/typescript) • [`nextjs`](https://github.com/topics/nextjs) • [`webrtc`](https://github.com/topics/webrtc) • [`speech-synthesis`](https://github.com/topics/speech-synthesis) • [`healthcare`](https://github.com/topics/healthcare) • [`tailwind`](https://github.com/topics/tailwind)
+
+<br/>
+
+[![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)](https://github.com/topics/laravel)
+[![Next.js](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://github.com/topics/nextjs)
+[![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://github.com/topics/typescript)
+[![Tailwind CSS](https://img.shields.io/badge/tailwind-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://github.com/topics/tailwind)
+[![WebRTC](https://img.shields.io/badge/webrtc-%23333333.svg?style=for-the-badge&logo=webrtc&logoColor=white)](https://github.com/topics/webrtc)
+[![Speech Synthesis](https://img.shields.io/badge/speech--synthesis-voice--ai-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://github.com/topics/speech-synthesis)
+[![Healthcare](https://img.shields.io/badge/healthcare-clinical--skincare-10B981?style=for-the-badge&logo=heart&logoColor=white)](https://github.com/topics/healthcare)
 [![Vitest](https://img.shields.io/badge/Vitest-3.2.7-FCC72B?style=for-the-badge&logo=vitest)](https://vitest.dev/)
 [![License](https://img.shields.io/badge/License-MIT-D4AF37.svg?style=for-the-badge)](LICENSE)
 
