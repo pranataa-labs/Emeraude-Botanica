@@ -1,0 +1,178 @@
+/* ÉMERAUDE BOTANICA — Emerald & Cream Luxury Design System
+   Exact Palette from Reference Image:
+   - #0F3D34 (Deep Imperial Emerald)
+   - #134E43 (Botanical Forest Emerald)
+   - #E6F0E9 (Soft Sage Dew Cream)
+   - #F7F6F1 (Warm Alabaster Cream)
+   - #C8A96A (Champagne Botanical Gold)
+*/
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+:root {
+  --radius: 0.625rem;
+  /* Light Mode: Warm Alabaster Cream (#F7F6F1) & Soft Sage (#E6F0E9) with Deep Emerald (#0F3D34) */
+  --background: #F7F6F1;
+  --foreground: #0F3D34;
+  --card: #FFFFFF;
+  --card-foreground: #0F3D34;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F3D34;
+  --primary: #0F3D34;
+  --primary-foreground: #F7F6F1;
+  --secondary: #E6F0E9;
+  --secondary-foreground: #134E43;
+  --muted: #E6F0E9;
+  --muted-foreground: #134E43;
+  --accent: #E6F0E9;
+  --accent-foreground: #0F3D34;
+  --destructive: #B91C1C;
+  --border: rgba(19, 78, 67, 0.16);
+  --input: rgba(19, 78, 67, 0.22);
+  --ring: #C8A96A;
+
+  /* Custom Brand Swatches */
+  --emerald-deep: #0F3D34;
+  --emerald-rich: #134E43;
+  --cream-sage: #E6F0E9;
+  --cream-alabaster: #F7F6F1;
+  --gold-champagne: #C8A96A;
+
+  --chart-1: #0F3D34;
+  --chart-2: #134E43;
+  --chart-3: #C8A96A;
+  --chart-4: #2A6F62;
+  --chart-5: #D8B97A;
+
+  --sidebar: #0F3D34;
+  --sidebar-foreground: #F7F6F1;
+  --sidebar-primary: #C8A96A;
+  --sidebar-primary-foreground: #0F3D34;
+  --sidebar-accent: #134E43;
+  --sidebar-accent-foreground: #F7F6F1;
+  --sidebar-border: rgba(200, 169, 106, 0.2);
+  --sidebar-ring: #C8A96A;
+}
+
+.dark {
+  /* Dark Mode (Default): Deep Imperial Emerald (#0F3D34) & Forest Emerald (#134E43) with Cream (#F7F6F1) & Gold (#C8A96A) */
+  --background: #0F3D34;
+  --foreground: #F7F6F1;
+  --card: #134E43;
+  --card-foreground: #F7F6F1;
+  --popover: #134E43;
+  --popover-foreground: #F7F6F1;
+  --primary: #C8A96A;
+  --primary-foreground: #0F3D34;
+  --secondary: #185C50;
+  --secondary-foreground: #E6F0E9;
+  --muted: #0C312A;
+  --muted-foreground: #E6F0E9;
+  --accent: #185C50;
+  --accent-foreground: #F7F6F1;
+  --destructive: #F87171;
+  --border: rgba(200, 169, 106, 0.24);
+  --input: rgba(230, 240, 233, 0.2);
+  --ring: #C8A96A;
+
+  --chart-1: #C8A96A;
+  --chart-2: #E6F0E9;
+  --chart-3: #38A18C;
+  --chart-4: #F7F6F1;
+  --chart-5: #DFC389;
+
+  --sidebar: #0B2E27;
+  --sidebar-foreground: #F7F6F1;
+  --sidebar-primary: #C8A96A;
+  --sidebar-primary-foreground: #0F3D34;
+  --sidebar-accent: #134E43;
+  --sidebar-accent-foreground: #F7F6F1;
+  --sidebar-border: rgba(200, 169, 106, 0.22);
+  --sidebar-ring: #C8A96A;
+}
+
+@theme inline {
+  --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, Cambria, 'Times New Roman', Times, serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  html {
+    @apply overflow-x-hidden font-sans;
+    font-family: var(--font-inter);
+  }
+  body {
+    @apply min-h-svh w-full bg-background text-foreground;
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 767px) {
+    input,
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+}
+
+/* Silk Emerald Shimmer Effect inspired by the uploaded reference image */
+.emerald-silk-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 25% 20%, rgba(19, 78, 67, 0.92) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 50% at 80% 75%, rgba(200, 169, 106, 0.14) 0%, transparent 60%),
+    linear-gradient(135deg, #092822 0%, #0F3D34 38%, #134E43 68%, #0B2E27 100%);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #F7F6F1 0%, #E6D2A8 45%, #C8A96A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
