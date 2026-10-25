@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
                   Émeraude
                 </span>
                 <span className="text-[9px] uppercase tracking-[0.35em] text-[#D4AF37] font-semibold block mt-1">
-                  Haute Botanique • EHB
+                  Haute Botanique
                 </span>
               </div>
             </div>

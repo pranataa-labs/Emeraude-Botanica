@@ -112,7 +112,7 @@ export const HeroBanner: React.FC = () => {
                     Émeraude
                   </h3>
                   <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.42em] text-[#D4AF37] font-semibold">
-                    Haute Botanique • EHB
+                    Haute Botanique
                   </p>
                 </div>
               </div>
