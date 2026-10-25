@@ -1,27 +1,44 @@
 import React, { useState, useMemo } from 'react'
 import { useCosmetics } from '@/context/CosmeticsContext'
 import { CosmeticCategory, SkinTypeFilter } from '@/types'
-import { formatRupiah, calculateDiscountPercentage } from '@/lib/utils'
+import { formatRupiah } from '@/lib/utils'
 import { ProductImage } from '@/components/common/BotanicalCrest'
 import {
-  Star,
-  ShoppingBag,
-  ArrowUpDown,
-  Compass,
-  Maximize2,
+  IconPumpCleanser,
+  IconDropperSerum,
+  IconMoisturizerJar,
+  IconSunTube,
+  IconFaceMask,
+  IconGiftSet,
+  IconTagNew,
+  IconCleanSafe,
+  IconSustainable,
+  IconCrueltyFree,
+  IconCirclePlus,
+} from '@/components/common/BeautyIcons'
+import {
+  ArrowRight,
   Heart,
   SlidersHorizontal,
-  Droplet,
+  Compass,
 } from 'lucide-react'
+import { toast } from 'sonner'
 
-const CATEGORIES: CosmeticCategory[] = [
-  'Semua',
-  'Serum & Essence',
-  'Moisturizer & Cream',
-  'Cleanser & Toner',
-  'Lip & Cheek Couture',
-  'Eye & Night Ritual',
-  'Body & Wellness',
+interface CategoryItem {
+  id: string
+  label: string
+  targetCategory: CosmeticCategory
+  icon: React.FC<{ className?: string }>
+}
+
+const CATEGORY_STRIP_ITEMS: CategoryItem[] = [
+  { id: 'cleansers', label: 'CLEANSERS', targetCategory: 'Cleanser & Toner', icon: IconPumpCleanser },
+  { id: 'serums', label: 'SERUMS', targetCategory: 'Serum & Essence', icon: IconDropperSerum },
+  { id: 'moisturizers', label: 'MOISTURIZERS', targetCategory: 'Moisturizer & Cream', icon: IconMoisturizerJar },
+  { id: 'suncare', label: 'SUN CARE', targetCategory: 'Moisturizer & Cream', icon: IconSunTube },
+  { id: 'masks', label: 'MASKS', targetCategory: 'Eye & Night Ritual', icon: IconFaceMask },
+  { id: 'sets', label: 'SETS & KITS', targetCategory: 'Body & Wellness', icon: IconGiftSet },
+  { id: 'new', label: 'NEW ARRIVALS', targetCategory: 'Semua', icon: IconTagNew },
 ]
 
 const SKIN_TYPES: SkinTypeFilter[] = [
@@ -32,8 +49,6 @@ const SKIN_TYPES: SkinTypeFilter[] = [
   'Anti-Aging & Kusam',
 ]
 
-type SortOption = 'default' | 'price-asc' | 'price-desc' | 'rating-desc'
-
 export const CatalogView: React.FC = () => {
   const {
     products,
@@ -42,324 +57,430 @@ export const CatalogView: React.FC = () => {
     selectedSkinType,
     setSelectedSkinType,
     searchQuery,
-    setSearchQuery,
     setSelectedProduct,
     addToCart,
     wishlistIds,
     toggleWishlist,
   } = useCosmetics()
 
-  const [sortBy, setSortBy] = useState<SortOption>('default')
-  const [onlyWishlist, setOnlyWishlist] = useState(false)
+  const [activeCategoryTab, setActiveCategoryTab] = useState<string>('all')
+  const [newsletterEmail, setNewsletterEmail] = useState('')
+
+  const handleCategorySelect = (item: CategoryItem) => {
+    if (activeCategoryTab === item.id) {
+      setActiveCategoryTab('all')
+      setSelectedCategory('Semua')
+    } else {
+      setActiveCategoryTab(item.id)
+      setSelectedCategory(item.targetCategory)
+    }
+  }
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!newsletterEmail || !newsletterEmail.includes('@')) {
+      toast.error('Silakan masukkan alamat email yang valid')
+      return
+    }
+    toast.success(`Terima kasih! Kode diskon 15% (EMERALD15) telah dikirim ke ${newsletterEmail}`)
+    setNewsletterEmail('')
+  }
 
   const filteredProducts = useMemo(() => {
-    return products
-      .filter(product => {
-        const matchesCategory =
-          selectedCategory === 'Semua' || product.category === selectedCategory
-        const matchesSkin =
-          selectedSkinType === 'Semua Kulit' ||
-          product.skinTypes.includes(selectedSkinType as Exclude<SkinTypeFilter, 'Semua Kulit'>)
-        const matchesWishlist = !onlyWishlist || wishlistIds.includes(product.id)
-        const q = searchQuery.trim().toLowerCase()
-        const matchesQuery =
-          !q ||
-          product.name.toLowerCase().includes(q) ||
-          product.subtitle.toLowerCase().includes(q) ||
-          product.category.toLowerCase().includes(q) ||
-          product.description.toLowerCase().includes(q) ||
-          product.keyIngredients.some(ing => ing.toLowerCase().includes(q))
+    return products.filter(product => {
+      const matchesCategory =
+        selectedCategory === 'Semua' || product.category === selectedCategory
+      const matchesSkin =
+        selectedSkinType === 'Semua Kulit' ||
+        product.skinTypes.includes(selectedSkinType as Exclude<SkinTypeFilter, 'Semua Kulit'>)
+      const q = searchQuery.trim().toLowerCase()
+      const matchesQuery =
+        !q ||
+        product.name.toLowerCase().includes(q) ||
+        product.subtitle.toLowerCase().includes(q) ||
+        product.category.toLowerCase().includes(q) ||
+        product.keyIngredients.some(ing => ing.toLowerCase().includes(q))
 
-        return matchesCategory && matchesSkin && matchesWishlist && matchesQuery
-      })
-      .sort((a, b) => {
-        const priceA = a.discountPrice ?? a.price
-        const priceB = b.discountPrice ?? b.price
-        if (sortBy === 'price-asc') return priceA - priceB
-        if (sortBy === 'price-desc') return priceB - priceA
-        if (sortBy === 'rating-desc') return b.rating - a.rating
-        return 0
-      })
-  }, [products, selectedCategory, selectedSkinType, onlyWishlist, wishlistIds, searchQuery, sortBy])
+      return matchesCategory && matchesSkin && matchesQuery
+    })
+  }, [products, selectedCategory, selectedSkinType, searchQuery])
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-8">
-      {/* Section Heading */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-        <div>
-          <span className="text-[11px] uppercase tracking-[0.25em] text-[#D4AF37] font-semibold">
-            La Collection Botanique
-          </span>
-          <h2 className="font-serif text-2xl sm:text-4xl font-bold text-foreground mt-1">
-            Kurasi Kosmetik &amp; Skincare Mewah
-          </h2>
-        </div>
+    <div className="w-full">
+      {/* 1. HORIZONTAL CATEGORY ICON STRIP (Matching the Reference Image exactly) */}
+      <section className="border-b border-border/80 bg-background py-6 sm:py-8 transition-colors">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-4 sm:grid-cols-7 gap-2 sm:gap-4 text-center">
+            {CATEGORY_STRIP_ITEMS.map(item => {
+              const Icon = item.icon
+              const isSelected =
+                activeCategoryTab === item.id ||
+                (selectedCategory !== 'Semua' && selectedCategory === item.targetCategory)
 
-        {/* Skin Type Filter Bar (Interactive Skin Concern Selector) */}
-        <div className="flex flex-wrap items-center gap-1.5">
-          <span className="text-[11px] text-muted-foreground mr-1 flex items-center gap-1">
-            <SlidersHorizontal className="size-3 text-[#D4AF37]" />
-            <span>Kebutuhan Kulit:</span>
-          </span>
-          {SKIN_TYPES.map(skin => (
-            <button
-              key={skin}
-              onClick={() => setSelectedSkinType(skin)}
-              className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition ${
-                selectedSkinType === skin
-                  ? 'bg-[#D4AF37] text-[#102F27] font-bold shadow-2xs'
-                  : 'border border-border bg-card/60 text-muted-foreground hover:border-[#D4AF37]/50 hover:text-foreground'
-              }`}
-            >
-              {skin}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Category Tabs & Sort Toolbar */}
-      <div className="space-y-4">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-border pb-4">
-          {/* Category Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar">
-            {CATEGORIES.map(category => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`shrink-0 rounded-lg px-3.5 py-2 text-xs font-medium transition ${
-                  selectedCategory === category
-                    ? 'bg-[#D4AF37] text-[#102F27] font-bold shadow-xs'
-                    : 'bg-card/70 border border-border text-muted-foreground hover:border-[#D4AF37]/40 hover:text-foreground'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handleCategorySelect(item)}
+                  className={`group flex flex-col items-center justify-center p-3 rounded-xl transition duration-200 focus:outline-none ${
+                    isSelected
+                      ? 'bg-card text-[#091D18] dark:text-[#D4AF37] shadow-sm ring-1 ring-border'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-card/50'
+                  }`}
+                >
+                  <div
+                    className={`flex size-12 sm:size-14 items-center justify-center rounded-lg transition-transform group-hover:scale-105 ${
+                      isSelected
+                        ? 'text-[#091D18] dark:text-[#D4AF37]'
+                        : 'text-foreground/75'
+                    }`}
+                  >
+                    <Icon className="size-6 sm:size-7" />
+                  </div>
+                  <span
+                    className={`mt-2 font-sans text-[10px] sm:text-[11px] font-bold tracking-[0.14em] uppercase transition ${
+                      isSelected
+                        ? 'text-[#091D18] dark:text-[#D4AF37]'
+                        : 'text-muted-foreground group-hover:text-foreground'
+                    }`}
+                  >
+                    {item.label}
+                  </span>
+                </button>
+              )
+            })}
           </div>
+        </div>
+      </section>
 
-          {/* Wishlist Filter + Sort Dropdown */}
-          <div className="flex items-center gap-2.5 shrink-0 self-end lg:self-auto">
-            <button
-              onClick={() => setOnlyWishlist(!onlyWishlist)}
-              className={`flex items-center gap-1.5 h-8 px-3 rounded-md border text-xs font-medium transition ${
-                onlyWishlist
-                  ? 'border-[#D4AF37] bg-[#D4AF37]/20 text-[#D4AF37]'
-                  : 'border-border bg-card text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              <Heart className={`size-3.5 ${onlyWishlist ? 'fill-[#D4AF37] text-[#D4AF37]' : ''}`} />
-              <span>Favorit ({wishlistIds.length})</span>
-            </button>
+      {/* 2. BEST SELLERS SECTION (Matching the Reference Image Card Layout) */}
+      <section id="catalog-section" className="py-12 sm:py-16 bg-[#FBF9F4] dark:bg-[#071713] transition-colors">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
+          {/* Section Header: BEST SELLERS on Left, VIEW ALL on Right */}
+          <div className="flex items-center justify-between border-b border-border/70 pb-4">
+            <div>
+              <h2 className="font-serif text-xl sm:text-2xl font-bold tracking-[0.18em] uppercase text-[#091D18] dark:text-[#F2EBDD]">
+                Best Sellers
+              </h2>
+            </div>
 
-            <div className="flex items-center gap-1.5">
-              <ArrowUpDown className="size-3.5 text-[#D4AF37]" />
-              <select
-                value={sortBy}
-                onChange={e => setSortBy(e.target.value as SortOption)}
-                className="h-8 rounded-md border border-border bg-card px-2.5 text-xs text-foreground focus:border-[#D4AF37] focus:outline-none"
+            <div className="flex items-center gap-4">
+              {/* Optional Skin Type Filter */}
+              <div className="hidden md:flex items-center gap-1.5 text-xs">
+                <SlidersHorizontal className="size-3.5 text-muted-foreground" />
+                <span className="text-[11px] text-muted-foreground">Skin:</span>
+                <select
+                  value={selectedSkinType}
+                  onChange={e => setSelectedSkinType(e.target.value as SkinTypeFilter)}
+                  className="rounded-md border border-border bg-card px-2 py-1 text-xs text-foreground focus:outline-none"
+                >
+                  {SKIN_TYPES.map(st => (
+                    <option key={st} value={st}>
+                      {st}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <button
+                onClick={() => {
+                  setSelectedCategory('Semua')
+                  setActiveCategoryTab('all')
+                }}
+                className="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-foreground transition"
               >
-                <option value="default">Urutan: Kurasi Maison</option>
-                <option value="price-asc">Harga: Terendah ke Tertinggi</option>
-                <option value="price-desc">Harga: Tertinggi ke Terendah</option>
-                <option value="rating-desc">Rating Tertinggi</option>
-              </select>
+                <span>View All</span>
+                <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
+              </button>
             </div>
           </div>
-        </div>
 
-        {/* Active Filter Status */}
-        <div className="flex items-center justify-between text-xs text-muted-foreground">
-          <p>
-            Menampilkan <strong className="text-foreground">{filteredProducts.length}</strong>{' '}
-            formulasi mewah
-            {selectedCategory !== 'Semua' && ` dalam "${selectedCategory}"`}
-            {selectedSkinType !== 'Semua Kulit' && ` untuk "${selectedSkinType}"`}
-            {searchQuery && ` dengan kata kunci "${searchQuery}"`}
-          </p>
-
-          {(selectedCategory !== 'Semua' ||
-            selectedSkinType !== 'Semua Kulit' ||
-            onlyWishlist ||
-            searchQuery) && (
-            <button
-              onClick={() => {
-                setSelectedCategory('Semua')
-                setSelectedSkinType('Semua Kulit')
-                setOnlyWishlist(false)
-                setSearchQuery('')
-              }}
-              className="text-[#D4AF37] font-semibold hover:underline"
-            >
-              Reset Semua Filter
-            </button>
-          )}
-        </div>
-      </div>
-
-      {/* Product Grid */}
-      {filteredProducts.length === 0 ? (
-        <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-[#D4AF37]/40 bg-card/40 py-16 text-center space-y-3">
-          <Compass className="size-10 text-[#D4AF37] stroke-1" />
-          <h3 className="font-serif text-lg font-semibold text-foreground">
-            Tidak ada produk yang sesuai filter
-          </h3>
-          <p className="text-xs text-muted-foreground max-w-sm">
-            Silakan ubah kata kunci pencarian atau pilih kategori perawatan kulit lainnya.
-          </p>
-          <button
-            onClick={() => {
-              setSelectedCategory('Semua')
-              setSelectedSkinType('Semua Kulit')
-              setOnlyWishlist(false)
-              setSearchQuery('')
-            }}
-            className="rounded-md bg-[#D4AF37] px-4 py-2 text-xs font-bold text-[#102F27] hover:bg-[#E5C453] transition"
-          >
-            Tampilkan Seluruh Koleksi
-          </button>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6">
-          {filteredProducts.map(product => {
-            const effectivePrice = product.discountPrice ?? product.price
-            const discountPercent = calculateDiscountPercentage(
-              product.price,
-              product.discountPrice
-            )
-            const isWishlisted = wishlistIds.includes(product.id)
-
-            return (
-              <div
-                key={product.id}
-                className="group flex flex-col justify-between rounded-xl border border-border bg-card p-3.5 sm:p-4 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[#D4AF37]/60"
+          {/* Product Cards Row / Grid (5 Columns like Reference Image) */}
+          {filteredProducts.length === 0 ? (
+            <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-card/60 py-16 text-center space-y-3">
+              <Compass className="size-10 text-muted-foreground stroke-1" />
+              <h3 className="font-serif text-lg font-semibold text-foreground">
+                Tidak ada produk yang sesuai filter
+              </h3>
+              <p className="text-xs text-muted-foreground max-w-sm">
+                Silakan ubah kata kunci atau pilih kategori perawatan lainnya.
+              </p>
+              <button
+                onClick={() => {
+                  setSelectedCategory('Semua')
+                  setActiveCategoryTab('all')
+                  setSelectedSkinType('Semua Kulit')
+                }}
+                className="rounded-md bg-[#091D18] dark:bg-[#D4AF37] px-4 py-2 text-xs font-bold text-[#F2EBDD] dark:text-[#091D18]"
               >
-                <div>
-                  {/* Product Visual Container */}
+                Tampilkan Seluruh Koleksi
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+              {filteredProducts.slice(0, 10).map(product => {
+                const effectivePrice = product.discountPrice ?? product.price
+                const isWishlisted = wishlistIds.includes(product.id)
+
+                return (
                   <div
-                    onClick={() => setSelectedProduct(product)}
-                    className="relative aspect-[4/5] w-full overflow-hidden rounded-lg bg-[#102F27] cursor-pointer mb-3.5 border border-[#D4AF37]/20"
+                    key={product.id}
+                    className="group flex flex-col justify-between rounded-xl bg-card border border-border/70 p-3 sm:p-4 shadow-xs transition duration-300 hover:shadow-md hover:border-border"
                   >
-                    <ProductImage
-                      src={product.imageUrl}
-                      alt={product.name}
-                      name={product.name}
-                      category={product.category}
-                      volume={product.volume}
-                      className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-
-                    {/* Top Left Luxury Badge */}
-                    {product.badge && (
-                      <span className="absolute top-2.5 left-2.5 rounded bg-[#D4AF37] text-[#102F27] text-[10px] font-bold px-2 py-0.5 tracking-wider uppercase shadow-sm z-10">
-                        {product.badge}
-                      </span>
-                    )}
-
-                    {/* Discount Ribbon */}
-                    {discountPercent > 0 && (
-                      <span className="absolute bottom-2.5 left-2.5 rounded bg-[#102F27]/90 border border-[#D4AF37]/50 text-[#F2EBDD] text-[10px] font-semibold px-2 py-0.5 z-10">
-                        Hemat {discountPercent}%
-                      </span>
-                    )}
-
-                    {/* Wishlist Heart Button */}
-                    <button
-                      type="button"
-                      onClick={e => {
-                        e.stopPropagation()
-                        toggleWishlist(product.id)
-                      }}
-                      aria-label="Simpan ke Favorit"
-                      className="absolute top-2.5 right-2.5 flex size-8 items-center justify-center rounded-full bg-[#102F27]/80 text-[#F2EBDD] border border-[#D4AF37]/30 hover:border-[#D4AF37] transition z-20"
-                    >
-                      <Heart
-                        className={`size-4 ${
-                          isWishlisted ? 'fill-[#D4AF37] text-[#D4AF37]' : 'text-[#F2EBDD]'
-                        }`}
-                      />
-                    </button>
-
-                    {/* Hover Quick View Overlay */}
-                    <div className="absolute inset-0 bg-[#102F27]/55 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F2EBDD] px-3.5 py-1.5 text-xs font-semibold text-[#102F27] shadow-md">
-                        <Maximize2 className="size-3.5 text-[#102F27]" />
-                        <span>Detail &amp; Bahan Aktif</span>
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Category, Volume & Rating */}
-                  <div className="flex items-center justify-between text-[11px] mb-1">
-                    <span className="text-[#D4AF37] font-medium truncate">
-                      {product.category}
-                    </span>
-                    <div className="flex items-center gap-1 text-[#D4AF37] font-semibold">
-                      <Star className="size-3 fill-[#D4AF37] text-[#D4AF37]" />
-                      <span>{product.rating}</span>
-                      <span className="text-muted-foreground font-normal text-[10px]">
-                        ({product.reviewCount})
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Product Title & Subtitle */}
-                  <h3
-                    onClick={() => setSelectedProduct(product)}
-                    className="font-serif text-base sm:text-lg font-bold text-foreground line-clamp-2 leading-snug cursor-pointer hover:text-[#D4AF37] transition"
-                  >
-                    {product.name}
-                  </h3>
-                  <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-1">
-                    {product.subtitle}
-                  </p>
-
-                  {/* Active Ingredients Chips */}
-                  <div className="mt-2.5 flex flex-wrap gap-1">
-                    {product.keyIngredients.slice(0, 2).map(ing => (
-                      <span
-                        key={ing}
-                        className="rounded bg-secondary/70 px-1.5 py-0.5 text-[10px] text-secondary-foreground border border-border"
+                    <div>
+                      {/* Product Image on Clean Soft Background */}
+                      <div
+                        onClick={() => setSelectedProduct(product)}
+                        className="relative aspect-square w-full overflow-hidden rounded-lg bg-[#EFECE6] dark:bg-[#0c221c] cursor-pointer mb-3.5"
                       >
-                        {ing}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                        <ProductImage
+                          src={product.imageUrl}
+                          alt={product.name}
+                          name={product.name}
+                          category={product.category}
+                          volume={product.volume}
+                          className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
 
-                {/* Price & Add to Bag */}
-                <div className="mt-4 pt-3 border-t border-border flex items-center justify-between gap-2">
-                  <div>
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-sm font-bold text-foreground">
+                        {/* Wishlist Button */}
+                        <button
+                          type="button"
+                          onClick={e => {
+                            e.stopPropagation()
+                            toggleWishlist(product.id)
+                          }}
+                          aria-label="Simpan ke Favorit"
+                          className="absolute top-2.5 right-2.5 flex size-7 items-center justify-center rounded-full bg-background/80 text-foreground shadow-xs hover:scale-110 transition z-10"
+                        >
+                          <Heart
+                            className={`size-3.5 ${
+                              isWishlisted ? 'fill-[#D4AF37] text-[#D4AF37]' : 'text-muted-foreground'
+                            }`}
+                          />
+                        </button>
+                      </div>
+
+                      {/* Product Title (Clean Bold Uppercase like Reference Image) */}
+                      <h3
+                        onClick={() => setSelectedProduct(product)}
+                        className="font-serif text-xs sm:text-sm font-bold uppercase tracking-wider text-foreground line-clamp-1 cursor-pointer hover:text-[#D4AF37] transition leading-snug"
+                        title={product.name}
+                      >
+                        {product.name}
+                      </h3>
+
+                      {/* Benefit / Subtitle Line */}
+                      <p className="text-[11px] text-muted-foreground mt-1 line-clamp-2 leading-relaxed">
+                        {product.subtitle}
+                      </p>
+                    </div>
+
+                    {/* Price and Circle Plus Add Button (Exact Reference Match) */}
+                    <div className="mt-4 pt-2.5 border-t border-border/50 flex items-center justify-between">
+                      <span className="text-xs sm:text-sm font-bold text-foreground">
                         {formatRupiah(effectivePrice)}
                       </span>
-                      {discountPercent > 0 && (
-                        <span className="text-[10px] text-muted-foreground line-through">
-                          {formatRupiah(product.price)}
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex items-center gap-1 text-[10px] text-muted-foreground mt-0.5">
-                      <Droplet className="size-2.5 text-[#D4AF37]" />
-                      <span>{product.volume}</span>
+
+                      <button
+                        onClick={() => addToCart(product, 1)}
+                        className="text-[#091D18] dark:text-[#D4AF37] hover:scale-110 transition active:scale-95 focus:outline-none"
+                        title="Tambah ke Tas Belanja"
+                        aria-label={`Tambah ${product.name} ke tas`}
+                      >
+                        <IconCirclePlus className="size-7 sm:size-8" />
+                      </button>
                     </div>
                   </div>
+                )
+              })}
+            </div>
+          )}
+        </div>
+      </section>
 
+      {/* 3. DUAL EDITORIAL FEATURE BANNERS ("THE RITUAL" & "OUR PROMISE") */}
+      <section className="py-10 sm:py-14 bg-background transition-colors">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
+            {/* Left Banner: THE RITUAL (Liquid water ripple background & product trio) */}
+            <div
+              id="the-ritual-section"
+              className="lg:col-span-6 relative overflow-hidden rounded-2xl border border-border/70 p-6 sm:p-10 flex flex-col justify-between min-h-[380px] bg-[#EBE7DF] dark:bg-[#0c221c]"
+            >
+              {/* Ripple water texture backdrop */}
+              <div
+                className="absolute inset-0 opacity-40 mix-blend-overlay bg-cover bg-center pointer-events-none"
+                style={{
+                  backgroundImage:
+                    'url(https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=900&auto=format&fit=crop&q=80)',
+                }}
+              />
+
+              <div className="relative z-10 space-y-3 max-w-xs">
+                <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-muted-foreground">
+                  The Ritual
+                </span>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-[#091D18] dark:text-[#F2EBDD] leading-tight">
+                  Skincare that becomes a ritual.
+                </h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans">
+                  Simple steps. Powerful results. Made to fit effortlessly into your everyday
+                  self-care.
+                </p>
+                <div className="pt-2">
                   <button
-                    onClick={() => addToCart(product, 1)}
-                    disabled={product.stock <= 0}
-                    className="flex items-center gap-1.5 h-9 px-3 rounded-lg bg-[#D4AF37] text-[#102F27] text-xs font-bold hover:bg-[#E5C453] transition shadow-xs disabled:opacity-50"
-                    title={product.stock <= 0 ? 'Stok Habis' : 'Tambah ke Tas Belanja'}
+                    onClick={() => {
+                      setSelectedCategory('Eye & Night Ritual')
+                      const el = document.getElementById('catalog-section')
+                      if (el) el.scrollIntoView({ behavior: 'smooth' })
+                    }}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#091D18] dark:text-[#D4AF37] hover:underline"
                   >
-                    <ShoppingBag className="size-3.5 stroke-[2.2]" />
-                    <span>+ Tas</span>
+                    <span>Explore Collection</span>
+                    <ArrowRight className="size-3.5" />
                   </button>
                 </div>
               </div>
-            )
-          })}
+
+              {/* Product Trio on Stone Pedestal Image */}
+              <div className="relative z-10 self-end mt-4 sm:mt-0">
+                <img
+                  src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&auto=format&fit=crop&q=80"
+                  alt="Émeraude Botanica Ritual Bottles"
+                  className="w-48 sm:w-56 h-auto rounded-xl object-cover shadow-lg border border-border/40"
+                />
+              </div>
+            </div>
+
+            {/* Right Banner: OUR PROMISE (3 Line Icons on Left, Dewy Skin Portrait on Right) */}
+            <div
+              id="our-promise-section"
+              className="lg:col-span-6 relative overflow-hidden rounded-2xl border border-border/70 bg-[#F4F0E8] dark:bg-[#0a1e18] p-6 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6"
+            >
+              {/* Left Side: 3 Promises with Minimalist Line Icons */}
+              <div className="space-y-6 max-w-xs text-left w-full sm:w-1/2">
+                <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-muted-foreground">
+                  Our Promise
+                </span>
+
+                <div className="space-y-4">
+                  {/* Promise 1 */}
+                  <div className="flex items-start gap-3">
+                    <div className="mt-0.5 text-[#091D18] dark:text-[#D4AF37]">
+                      <IconCleanSafe className="size-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-foreground">
+                        Clean &amp; Safe
+                      </h4>
+                      <p className="text-[11px] text-muted-foreground mt-0.5">
+                        No harmful chemicals, 100% paraben free
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Promise 2 */}
+                  <div className="flex items-start gap-3">
+                    <div className="mt-0.5 text-[#091D18] dark:text-[#D4AF37]">
+                      <IconSustainable className="size-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-foreground">
+                        Sustainable
+                      </h4>
+                      <p className="text-[11px] text-muted-foreground mt-0.5">
+                        Eco-friendly recyclable packaging
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Promise 3 */}
+                  <div className="flex items-start gap-3">
+                    <div className="mt-0.5 text-[#091D18] dark:text-[#D4AF37]">
+                      <IconCrueltyFree className="size-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-foreground">
+                        Cruelty Free
+                      </h4>
+                      <p className="text-[11px] text-muted-foreground mt-0.5">
+                        Never tested on animals, certified vegan
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Side: Editorial Close-Up Portrait of Radiant Glowing Skin */}
+              <div className="w-full sm:w-1/2 flex justify-center sm:justify-end">
+                <div className="relative aspect-[3/4] w-48 sm:w-52 rounded-xl overflow-hidden shadow-lg border border-border/50">
+                  <img
+                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&auto=format&fit=crop&q=80"
+                    alt="Radiant Dewy Skincare Model"
+                    className="size-full object-cover object-center"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      )}
+      </section>
+
+      {/* 4. "AS SEEN IN" EDITORIAL PRESS BAR & VIP NEWSLETTER STRIP */}
+      <section className="border-t border-b border-border/80 bg-[#FBF9F4] dark:bg-[#061410] py-12 transition-colors">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Press Mastheads */}
+            <div className="lg:col-span-6 flex flex-col sm:flex-row items-center gap-6 sm:gap-10 border-b lg:border-b-0 lg:border-r border-border/70 pb-6 lg:pb-0 lg:pr-8">
+              <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-muted-foreground shrink-0">
+                As Seen In
+              </span>
+              <div className="flex items-center justify-between w-full gap-6 text-[#091D18]/80 dark:text-[#F2EBDD]/80">
+                <span className="font-serif text-xl sm:text-2xl font-bold tracking-widest uppercase">
+                  Vogue
+                </span>
+                <span className="font-serif text-lg sm:text-xl font-bold tracking-widest uppercase italic">
+                  Bazaar
+                </span>
+                <span className="font-sans text-lg sm:text-xl font-semibold tracking-wide lowercase">
+                  allure
+                </span>
+                <span className="font-serif text-xl sm:text-2xl font-bold tracking-widest uppercase">
+                  Elle
+                </span>
+              </div>
+            </div>
+
+            {/* Newsletter: "LET'S GLOW TOGETHER" (With tactile grain button) */}
+            <div className="lg:col-span-6 space-y-2">
+              <div className="text-left">
+                <h4 className="font-serif text-base sm:text-lg font-bold tracking-wide text-foreground">
+                  Let’s Glow Together
+                </h4>
+                <p className="text-xs text-muted-foreground">
+                  Subscribe to get 15% off your first order &amp; VIP product access.
+                </p>
+              </div>
+
+              <form onSubmit={handleNewsletterSubmit} className="flex items-center gap-2 pt-1">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={newsletterEmail}
+                  onChange={e => setNewsletterEmail(e.target.value)}
+                  className="flex-1 h-10 rounded-md border border-border bg-card px-3 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-[#091D18] dark:focus:ring-[#D4AF37]"
+                />
+                <button
+                  type="submit"
+                  className="relative h-10 px-5 rounded-md bg-[#091D18] dark:bg-[#D4AF37] text-[#F2EBDD] dark:text-[#091D18] text-xs font-bold tracking-wider uppercase hover:opacity-90 transition overflow-hidden shrink-0"
+                >
+                  <span className="pointer-events-none absolute inset-0 opacity-15 bg-[radial-gradient(#FFF_1px,transparent_1px)] [background-size:6px_6px]" />
+                  <span className="relative z-10">Subscribe</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

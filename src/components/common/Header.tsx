@@ -10,11 +10,11 @@ import {
   User as UserIcon,
   LogOut,
   ClipboardList,
+  ChevronDown,
 } from 'lucide-react'
 
 export const Header: React.FC = () => {
   const {
-    activeView,
     setActiveView,
     cartItemCount,
     setIsCartOpen,
@@ -24,190 +24,196 @@ export const Header: React.FC = () => {
     logout,
     openAuthModal,
     setIsCmdKOpen,
+    setSelectedCategory,
   } = useCosmetics()
+
+  const scrollToCatalog = (cat?: string) => {
+    setActiveView('store')
+    if (cat) {
+      setSelectedCategory(cat as never)
+    }
+    const el = document.getElementById('catalog-section')
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  const scrollToSection = (id: string) => {
+    setActiveView('store')
+    const el = document.getElementById(id)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   return (
     <>
-
-      {/* Main Sticky Header */}
-      <header className="sticky top-0 z-40 w-full border-b border-border bg-background/85 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          {/* Left: Brand Emblem & Navigation */}
-          <div className="flex items-center gap-6 lg:gap-8">
-            <button
-              onClick={() => setActiveView('store')}
-              className="flex items-center gap-2.5 text-left transition hover:opacity-90 group"
-            >
-              <div className="flex items-center justify-center transition-transform group-hover:scale-105">
-                <BotanicalCrest size="sm" />
-              </div>
-              <div>
-                <span className="font-serif text-xl font-bold tracking-[0.14em] text-foreground block leading-none uppercase">
-                  Émeraude
-                </span>
-                <span className="text-[9px] uppercase tracking-[0.28em] text-[#D4AF37] font-semibold block mt-0.5">
-                  Botanica • Paris
-                </span>
-              </div>
-            </button>
-
-            <nav className="hidden md:flex items-center gap-1 text-xs font-medium">
-              <button
-                onClick={() => setActiveView('store')}
-                className={`px-3 py-1.5 rounded-md transition ${
-                  activeView === 'store'
-                    ? 'bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/30 font-semibold'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                }`}
-              >
-                Koleksi Kosmetik
-              </button>
-              <button
-                onClick={() => setActiveView('orders')}
-                className={`px-3 py-1.5 rounded-md transition ${
-                  activeView === 'orders'
-                    ? 'bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/30 font-semibold'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                }`}
-              >
-                Pesanan & Ritual Saya
-              </button>
-              <button
-                onClick={() => {
-                  if (currentUser?.role === 'admin') {
-                    setActiveView('admin')
-                  } else {
-                    openAuthModal('login')
-                  }
-                }}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md transition ${
-                  activeView === 'admin'
-                    ? 'bg-[#D4AF37] text-[#102F27] font-bold'
-                    : 'text-[#D4AF37] font-semibold hover:bg-[#D4AF37]/10'
-                }`}
-              >
-                <Crown className="size-3.5" />
-                <span>Maison Backoffice</span>
-              </button>
-            </nav>
+      {/* 1. Top Announcement / Utility Strip (Matching Reference Image) */}
+      <div className="w-full border-b border-border/60 bg-[#F4F0E8] dark:bg-[#061410] text-[#091D18] dark:text-[#F2EBDD] py-2 px-4 text-[10px] sm:text-[11px] tracking-wider transition-colors">
+        <div className="mx-auto max-w-7xl flex flex-wrap items-center justify-between gap-2">
+          {/* Left / Center Offers */}
+          <div className="flex items-center gap-4 sm:gap-6 mx-auto sm:mx-0">
+            <span className="font-medium">
+              FREE SHIPPING ON ORDERS OVER <strong>RP 500.000</strong>
+            </span>
+            <span className="hidden md:inline text-border">|</span>
+            <span className="hidden md:inline font-medium">
+              COMPLIMENTARY VIAL SAMPLES WITH EVERY ORDER
+            </span>
           </div>
 
-          {/* Right: Search Cmd+K, Theme Toggle, Shopping Bag, User Account */}
-          <div className="flex items-center gap-2 sm:gap-2.5">
-            {/* Search Trigger (⌘K) */}
+          {/* Right Currency / Locale Indicator */}
+          <div className="hidden sm:flex items-center gap-1 text-[11px] font-semibold text-[#091D18] dark:text-[#D4AF37]">
+            <span>INDONESIA (IDR)</span>
+            <ChevronDown className="size-3" />
+          </div>
+        </div>
+      </div>
+
+      {/* 2. Main High-Fashion Sticky Navbar */}
+      <header className="sticky top-0 z-40 w-full border-b border-border/80 bg-background/90 backdrop-blur-md transition-colors">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+          {/* Brand Logo & Editorial Typography */}
+          <button
+            onClick={() => setActiveView('store')}
+            className="flex items-center gap-3 text-left transition hover:opacity-90 group focus:outline-none"
+          >
+            <div className="flex items-center justify-center transition-transform group-hover:scale-105">
+              <BotanicalCrest size="sm" />
+            </div>
+            <div>
+              <span className="font-serif text-2xl sm:text-3xl font-bold tracking-[0.22em] text-[#091D18] dark:text-[#F2EBDD] block leading-none uppercase">
+                Émeraude
+              </span>
+              <span className="text-[9px] uppercase tracking-[0.38em] text-[#D4AF37] font-semibold block mt-1">
+                Haute Botanique
+              </span>
+            </div>
+          </button>
+
+          {/* Center Editorial Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-xs tracking-wider uppercase font-medium text-foreground/80">
+            <button
+              onClick={() => scrollToCatalog()}
+              className="hover:text-[#D4AF37] transition flex items-center gap-1 focus:outline-none font-semibold"
+            >
+              <span>Shop</span>
+              <ChevronDown className="size-3" />
+            </button>
+            <button
+              onClick={() => scrollToCatalog()}
+              className="hover:text-[#D4AF37] transition focus:outline-none"
+            >
+              Best Sellers
+            </button>
+            <button
+              onClick={() => scrollToCatalog()}
+              className="hover:text-[#D4AF37] transition focus:outline-none"
+            >
+              Collections
+            </button>
+            <button
+              onClick={() => scrollToSection('the-ritual-section')}
+              className="hover:text-[#D4AF37] transition focus:outline-none"
+            >
+              The Ritual
+            </button>
+            <button
+              onClick={() => scrollToSection('our-promise-section')}
+              className="hover:text-[#D4AF37] transition focus:outline-none"
+            >
+              Our Promise
+            </button>
+            <button
+              onClick={() => {
+                if (currentUser?.role === 'admin') {
+                  setActiveView('admin')
+                } else {
+                  openAuthModal('login')
+                }
+              }}
+              className="hover:text-[#D4AF37] transition flex items-center gap-1.5 text-[#D4AF37] font-semibold focus:outline-none"
+            >
+              <Crown className="size-3.5" />
+              <span>Backoffice</span>
+            </button>
+          </nav>
+
+          {/* Right Action Icons (Search, Theme, Account, Cart) */}
+          <div className="flex items-center gap-3 sm:gap-4 text-[#091D18] dark:text-[#F2EBDD]">
+            {/* Search Trigger */}
             <button
               onClick={() => setIsCmdKOpen(true)}
-              className="hidden sm:flex items-center gap-2 h-9 w-44 md:w-60 rounded-md border border-border bg-card/60 px-3 text-xs text-muted-foreground hover:border-[#D4AF37] transition"
+              className="flex items-center justify-center p-2 rounded-full hover:bg-muted/80 transition text-foreground"
+              aria-label="Cari Produk (⌘K)"
+              title="Cari Produk (⌘K)"
             >
-              <Search className="size-3.5 text-[#D4AF37]" />
-              <span className="flex-1 text-left truncate">Cari serum, lip velvet...</span>
-              <kbd className="pointer-events-none rounded border border-border bg-background px-1.5 py-0.5 text-[10px] font-mono font-medium">
-                ⌘K
-              </kbd>
+              <Search className="size-4 sm:size-5 stroke-[1.7]" />
             </button>
 
-            <button
-              onClick={() => setIsCmdKOpen(true)}
-              className="flex sm:hidden size-9 items-center justify-center rounded-md border border-border hover:bg-muted transition text-muted-foreground"
-              aria-label="Cari Produk"
-            >
-              <Search className="size-4 text-[#D4AF37]" />
-            </button>
-
-            {/* Theme Switcher (Emerald Silk vs Alabaster Cream) */}
+            {/* Theme Toggle (Alabaster vs Dark Velvet) */}
             <button
               onClick={toggleTheme}
-              className="flex size-9 items-center justify-center rounded-md border border-border hover:border-[#D4AF37] hover:bg-muted text-muted-foreground hover:text-foreground transition"
+              className="flex items-center justify-center p-2 rounded-full hover:bg-muted/80 transition text-foreground"
               title={
                 theme === 'dark'
                   ? 'Beralih ke Mode Alabaster Cream (#F2EBDD)'
-                  : 'Beralih ke Mode Deep Emerald Silk (#102F27)'
+                  : 'Beralih ke Mode Deep Forest Green (#091D18)'
               }
             >
               {theme === 'dark' ? (
-                <Sun className="size-4 text-[#D4AF37]" />
+                <Sun className="size-4 sm:size-5 text-[#D4AF37] stroke-[1.7]" />
               ) : (
-                <Moon className="size-4 text-[#102F27]" />
+                <Moon className="size-4 sm:size-5 text-[#091D18] stroke-[1.7]" />
               )}
             </button>
 
-            {/* Shopping Bag Button */}
-            <button
-              onClick={() => setIsCartOpen(true)}
-              className="relative flex size-9 items-center justify-center rounded-md border border-border hover:border-[#D4AF37] hover:bg-muted text-foreground transition"
-              aria-label="Tas Belanja"
-            >
-              <ShoppingBag className="size-4 text-[#D4AF37]" />
-              {cartItemCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 flex size-5 items-center justify-center rounded-full bg-[#D4AF37] text-[#102F27] text-[10px] font-bold shadow-xs animate-in zoom-in-75">
-                  {cartItemCount}
-                </span>
-              )}
-            </button>
-
-            {/* User Account / Role Menu */}
+            {/* User Account Dropdown */}
             {currentUser ? (
-              <div className="relative group pl-1">
-                <button className="flex items-center gap-2 rounded-md border border-border bg-card/60 px-2.5 py-1.5 text-xs font-medium hover:border-[#D4AF37] transition">
+              <div className="relative group">
+                <button
+                  className="flex items-center gap-1.5 p-1 rounded-full hover:bg-muted/80 transition focus:outline-none"
+                  aria-label="Akun Pengguna"
+                >
                   {currentUser.avatarUrl ? (
                     <img
                       src={currentUser.avatarUrl}
                       alt={currentUser.name}
-                      className="size-5 rounded-full object-cover border border-[#D4AF37]/40"
+                      className="size-7 rounded-full object-cover border border-[#D4AF37]/50"
                     />
                   ) : (
-                    <UserIcon className="size-4 text-[#D4AF37]" />
+                    <UserIcon className="size-5 stroke-[1.7]" />
                   )}
-                  <span className="hidden lg:inline max-w-[115px] truncate">
-                    {currentUser.name}
-                  </span>
-                  <span
-                    className={`rounded px-1.5 py-0.5 text-[9px] font-bold tracking-wider uppercase ${
-                      currentUser.role === 'admin'
-                        ? 'bg-[#D4AF37] text-[#102F27]'
-                        : 'bg-[#78947F]/20 text-[#D4AF37] border border-[#D4AF37]/30'
-                    }`}
-                  >
-                    {currentUser.role === 'admin' ? 'DIRECTOR' : 'VIP'}
-                  </span>
                 </button>
 
-                {/* Dropdown */}
-                <div className="absolute right-0 top-full mt-1.5 hidden group-hover:block w-60 rounded-lg border border-border bg-popover p-1.5 shadow-xl z-50 text-xs">
+                {/* Dropdown Menu */}
+                <div className="absolute right-0 top-full mt-2 hidden group-hover:block w-56 rounded-xl border border-border bg-popover p-2 shadow-2xl z-50 text-xs">
                   <div className="px-3 py-2 border-b border-border">
                     <p className="font-semibold text-foreground truncate">{currentUser.name}</p>
-                    <p className="text-muted-foreground text-[11px] truncate">{currentUser.email}</p>
-                    {currentUser.skinProfile && (
-                      <p className="text-[10px] text-[#D4AF37] mt-0.5">
-                        Profil Kulit: {currentUser.skinProfile}
-                      </p>
-                    )}
+                    <p className="text-muted-foreground text-[10px] truncate">{currentUser.email}</p>
                   </div>
-
-                  <div className="py-1">
+                  <div className="py-1 space-y-0.5">
                     <button
                       onClick={() => setActiveView('orders')}
-                      className="flex w-full items-center gap-2 rounded px-2.5 py-1.5 hover:bg-accent text-left"
+                      className="flex w-full items-center gap-2 rounded-md px-2.5 py-1.5 hover:bg-accent text-left"
                     >
                       <ClipboardList className="size-3.5 text-[#D4AF37]" />
-                      <span>Riwayat Pesanan Saya</span>
+                      <span>Riwayat Pesanan</span>
                     </button>
-
                     {currentUser.role === 'admin' && (
                       <button
                         onClick={() => setActiveView('admin')}
-                        className="flex w-full items-center gap-2 rounded px-2.5 py-1.5 hover:bg-accent text-left font-semibold text-[#D4AF37]"
+                        className="flex w-full items-center gap-2 rounded-md px-2.5 py-1.5 hover:bg-accent text-left font-semibold text-[#D4AF37]"
                       >
                         <Crown className="size-3.5" />
-                        <span>Buka Maison Backoffice</span>
+                        <span>Maison Backoffice</span>
                       </button>
                     )}
                   </div>
-
                   <div className="border-t border-border pt-1">
                     <button
                       onClick={logout}
-                      className="flex w-full items-center gap-2 rounded px-2.5 py-1.5 text-destructive hover:bg-destructive/10 text-left"
+                      className="flex w-full items-center gap-2 rounded-md px-2.5 py-1.5 text-destructive hover:bg-destructive/10 text-left"
                     >
                       <LogOut className="size-3.5" />
                       <span>Keluar (Logout)</span>
@@ -216,21 +222,27 @@ export const Header: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <div className="flex items-center gap-1.5">
-                <button
-                  onClick={() => openAuthModal('login')}
-                  className="h-9 px-3 rounded-md border border-border text-foreground text-xs font-medium hover:border-[#D4AF37] hover:bg-muted transition"
-                >
-                  Masuk
-                </button>
-                <button
-                  onClick={() => openAuthModal('register')}
-                  className="h-9 px-3 rounded-md bg-[#D4AF37] text-[#102F27] text-xs font-bold hover:bg-[#E5C453] transition shadow-xs"
-                >
-                  Daftar VIP
-                </button>
-              </div>
+              <button
+                onClick={() => openAuthModal('login')}
+                className="flex items-center justify-center p-2 rounded-full hover:bg-muted/80 transition text-foreground"
+                aria-label="Masuk Akun"
+                title="Masuk ke Akun VIP"
+              >
+                <UserIcon className="size-4 sm:size-5 stroke-[1.7]" />
+              </button>
             )}
+
+            {/* Shopping Bag with Count Indicator */}
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative flex items-center justify-center p-2 rounded-full hover:bg-muted/80 transition text-foreground"
+              aria-label="Tas Belanja"
+            >
+              <ShoppingBag className="size-4 sm:size-5 stroke-[1.7]" />
+              <span className="absolute -top-0.5 -right-0.5 flex size-4 items-center justify-center rounded-full bg-[#091D18] dark:bg-[#D4AF37] text-[#F2EBDD] dark:text-[#091D18] text-[9px] font-bold">
+                {cartItemCount}
+              </span>
+            </button>
           </div>
         </div>
       </header>

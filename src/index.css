@@ -177,3 +177,48 @@
 .gold-glow {
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.22);
 }
+
+/* =========================================================================
+   AUTHENTIC LUXURY NOISE / GRAIN EFFECT ON PRIMARY COLOR (#091D18)
+   Produces a tactile, matte, physical linen/paper/stone grain texture
+   ========================================================================= */
+
+.grain-primary,
+.bg-grain-primary {
+  background-color: #091D18;
+  position: relative;
+}
+
+.grain-primary > *,
+.bg-grain-primary > * {
+  position: relative;
+  z-index: 2;
+}
+
+.grain-primary::before,
+.bg-grain-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.09'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay > * {
+  position: relative;
+  z-index: 2;
+}
+
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  z-index: 1;
+}
