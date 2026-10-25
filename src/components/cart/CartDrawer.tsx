@@ -29,7 +29,8 @@ export const CartDrawer: React.FC = () => {
     setActiveView,
   } = useCosmetics()
 
-  if (!isCartOpen) return null
+  const { currentUser } = useCosmetics()
+  if (!isCartOpen || !currentUser) return null
 
   const progress = Math.min(100, Math.round((cartSubtotal / FREE_SHIPPING_THRESHOLD) * 100))
   const remainingForFreeShipping = Math.max(0, FREE_SHIPPING_THRESHOLD - cartSubtotal)

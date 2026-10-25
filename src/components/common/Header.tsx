@@ -190,7 +190,8 @@ export const Header: React.FC = () => {
           )}
 
           {/* Shopping Bag with Count Indicator */}
-          <button
+          {currentUser && (
+            <button
             onClick={() => setIsCartOpen(true)}
             className="relative flex items-center justify-center p-2 rounded-full hover:bg-muted/80 transition text-foreground"
             aria-label="Tas Belanja"
@@ -200,6 +201,7 @@ export const Header: React.FC = () => {
               {cartItemCount}
             </span>
           </button>
+          )}
         </div>
       </div>
     </header>

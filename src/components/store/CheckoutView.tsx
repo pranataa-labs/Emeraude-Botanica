@@ -29,6 +29,7 @@ export const CheckoutView: React.FC = () => {
     selectedSample,
     createOrder,
     setActiveView,
+    openAuthModal,
   } = useCosmetics()
 
   const [customerName, setCustomerName] = useState(currentUser?.name || '')
@@ -45,11 +46,15 @@ export const CheckoutView: React.FC = () => {
   const [appliedVoucher, setAppliedVoucher] = useState<string | null>(null)
 
   useEffect(() => {
-    if (currentUser) {
-      setCustomerName(currentUser.name)
-      setCustomerEmail(currentUser.email)
-      if (currentUser.phone) setCustomerPhone(currentUser.phone)
+    if (!currentUser) {
+      toast.info('Silakan masuk ke akun Anda terlebih dahulu untuk mengakses kasir pembayaran.')
+      openAuthModal('login')
+      setActiveView('store')
+      return
     }
+    setCustomerName(currentUser.name)
+    setCustomerEmail(currentUser.email)
+    if (currentUser.phone) setCustomerPhone(currentUser.phone)
   }, [currentUser])
 
   const handlePostalCodeChange = (val: string) => {

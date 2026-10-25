@@ -236,12 +236,15 @@ export function CosmeticsProvider({ children }: { children: ReactNode }) {
 
   const logout = () => {
     setCurrentUser(null)
+    setCart([])
+    setIsCartOpen(false)
     try {
       localStorage.removeItem(STORAGE_KEYS.SESSION_USER)
+      localStorage.removeItem(STORAGE_KEYS.CART)
     } catch {
       // Ignore
     }
-    if (activeView === 'admin') {
+    if (activeView === 'admin' || activeView === 'checkout' || activeView === 'orders') {
       setActiveView('store')
     }
     toast.info('Anda telah keluar dari sesi Maison Émeraude.')
@@ -345,6 +348,14 @@ export function CosmeticsProvider({ children }: { children: ReactNode }) {
   const [selectedSample, setSelectedSample] = useState<string>(COMPLIMENTARY_SAMPLES[0])
 
   const addToCart = (product: CosmeticProduct, quantity = 1) => {
+    if (!currentUser) {
+      toast.info('Silakan masuk ke akun Anda terlebih dahulu untuk berbelanja.', {
+        description: 'Daftar atau masuk akun VIP Émeraude untuk menambahkan formulasi ke keranjang belanja.',
+      })
+      openAuthModal('login')
+      return
+    }
+
     setCart(prev => {
       const existing = prev.find(item => item.product.id === product.id)
       if (existing) {
@@ -356,6 +367,7 @@ export function CosmeticsProvider({ children }: { children: ReactNode }) {
       }
       return [...prev, { product, quantity: Math.min(quantity, product.stock) }]
     })
+    setIsCartOpen(true)
     toast.success(`"${product.name}" ditambahkan ke Tas Belanja`, {
       description: `${quantity} unit (${product.volume}) siap untuk ritual kecantikan Anda.`,
     })

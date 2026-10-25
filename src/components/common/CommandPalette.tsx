@@ -15,6 +15,7 @@ export const CommandPalette: React.FC = () => {
   const {
     isCmdKOpen,
     setIsCmdKOpen,
+    currentUser,
     products,
     openProductPage,
     navigateToCatalog,
@@ -126,16 +127,18 @@ export const CommandPalette: React.FC = () => {
                 <LayoutGrid className="size-3.5 text-[#D4AF37]" />
                 <span>Katalog Lengkap (120 Produk)</span>
               </button>
-              <button
-                onClick={() => {
-                  setIsCartOpen(true)
-                  setIsCmdKOpen(false)
-                }}
-                className="flex items-center gap-2 rounded-md px-2.5 py-2 hover:bg-accent text-left"
-              >
-                <ShoppingBag className="size-3.5 text-[#D4AF37]" />
-                <span>Buka Tas Belanja</span>
-              </button>
+              {currentUser && (
+                <button
+                  onClick={() => {
+                    setIsCartOpen(true)
+                    setIsCmdKOpen(false)
+                  }}
+                  className="flex items-center gap-2 rounded-md px-2.5 py-2 hover:bg-accent text-left"
+                >
+                  <ShoppingBag className="size-3.5 text-[#D4AF37]" />
+                  <span>Buka Tas Belanja</span>
+                </button>
+              )}
               <button
                 onClick={() => {
                   setActiveView('orders')

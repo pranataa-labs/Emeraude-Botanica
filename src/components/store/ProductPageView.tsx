@@ -32,6 +32,8 @@ export const ProductPageView: React.FC = () => {
     setIsCartOpen,
     wishlistIds,
     toggleWishlist,
+    currentUser,
+    openAuthModal,
   } = useCosmetics()
 
   const [qty, setQty] = useState(1)
@@ -62,6 +64,10 @@ export const ProductPageView: React.FC = () => {
   const isWishlisted = wishlistIds.includes(activeProduct.id)
 
   const handleBuyNow = () => {
+    if (!currentUser) {
+      openAuthModal('login')
+      return
+    }
     addToCart(activeProduct, qty)
     setActiveView('checkout')
     window.scrollTo({ top: 0, behavior: 'smooth' })
