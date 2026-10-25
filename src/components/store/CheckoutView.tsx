@@ -34,15 +34,15 @@ export const CheckoutView: React.FC = () => {
   const [customerName, setCustomerName] = useState(currentUser?.name || '')
   const [customerEmail, setCustomerEmail] = useState(currentUser?.email || '')
   const [customerPhone, setCustomerPhone] = useState(currentUser?.phone || '')
-  const [postalCode, setPostalCode] = useState('12190')
-  const [province, setProvince] = useState('DKI Jakarta')
-  const [city, setCity] = useState('Jakarta Selatan')
-  const [district, setDistrict] = useState('Kebayoran Baru (SCBD / Senopati)')
+  const [postalCode, setPostalCode] = useState('')
+  const [province, setProvince] = useState('')
+  const [city, setCity] = useState('')
+  const [district, setDistrict] = useState('')
   const [shippingAddress, setShippingAddress] = useState('')
   const [courier, setCourier] = useState<'luxury-same-day' | 'jne-yes' | 'sicepat-best'>('jne-yes')
   const [paymentMethod, setPaymentMethod] = useState<Order['paymentMethod']>('QRIS')
-  const [voucherInput, setVoucherInput] = useState('EMERALD15')
-  const [appliedVoucher, setAppliedVoucher] = useState<string | null>('EMERALD15')
+  const [voucherInput, setVoucherInput] = useState('')
+  const [appliedVoucher, setAppliedVoucher] = useState<string | null>(null)
 
   useEffect(() => {
     if (currentUser) {

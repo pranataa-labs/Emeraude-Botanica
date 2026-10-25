@@ -19,7 +19,7 @@ export const DEFAULT_USER_ACCOUNTS: UserAccount[] = [
   {
     id: 'usr-admin-01',
     name: 'Clarissa Aurelia (Maison Director)',
-    email: 'admin@example.com',
+    email: 'admin@emeraude.com',
     password: 'password123',
     phone: '081199887766',
     role: 'admin',
@@ -30,7 +30,7 @@ export const DEFAULT_USER_ACCOUNTS: UserAccount[] = [
   {
     id: 'usr-cust-01',
     name: 'Nadia Pramesti',
-    email: 'user@example.com',
+    email: 'nadia.pramesti@emeraude.com',
     password: 'password123',
     phone: '081288776655',
     role: 'customer',
@@ -41,7 +41,7 @@ export const DEFAULT_USER_ACCOUNTS: UserAccount[] = [
   {
     id: 'usr-cust-02',
     name: 'dr. Savira Larasati, Sp.DVE',
-    email: 'savira.larasati@example.com',
+    email: 'savira.larasati@emeraude.com',
     password: 'password123',
     phone: '081377665544',
     role: 'customer',
@@ -3318,7 +3318,7 @@ export const INITIAL_ORDERS: Order[] = [
   {
     id: 'EMR-2026-8819',
     customerName: 'Nadia Pramesti',
-    customerEmail: 'user@example.com',
+    customerEmail: 'nadia.pramesti@emeraude.com',
     customerPhone: '081288776655',
     postalCode: '12190',
     province: 'DKI Jakarta',
@@ -3342,7 +3342,7 @@ export const INITIAL_ORDERS: Order[] = [
   {
     id: 'EMR-2026-9042',
     customerName: 'dr. Savira Larasati, Sp.DVE',
-    customerEmail: 'savira.larasati@example.com',
+    customerEmail: 'savira.larasati@emeraude.com',
     customerPhone: '081377665544',
     postalCode: '40132',
     province: 'Jawa Barat',

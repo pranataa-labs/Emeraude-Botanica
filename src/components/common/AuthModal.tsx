@@ -10,14 +10,11 @@ import {
   Eye,
   EyeOff,
   ArrowRight,
-  ShieldCheck,
-  Sparkles,
 } from 'lucide-react'
 import { toast } from 'sonner'
 
 export const AuthModal: React.FC = () => {
-  const { isAuthModalOpen, authModalMode, closeAuthModal, login, register, setActiveView } =
-    useCosmetics()
+  const { isAuthModalOpen, authModalMode, closeAuthModal, login, register } = useCosmetics()
   const [mode, setMode] = useState<'login' | 'register'>('login')
 
   const [name, setName] = useState('')
@@ -43,18 +40,6 @@ export const AuthModal: React.FC = () => {
     const success = login(email, password)
     if (success) {
       closeAuthModal()
-    }
-  }
-
-  const handleQuickDemoLogin = (demoEmail: string, demoPass: string, goAdmin = false) => {
-    setEmail(demoEmail)
-    setPassword(demoPass)
-    const success = login(demoEmail, demoPass)
-    if (success) {
-      closeAuthModal()
-      if (goAdmin) {
-        setActiveView('admin')
-      }
     }
   }
 
@@ -133,84 +118,56 @@ export const AuthModal: React.FC = () => {
         </div>
 
         {mode === 'login' && (
-          <>
-            {/* Instant One-Click Demo Login Buttons */}
-            <div className="rounded-lg border border-[#D4AF37]/30 bg-background/60 p-3 space-y-2">
-              <p className="text-[11px] font-semibold text-[#D4AF37] flex items-center gap-1.5">
-                <Sparkles className="size-3.5" />
-                <span>Akses Cepat Akun Demo (1-Klik):</span>
-              </p>
-              <div className="grid grid-cols-2 gap-2">
+          <form onSubmit={handleLoginSubmit} className="space-y-3.5 text-xs pt-1">
+            <div className="space-y-1">
+              <label className="font-semibold text-foreground">Alamat Email</label>
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                <input
+                  type="email"
+                  required
+                  placeholder="nama@email.com"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  className="w-full h-9 rounded-md border border-input bg-background pl-9 pr-3 text-xs focus:border-[#D4AF37] focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <label className="font-semibold text-foreground">Kata Sandi</label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  required
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  className="w-full h-9 rounded-md border border-input bg-background pl-9 pr-9 text-xs focus:border-[#D4AF37] focus:outline-none"
+                />
                 <button
                   type="button"
-                  onClick={() => handleQuickDemoLogin('user@example.com', 'password123', false)}
-                  className="flex items-center justify-center gap-1.5 rounded-md border border-[#D4AF37]/40 bg-card px-2.5 py-2 text-[11px] font-semibold text-foreground hover:border-[#D4AF37] hover:bg-accent transition"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                 >
-                  <UserIcon className="size-3.5 text-[#D4AF37]" />
-                  <span>Demo Member VIP</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleQuickDemoLogin('admin@example.com', 'password123', true)}
-                  className="flex items-center justify-center gap-1.5 rounded-md bg-[#D4AF37]/20 border border-[#D4AF37] px-2.5 py-2 text-[11px] font-bold text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#102F27] transition"
-                >
-                  <ShieldCheck className="size-3.5" />
-                  <span>Demo Admin Backoffice</span>
+                  {showPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
                 </button>
               </div>
             </div>
 
-            <form onSubmit={handleLoginSubmit} className="space-y-3.5 text-xs">
-              <div className="space-y-1">
-                <label className="font-semibold text-foreground">Alamat Email</label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-                  <input
-                    type="email"
-                    required
-                    placeholder="user@example.com"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    className="w-full h-9 rounded-md border border-input bg-background pl-9 pr-3 text-xs focus:border-[#D4AF37] focus:outline-none"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <label className="font-semibold text-foreground">Kata Sandi</label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    required
-                    placeholder="password123"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    className="w-full h-9 rounded-md border border-input bg-background pl-9 pr-9 text-xs focus:border-[#D4AF37] focus:outline-none"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                  >
-                    {showPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
-                  </button>
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full flex items-center justify-center gap-2 h-10 rounded-md bg-[#D4AF37] text-[#102F27] font-bold text-xs hover:bg-[#E5C453] transition shadow-xs mt-2"
-              >
-                <span>Masuk ke Akun</span>
-                <ArrowRight className="size-3.5 stroke-[2.2]" />
-              </button>
-            </form>
-          </>
+            <button
+              type="submit"
+              className="w-full flex items-center justify-center gap-2 h-10 rounded-md bg-[#D4AF37] text-[#102F27] font-bold text-xs hover:bg-[#E5C453] transition shadow-xs mt-3"
+            >
+              <span>Masuk ke Akun</span>
+              <ArrowRight className="size-3.5 stroke-[2.2]" />
+            </button>
+          </form>
         )}
 
         {mode === 'register' && (
-          <form onSubmit={handleRegisterSubmit} className="space-y-3 text-xs">
+          <form onSubmit={handleRegisterSubmit} className="space-y-3 text-xs pt-1">
             <div className="space-y-1">
               <label className="font-semibold text-foreground">Nama Lengkap *</label>
               <div className="relative">
@@ -298,7 +255,7 @@ export const AuthModal: React.FC = () => {
 
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 h-10 rounded-md bg-[#D4AF37] text-[#102F27] font-bold text-xs hover:bg-[#E5C453] transition shadow-xs mt-2"
+              className="w-full flex items-center justify-center gap-2 h-10 rounded-md bg-[#D4AF37] text-[#102F27] font-bold text-xs hover:bg-[#E5C453] transition shadow-xs mt-3"
             >
               <span>Aktifkan Member VIP</span>
               <ArrowRight className="size-3.5 stroke-[2.2]" />

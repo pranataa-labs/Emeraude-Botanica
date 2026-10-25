@@ -10,7 +10,7 @@ import { AdminAnalyticsTab } from './AdminAnalyticsTab'
 import { ShieldAlert, ArrowLeft, LogIn } from 'lucide-react'
 
 export const AdminLayout: React.FC = () => {
-  const { currentUser, login, setActiveView } = useCosmetics()
+  const { currentUser, openAuthModal, setActiveView } = useCosmetics()
   const [currentTab, setCurrentTab] = useState<AdminTab>('dashboard')
   const [isCollapsed, setIsCollapsed] = useState(false)
 
@@ -31,11 +31,11 @@ export const AdminLayout: React.FC = () => {
 
         <div className="pt-2 flex flex-col gap-2.5">
           <button
-            onClick={() => login('admin@example.com', 'password123')}
+            onClick={() => openAuthModal('login')}
             className="flex items-center justify-center gap-2 h-10 rounded-md bg-[#D4AF37] text-[#102F27] font-bold text-xs hover:bg-[#E5C453] transition shadow-xs"
           >
             <LogIn className="size-4" />
-            <span>Masuk Instan sebagai Demo Admin (admin@example.com)</span>
+            <span>Masuk dengan Akun Administrator</span>
           </button>
 
           <button

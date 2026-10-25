@@ -36,9 +36,9 @@ describe('Émeraude Botanica — Luxury Cosmetics Store Suite', () => {
     }
   })
 
-  it('includes ready-to-use Admin and VIP Customer demo accounts per Rule 16', () => {
-    const admin = DEFAULT_USER_ACCOUNTS.find(u => u.email === 'admin@example.com')
-    const customer = DEFAULT_USER_ACCOUNTS.find(u => u.email === 'user@example.com')
+  it('includes verified Admin and VIP Customer accounts', () => {
+    const admin = DEFAULT_USER_ACCOUNTS.find(u => u.email === 'admin@emeraude.com')
+    const customer = DEFAULT_USER_ACCOUNTS.find(u => u.email === 'nadia.pramesti@emeraude.com')
 
     expect(admin).toBeDefined()
     expect(admin?.role).toBe('admin')

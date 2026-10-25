@@ -75,16 +75,6 @@
 - **Manajemen Pesanan**: Pembaruan status pesanan (*Pending → Dibayar → Dikemas → Dikirim → Selesai*).
 - **Database Member VIP & Analisis Kulit**: Pemetaan preferensi jenis kulit member terdaftar.
 
----
-
-## 🔑 Akun Demo Siap Pakai
-
-Tersedia tombol login instan 1-klik di modal Masuk Akun:
-
-| Peran Akun | Email | Kata Sandi | Lingkup Akses |
-| :--- | :--- | :--- | :--- |
-| **Maison Director (Admin)** | `admin@example.com` | `password123` | Backoffice Dashboard, CRUD Formulasi, Kelola Pesanan VIP, Analitik |
-| **VIP Member (Customer)** | `user@example.com` | `password123` | Butik Belanja, Wishlist, Checkout Otomatis, Riwayat Pesanan |
 
 ---
 
