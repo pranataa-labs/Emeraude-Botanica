@@ -224,38 +224,34 @@ export const CatalogView: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. DUAL EDITORIAL FEATURE BANNERS ("THE RITUAL" & "OUR PROMISE") */}
+      {/* 3. DUAL EDITORIAL FEATURE BANNERS ("THE RITUAL" & "OUR PROMISE") - SYMMETRICALLY BALANCED */}
       <section className="py-10 sm:py-14 bg-background transition-colors">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch">
             {/* Left Banner: THE RITUAL */}
             <div
               id="the-ritual-section"
-              className="lg:col-span-6 relative overflow-hidden rounded-2xl border border-border/70 p-6 sm:p-10 flex flex-col justify-between min-h-[380px] bg-[#EBE7DF] dark:bg-[#0c221c]"
+              className="relative overflow-hidden rounded-2xl border border-[#D4AF37]/35 bg-[#091D18] p-6 sm:p-8 lg:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 h-full min-h-[380px] shadow-lg"
             >
-              <div
-                className="absolute inset-0 opacity-40 mix-blend-overlay bg-cover bg-center pointer-events-none"
-                style={{
-                  backgroundImage:
-                    'url(https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=900&auto=format&fit=crop&q=80)',
-                }}
-              />
+              <div className="pointer-events-none absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:10px_10px]" />
 
-              <div className="relative z-10 space-y-3 max-w-xs">
-                <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-muted-foreground">
-                  The Ritual
-                </span>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-[#091D18] dark:text-[#F2EBDD] leading-tight">
-                  Skincare that becomes a ritual.
-                </h3>
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans">
-                  Simple steps. Powerful results. Made to fit effortlessly into your everyday
-                  self-care.
-                </p>
+              <div className="relative z-10 w-full sm:w-1/2 flex flex-col justify-between h-full space-y-4 text-left">
+                <div className="space-y-3">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-[#D4AF37]">
+                    The Ritual
+                  </span>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-[#F2EBDD] leading-tight">
+                    Skincare that becomes a ritual.
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#F2EBDD]/75 leading-relaxed font-sans">
+                    Simple steps. Powerful results. Made to fit effortlessly into your everyday
+                    self-care routine.
+                  </p>
+                </div>
                 <div className="pt-2">
                   <button
                     onClick={() => navigateToCatalog('Eye & Night Ritual')}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#091D18] dark:text-[#D4AF37] hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#D4AF37] hover:underline"
                   >
                     <span>Explore Collection</span>
                     <ArrowRight className="size-3.5" />
@@ -263,76 +259,84 @@ export const CatalogView: React.FC = () => {
                 </div>
               </div>
 
-              <div className="relative z-10 self-end mt-4 sm:mt-0">
-                <img
-                  src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&auto=format&fit=crop&q=80"
-                  alt="Émeraude Botanica Ritual Bottles"
-                  onError={e => {
-                    ;(e.currentTarget as HTMLImageElement).src =
-                      'https://images.unsplash.com/photo-1608248597359-0e6d526a6c58?w=800&auto=format&fit=crop&q=85'
-                  }}
-                  className="w-48 sm:w-56 h-auto rounded-xl object-cover shadow-lg border border-border/40"
-                />
+              {/* Symmetrical Image Showcase on Right */}
+              <div className="relative z-10 w-full sm:w-1/2 flex justify-center sm:justify-end">
+                <div className="relative aspect-[4/5] w-full max-w-[200px] sm:max-w-[220px] rounded-xl overflow-hidden shadow-xl border border-[#D4AF37]/40 bg-[#061511]">
+                  <img
+                    src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&auto=format&fit=crop&q=80"
+                    alt="Émeraude Botanica Ritual Bottles"
+                    onError={e => {
+                      ;(e.currentTarget as HTMLImageElement).src =
+                        'https://images.unsplash.com/photo-1608248597359-0e6d526a6c58?w=800&auto=format&fit=crop&q=85'
+                    }}
+                    className="size-full object-cover object-center"
+                  />
+                </div>
               </div>
             </div>
 
             {/* Right Banner: OUR PROMISE */}
             <div
               id="our-promise-section"
-              className="lg:col-span-6 relative overflow-hidden rounded-2xl border border-border/70 bg-[#F4F0E8] dark:bg-[#0a1e18] p-6 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6"
+              className="relative overflow-hidden rounded-2xl border border-[#D4AF37]/35 bg-[#091D18] p-6 sm:p-8 lg:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 h-full min-h-[380px] shadow-lg"
             >
-              <div className="space-y-6 max-w-xs text-left w-full sm:w-1/2">
-                <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-muted-foreground">
-                  Our Promise
-                </span>
+              <div className="pointer-events-none absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:10px_10px]" />
 
+              <div className="relative z-10 w-full sm:w-1/2 flex flex-col justify-between h-full space-y-4 text-left">
                 <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="mt-0.5 text-[#091D18] dark:text-[#D4AF37]">
-                      <IconCleanSafe className="size-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-foreground">
-                        Clean &amp; Safe
-                      </h4>
-                      <p className="text-[11px] text-muted-foreground mt-0.5">
-                        No harmful chemicals, 100% paraben free
-                      </p>
-                    </div>
-                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-[#D4AF37] block">
+                    Our Promise
+                  </span>
 
-                  <div className="flex items-start gap-3">
-                    <div className="mt-0.5 text-[#091D18] dark:text-[#D4AF37]">
-                      <IconSustainable className="size-5" />
+                  <div className="space-y-3.5">
+                    <div className="flex items-start gap-3">
+                      <div className="mt-0.5 text-[#D4AF37]">
+                        <IconCleanSafe className="size-5" />
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-[#F2EBDD]">
+                          Clean &amp; Safe
+                        </h4>
+                        <p className="text-[11px] text-[#F2EBDD]/70 mt-0.5">
+                          No harmful chemicals, 100% paraben free
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-foreground">
-                        Sustainable
-                      </h4>
-                      <p className="text-[11px] text-muted-foreground mt-0.5">
-                        Eco-friendly recyclable packaging
-                      </p>
-                    </div>
-                  </div>
 
-                  <div className="flex items-start gap-3">
-                    <div className="mt-0.5 text-[#091D18] dark:text-[#D4AF37]">
-                      <IconCrueltyFree className="size-5" />
+                    <div className="flex items-start gap-3">
+                      <div className="mt-0.5 text-[#D4AF37]">
+                        <IconSustainable className="size-5" />
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-[#F2EBDD]">
+                          Sustainable
+                        </h4>
+                        <p className="text-[11px] text-[#F2EBDD]/70 mt-0.5">
+                          Eco-friendly recyclable packaging
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-foreground">
-                        Cruelty Free
-                      </h4>
-                      <p className="text-[11px] text-muted-foreground mt-0.5">
-                        Never tested on animals, certified vegan
-                      </p>
+
+                    <div className="flex items-start gap-3">
+                      <div className="mt-0.5 text-[#D4AF37]">
+                        <IconCrueltyFree className="size-5" />
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-[#F2EBDD]">
+                          Cruelty Free
+                        </h4>
+                        <p className="text-[11px] text-[#F2EBDD]/70 mt-0.5">
+                          Never tested on animals, certified vegan
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="w-full sm:w-1/2 flex justify-center sm:justify-end">
-                <div className="relative aspect-[3/4] w-48 sm:w-52 rounded-xl overflow-hidden shadow-lg border border-border/50">
+              {/* Symmetrical Image Showcase on Right */}
+              <div className="relative z-10 w-full sm:w-1/2 flex justify-center sm:justify-end">
+                <div className="relative aspect-[4/5] w-full max-w-[200px] sm:max-w-[220px] rounded-xl overflow-hidden shadow-xl border border-[#D4AF37]/40 bg-[#061511]">
                   <img
                     src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&auto=format&fit=crop&q=80"
                     alt="Radiant Dewy Skincare Model"

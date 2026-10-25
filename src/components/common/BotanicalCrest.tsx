@@ -2,16 +2,18 @@ import React, { useState } from 'react'
 
 export const BotanicalCrest: React.FC<{
   className?: string
-  size?: 'sm' | 'md' | 'lg' | 'xl'
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'hero'
 }> = ({ className = '', size = 'md' }) => {
   const dimensions =
-    size === 'xl'
-      ? 'w-24 h-24 sm:w-28 sm:h-28'
-      : size === 'lg'
-        ? 'w-16 h-16 sm:w-20 sm:h-20'
-        : size === 'sm'
-          ? 'w-10 h-10 sm:w-11 sm:h-11'
-          : 'w-13 h-13 sm:w-14 sm:h-14'
+    size === 'hero'
+      ? 'w-44 h-44 sm:w-56 sm:h-56'
+      : size === 'xl'
+        ? 'w-24 h-24 sm:w-28 sm:h-28'
+        : size === 'lg'
+          ? 'w-16 h-16 sm:w-20 sm:h-20'
+          : size === 'sm'
+            ? 'w-10 h-10 sm:w-11 sm:h-11'
+            : 'w-13 h-13 sm:w-14 sm:h-14'
 
   return (
     <svg
