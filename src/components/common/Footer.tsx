@@ -2,7 +2,7 @@ import React from 'react'
 import { useCosmetics } from '@/context/CosmeticsContext'
 import { BotanicalCrest } from './BotanicalCrest'
 import { BRAND_SWATCHES } from '@/data/seedData'
-import { ShieldCheck, Sparkles, Award, HeartHandshake } from 'lucide-react'
+import { Leaf, BadgeCheck, Gem, Crown } from 'lucide-react'
 
 export const Footer: React.FC = () => {
   const { setSelectedCategory, setActiveView, openAuthModal } = useCosmetics()
@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="flex items-start gap-3">
             <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#D4AF37]/30 text-[#D4AF37]">
-              <Sparkles className="size-5" />
+              <Leaf className="size-5" />
             </div>
             <div>
               <h4 className="font-serif text-base font-semibold text-[#F2EBDD]">
@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
 
           <div className="flex items-start gap-3">
             <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#D4AF37]/30 text-[#D4AF37]">
-              <ShieldCheck className="size-5" />
+              <BadgeCheck className="size-5" />
             </div>
             <div>
               <h4 className="font-serif text-base font-semibold text-[#F2EBDD]">
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
 
           <div className="flex items-start gap-3">
             <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#D4AF37]/30 text-[#D4AF37]">
-              <Award className="size-5" />
+              <Gem className="size-5" />
             </div>
             <div>
               <h4 className="font-serif text-base font-semibold text-[#F2EBDD]">
@@ -56,7 +56,7 @@ export const Footer: React.FC = () => {
 
           <div className="flex items-start gap-3">
             <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#185844] border border-[#D4AF37]/30 text-[#D4AF37]">
-              <HeartHandshake className="size-5" />
+              <Crown className="size-5" />
             </div>
             <div>
               <h4 className="font-serif text-base font-semibold text-[#F2EBDD]">

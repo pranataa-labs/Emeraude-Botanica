@@ -6,10 +6,9 @@ import {
   X,
   Star,
   ShoppingBag,
-  CheckCircle2,
-  Sparkles,
-  Droplets,
-  ShieldCheck,
+  Sparkle,
+  Leaf,
+  BadgeCheck,
   Heart,
 } from 'lucide-react'
 
@@ -81,7 +80,7 @@ export const ProductDetailModal: React.FC = () => {
               <div className="flex items-center justify-between">
                 <span className="text-muted-foreground">Sertifikasi Formula:</span>
                 <span className="font-semibold text-foreground flex items-center gap-1">
-                  <ShieldCheck className="size-3.5 text-[#D4AF37]" />
+                  <BadgeCheck className="size-3.5 text-[#D4AF37]" />
                   <span>100% Vegan &amp; Halal</span>
                 </span>
               </div>
@@ -147,7 +146,7 @@ export const ProductDetailModal: React.FC = () => {
               {/* Key Active Ingredients */}
               <div className="mt-3.5">
                 <h4 className="text-[11px] font-semibold uppercase tracking-wider text-[#D4AF37] mb-1.5 flex items-center gap-1">
-                  <Sparkles className="size-3" />
+                  <Sparkle className="size-3" />
                   <span>Kandungan Aktif Utama (Key Actives)</span>
                 </h4>
                 <div className="flex flex-wrap gap-1.5">
@@ -165,7 +164,7 @@ export const ProductDetailModal: React.FC = () => {
               {/* Ritual Usage */}
               <div className="mt-3.5 rounded-lg border border-border bg-card/60 p-3">
                 <h4 className="text-[11px] font-semibold uppercase tracking-wider text-[#D4AF37] mb-1 flex items-center gap-1">
-                  <Droplets className="size-3" />
+                  <Leaf className="size-3" />
                   <span>Ritual Pemakaian</span>
                 </h4>
                 <p className="text-xs text-muted-foreground leading-relaxed">
@@ -187,7 +186,7 @@ export const ProductDetailModal: React.FC = () => {
                   ))}
                 </div>
                 <div className="flex items-center gap-1 text-xs font-medium text-[#D4AF37]">
-                  <CheckCircle2 className="size-3.5" />
+                  <BadgeCheck className="size-3.5" />
                   <span>Stok: {selectedProduct.stock} unit</span>
                 </div>
               </div>

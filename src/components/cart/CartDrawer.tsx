@@ -10,7 +10,7 @@ import {
   ArrowRight,
   Gift,
   Truck,
-  Sparkles,
+  Gem,
 } from 'lucide-react'
 
 const FREE_SHIPPING_THRESHOLD = 500000
@@ -204,7 +204,7 @@ export const CartDrawer: React.FC = () => {
                         onChange={() => setSelectedSample(sample)}
                         className="accent-[#D4AF37]"
                       />
-                      <Sparkles className="size-3 text-[#D4AF37] shrink-0" />
+                      <Gem className="size-3 text-[#D4AF37] shrink-0" />
                       <span className="truncate">{sample}</span>
                     </label>
                   ))}

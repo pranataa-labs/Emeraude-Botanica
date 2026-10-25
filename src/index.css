@@ -167,19 +167,13 @@
 
 /* Deep Footer Midnight Forest Silk background with luminous 24K Gold shimmer */
 .emerald-silk-bg {
-  background:
-    radial-gradient(ellipse 85% 65% at 20% 15%, rgba(24, 88, 68, 0.95) 0%, transparent 68%),
-    radial-gradient(ellipse 70% 50% at 85% 80%, rgba(212, 175, 55, 0.3) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 45% at 50% 60%, rgba(120, 148, 127, 0.16) 0%, transparent 55%),
-    linear-gradient(135deg, #051410 0%, #091D18 35%, #102F27 68%, #185844 100%);
+  background-color: #091D18;
 }
 
 .gold-gradient-text {
-  background: linear-gradient(135deg, #FFF7E2 0%, #F5D77F 35%, #D4AF37 70%, #AA820A 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #D4AF37;
 }
 
 .gold-glow {
-  box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.22);
 }

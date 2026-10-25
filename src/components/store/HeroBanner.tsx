@@ -2,7 +2,7 @@ import React from 'react'
 import { useCosmetics } from '@/context/CosmeticsContext'
 import { BotanicalCrest } from '@/components/common/BotanicalCrest'
 import { BRAND_SWATCHES } from '@/data/seedData'
-import { Search, Sparkles, ShieldCheck, Droplets, Award } from 'lucide-react'
+import { Search, Crown, BadgeCheck, Leaf, Gem } from 'lucide-react'
 import { toast } from 'sonner'
 
 export const HeroBanner: React.FC = () => {
@@ -18,11 +18,7 @@ export const HeroBanner: React.FC = () => {
   }
 
   return (
-    <section className="relative overflow-hidden border-b border-[#D4AF37]/30 emerald-silk-bg py-12 sm:py-16 lg:py-20 text-[#F2EBDD]">
-      {/* Silk folds & gold ambient glow */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(176,138,79,0.18),transparent_55%)]" />
-      <div className="pointer-events-none absolute -top-24 -left-24 size-96 rounded-full bg-[#185844]/50 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-24 -right-24 size-96 rounded-full bg-[#D4AF37]/15 blur-3xl" />
+    <section className="relative overflow-hidden border-b border-[#D4AF37]/30 bg-[#091D18] py-12 sm:py-16 lg:py-20 text-[#F2EBDD]">
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-7">
         {/* Iconic Gold Botanical Crest */}
@@ -32,19 +28,19 @@ export const HeroBanner: React.FC = () => {
           </div>
 
           <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#102F27]/85 px-4 py-1 text-[11px] uppercase tracking-[0.22em] text-[#F2EBDD] shadow-sm backdrop-blur-xs">
-            <Sparkles className="size-3 text-[#D4AF37]" />
+            <Crown className="size-3 text-[#D4AF37]" />
             <span>Haute Cosmétique &amp; Botanical Wellness</span>
           </div>
         </div>
 
         {/* Luxury Serif Headline */}
         <div className="space-y-4 max-w-3xl mx-auto">
-          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-[0.12em] uppercase leading-[1.08] gold-gradient-text">
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-[0.12em] uppercase leading-[1.08] text-[#D4AF37]">
             Émeraude Botanica
           </h1>
 
           {/* Delicate 24K Royal Gold Divider Line */}
-          <div className="mx-auto h-px w-48 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
+          <div className="mx-auto h-px w-48 bg-[#D4AF37]/60" />
 
           <p className="font-serif italic text-lg sm:text-2xl text-[#F2EBDD] tracking-wide">
             Ivory, Sage, Emerald, Forest &amp; 24K Royal Gold Palette
@@ -122,15 +118,15 @@ export const HeroBanner: React.FC = () => {
         {/* Key Luxury Promises */}
         <div className="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto border-t border-[#D4AF37]/25 text-xs text-[#F2EBDD]/90">
           <div className="flex items-center justify-center gap-2">
-            <Droplets className="size-4 text-[#D4AF37] shrink-0" />
+            <Leaf className="size-4 text-[#D4AF37] shrink-0" />
             <span>Cold-Pressed Botanical &amp; Peptide</span>
           </div>
           <div className="flex items-center justify-center gap-2">
-            <ShieldCheck className="size-4 text-[#D4AF37] shrink-0" />
+            <BadgeCheck className="size-4 text-[#D4AF37] shrink-0" />
             <span>BPOM RI &amp; Halal Certified</span>
           </div>
           <div className="flex items-center justify-center gap-2">
-            <Award className="size-4 text-[#D4AF37] shrink-0" />
+            <Gem className="size-4 text-[#D4AF37] shrink-0" />
             <span>Kemasan Eksklusif Emerald &amp; 24K Royal Gold</span>
           </div>
         </div>

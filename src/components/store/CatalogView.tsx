@@ -7,11 +7,11 @@ import {
   Star,
   ShoppingBag,
   ArrowUpDown,
-  Filter,
-  Eye,
+  Compass,
+  Maximize2,
   Heart,
-  Sparkles,
-  CheckCircle2,
+  SlidersHorizontal,
+  Droplet,
 } from 'lucide-react'
 
 const CATEGORIES: CosmeticCategory[] = [
@@ -98,7 +98,7 @@ export const CatalogView: React.FC = () => {
         {/* Skin Type Filter Bar (Interactive Skin Concern Selector) */}
         <div className="flex flex-wrap items-center gap-1.5">
           <span className="text-[11px] text-muted-foreground mr-1 flex items-center gap-1">
-            <Sparkles className="size-3 text-[#D4AF37]" />
+            <SlidersHorizontal className="size-3 text-[#D4AF37]" />
             <span>Kebutuhan Kulit:</span>
           </span>
           {SKIN_TYPES.map(skin => (
@@ -199,7 +199,7 @@ export const CatalogView: React.FC = () => {
       {/* Product Grid */}
       {filteredProducts.length === 0 ? (
         <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-[#D4AF37]/40 bg-card/40 py-16 text-center space-y-3">
-          <Filter className="size-10 text-[#D4AF37] stroke-1" />
+          <Compass className="size-10 text-[#D4AF37] stroke-1" />
           <h3 className="font-serif text-lg font-semibold text-foreground">
             Tidak ada produk yang sesuai filter
           </h3>
@@ -282,7 +282,7 @@ export const CatalogView: React.FC = () => {
                     {/* Hover Quick View Overlay */}
                     <div className="absolute inset-0 bg-[#102F27]/55 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F2EBDD] px-3.5 py-1.5 text-xs font-semibold text-[#102F27] shadow-md">
-                        <Eye className="size-3.5 text-[#102F27]" />
+                        <Maximize2 className="size-3.5 text-[#102F27]" />
                         <span>Detail &amp; Bahan Aktif</span>
                       </span>
                     </div>
@@ -340,7 +340,7 @@ export const CatalogView: React.FC = () => {
                       )}
                     </div>
                     <div className="flex items-center gap-1 text-[10px] text-muted-foreground mt-0.5">
-                      <CheckCircle2 className="size-2.5 text-[#D4AF37]" />
+                      <Droplet className="size-2.5 text-[#D4AF37]" />
                       <span>{product.volume}</span>
                     </div>
                   </div>

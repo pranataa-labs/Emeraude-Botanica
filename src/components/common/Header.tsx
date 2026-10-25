@@ -6,11 +6,10 @@ import {
   Search,
   Sun,
   Moon,
-  ShieldCheck,
+  Crown,
   User as UserIcon,
   LogOut,
-  Package,
-  Sparkles,
+  ClipboardList,
 } from 'lucide-react'
 
 export const Header: React.FC = () => {
@@ -29,17 +28,6 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      {/* Top Luxury Announcement Ribbon */}
-      <div className="w-full bg-[#091D18] text-[#78947F] border-b border-[#D4AF37]/25 py-1.5 px-4 text-center text-[11px] tracking-wider">
-        <div className="mx-auto max-w-7xl flex items-center justify-center gap-2">
-          <Sparkles className="size-3 text-[#D4AF37] shrink-0" />
-          <span>
-            COMPLIMENTARY LUXURY GIFT BOX & FREE SHIPPING UNTUK PESANAN DI ATAS{' '}
-            <strong className="text-[#D4AF37]">RP 500.000</strong> • KODE VOUCHER:{' '}
-            <strong className="text-[#F2EBDD] underline decoration-[#D4AF37]">EMERALD15</strong>
-          </span>
-        </div>
-      </div>
 
       {/* Main Sticky Header */}
       <header className="sticky top-0 z-40 w-full border-b border-border bg-background/85 backdrop-blur-md">
@@ -98,7 +86,7 @@ export const Header: React.FC = () => {
                     : 'text-[#D4AF37] font-semibold hover:bg-[#D4AF37]/10'
                 }`}
               >
-                <ShieldCheck className="size-3.5" />
+                <Crown className="size-3.5" />
                 <span>Maison Backoffice</span>
               </button>
             </nav>
@@ -201,7 +189,7 @@ export const Header: React.FC = () => {
                       onClick={() => setActiveView('orders')}
                       className="flex w-full items-center gap-2 rounded px-2.5 py-1.5 hover:bg-accent text-left"
                     >
-                      <Package className="size-3.5 text-[#D4AF37]" />
+                      <ClipboardList className="size-3.5 text-[#D4AF37]" />
                       <span>Riwayat Pesanan Saya</span>
                     </button>
 
@@ -210,7 +198,7 @@ export const Header: React.FC = () => {
                         onClick={() => setActiveView('admin')}
                         className="flex w-full items-center gap-2 rounded px-2.5 py-1.5 hover:bg-accent text-left font-semibold text-[#D4AF37]"
                       >
-                        <ShieldCheck className="size-3.5" />
+                        <Crown className="size-3.5" />
                         <span>Buka Maison Backoffice</span>
                       </button>
                     )}
