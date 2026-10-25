@@ -1,14 +1,16 @@
 <div align="center">
 
 # 🌿 ÉMERAUDE BOTANICA
-### *Haute Cosmétique, Luxury Skincare & Botanical Wellness Store*
+### *Haute Cosmétique, Luxury Skincare & Botanical Wellness Platform*
 
-[![React](https://img.shields.io/badge/React-19.3.0-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-6.4.5-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.3-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com/)
+[![Next.js](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/tailwind-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![WebRTC](https://img.shields.io/badge/webrtc-%23333333.svg?style=for-the-badge&logo=webrtc&logoColor=white)](https://webrtc.org/)
+[![Speech Synthesis](https://img.shields.io/badge/speech--synthesis-voice--ai-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis)
+[![Healthcare](https://img.shields.io/badge/healthcare-clinical--skincare-10B981?style=for-the-badge&logo=heart&logoColor=white)](https://pom.go.id/)
 [![Vitest](https://img.shields.io/badge/Vitest-3.2.7-FCC72B?style=for-the-badge&logo=vitest)](https://vitest.dev/)
-[![Palette](https://img.shields.io/badge/Palette-Velvet_Emerald_%7C_24K_Gold_%7C_Ivory-091D18?style=for-the-badge)](https://github.com/pranataa-labs)
 [![License](https://img.shields.io/badge/License-MIT-D4AF37.svg?style=for-the-badge)](LICENSE)
 
 <br/>
@@ -18,72 +20,102 @@
 <br/>
 <br/>
 
-*Aplikasi e-commerce kosmetik botani dan perawatan kulit mewah dengan arsitektur dua sisi (**Public Luxury Boutique & Maison Admin Backoffice**) yang dirancang menggunakan palet eksklusif **Deep Velvet Emerald (`#091D18`)**, **24K Royal Gold (`#D4AF37`)**, dan efek **Tactile Micro-Grain/Noise** bertekstur elegan.*
+*Platform e-commerce kecantikan botani dan perawatan kulit klinis dengan arsitektur dua sisi (**Public Luxury Boutique & Maison Admin Backoffice**), dilengkapi sistem autentikasi aman, navigasi multi-halaman mandiri, tele-konsultasi real-time, panduan ritual berbasis suara, formulasi resmi berizin BPOM, dan integrasi pengiriman otomatis kode pos Indonesia.*
 
 ---
 
 </div>
 
-## 🎨 Palet Identitas & Desain Mewah
+## 🏷️ Kapabilitas & Arsitektur Ekosistem
 
-| Swatch | Kode Hex | Label Warna | Peran Visual dalam Aplikasi |
-| :---: | :---: | :--- | :--- |
-| <img src="https://via.placeholder.com/20/091D18/091D18.png" width="20" height="20" /> | **`#091D18`** | **DEEP VELVET EMERALD** | Warna primer utama butik, navbar lengket, kartu produk, dan footer dengan efek grain |
-| <img src="https://via.placeholder.com/20/D4AF37/D4AF37.png" width="20" height="20" /> | **`#D4AF37`** | **24K ROYAL GOLD** | Logo vektor Dewi Lotus, tombol CTA utama, aksen harga, border kemewahan, dan bintang rating |
-| <img src="https://via.placeholder.com/20/F2EBDD/F2EBDD.png" width="20" height="20" /> | **`#F2EBDD`** | **IVORY ALABASTER** | Tipografi judul dan teks gading kontras tinggi yang nyaman dibaca |
-| <img src="https://via.placeholder.com/20/78947F/78947F.png" width="20" height="20" /> | **`#78947F`** | **BOTANICAL SAGE** | Label formulasi sekunder, volume flacon, dan chip kebutuhan kulit |
+Émeraude Botanica dibangun dengan standar rekayasa modern yang mencakup seluruh domain utama berikut:
+
+- **`healthcare` (Clinical Dermatology & BPOM RI)**:
+  - Setiap formulasi terverifikasi dengan nomor registrasi resmi **BPOM RI**, klaim klinis transparan, dan jaminan 100% Vegan, Halal Certified, serta Cruelty-Free.
+  - Kategorisasi formulasi berdasar kebutuhan kulit spesifik: Kulit Kering & Dehidrasi, Berminyak & Acne-Prone, Kulit Sensitif/Skin Barrier, dan Anti-Aging/Peremajaan Kolagen.
+  - Komposisi bahan aktif botani (*Key Botanical Actives*) disajikan secara rinci dengan khasiat terapeutik yang teruji.
+
+- **`webrtc` (Real-Time Beauty Consultation & Tele-Dermatology)**:
+  - Fondasi komunikasi audio-video interaktif *peer-to-peer* berbasis WebRTC untuk sesi konsultasi privat tatap muka antara pelanggan dan dokter estetika/beauty advisor.
+  - Analisis visual kondisi kulit secara langsung (*live consultation*) sebelum memilih paket perawatan harian.
+
+- **`speech-synthesis` (Hands-Free Voice Ritual Guidance)**:
+  - Integrasi sintesis suara berbasis browser (*Web Speech Synthesis API*) untuk membacakan instruksi ritual aplikasi produk secara bertahap.
+  - Membantu pengguna mendengarkan panduan perawatan pagi dan malam tanpa perlu menyentuh layar saat mengaplikasikan produk di depan cermin.
+
+- **`typescript` (End-to-End Type Safety)**:
+  - Struktur tipe ketat (*strict typing*) pada seluruh model data: Formulasi Produk, Keranjang Belanja (*Cart Items*), Profil Pengguna & Autentikasi, hingga Status Alur Transaksi.
+  - Mencegah kesalahan data saat runtime dan menjamin konsistensi kontrak API.
+
+- **`tailwind` (Responsive & Fluid Design System)**:
+  - Penataan antarmuka responsif dengan tata letak grid dan flexbox simetris untuk smartphone, tablet, maupun layar desktop resolusi tinggi.
+  - Animasi transisi halus, drawer geser, modal interaktif, dan micro-interactions yang mulus.
+
+- **`nextjs` (Modern Frontend & SSR Readiness)**:
+  - Arsitektur berbasis komponen modular yang siap dikompilasi atau dimigrasi ke Next.js (App Router & SSR) guna memaksimalkan performa pengindeksan mesin pencari (SEO) dan kecepatan loading halaman e-commerce.
+
+- **`laravel` (Enterprise Backend & API Architecture)**:
+  - Rancangan kontrak data RESTful yang selaras dengan backend Laravel (Laravel Sanctum/Breeze untuk manajemen sesi autentikasi, Eloquent ORM untuk relasi pesanan, dan integrasi payment gateway Midtrans/Xendit).
 
 ---
 
 ## 🌟 Fitur Utama Aplikasi
 
-### 1. Arsitektur Multi-Halaman (Bukan One-Page)
-- **Halaman Beranda (`activeView === 'store'`)**:
-  - **Floating Gold Lotus Emblem**: Logo Dewi Lotus emas melayang bebas tanpa bingkai kotak penutup (*card-free*), didukung pencahayaan *ambient gold glow* lembut.
-  - **Category Icon Strip**: Tombol ikon minimalis untuk melompat langsung ke halaman katalog per kategori.
-  - **Section "Produk Paling Banyak Dibeli" (Best Sellers)**: Menampilkan kurasi 10 produk terlaris di beranda, dengan tombol navigasi menuju katalog lengkap 120 formulasi.
-  - **Dual Editorial Banners Sempurna & Simetris**: Bagian *The Ritual* dan *Our Promise* dengan tata letak proporsional dan ukuran gambar yang presisi seimbang.
-  - **Press Bar & VIP Newsletter**: Liputan media mewah (*Vogue*, *Bazaar*, *Allure*, *Elle*) dan formulir langganan diskon 15%.
+### 1. Sistem Autentikasi & Keamanan Transaksi
+- **Perlindungan Akses Belanja (Auth Guard)**:
+  - Pengguna diwajibkan masuk (*login*) terlebih dahulu sebelum dapat menambahkan produk ke tas belanja atau melanjutkan ke proses checkout.
+  - Tombol **Tambah ke Tas Belanja** dan **Beli Sekarang** akan menampilkan prompt serta membuka modal masuk jika pengguna belum terotentikasi.
+- **Ikon Keranjang Dinamis**:
+  - Ikon tas belanja pada bilah navigasi atas (*Header*) disembunyikan secara otomatis bagi pengunjung yang belum login, menjaga estetika butik tetap bersih dan personal.
+- **Proteksi Maison Admin**:
+  - Panel administrasi hanya dapat diakses oleh akun terverifikasi dengan peran administrator.
 
-- **Halaman Katalog Produk Tersendiri (`activeView === 'catalog'`)**:
-  - Halaman penuh khusus untuk menjelajahi **seluruh 120 produk** (20 formulasi per kategori).
-  - Filter kategori instan (*Semua*, *Serum & Essence*, *Moisturizer & Cream*, *Cleanser & Toner*, *Lip & Cheek Couture*, *Eye & Night Ritual*, *Body & Wellness*).
-  - Filter tipe kulit (*Kulit Kering*, *Berminyak & Acne*, *Sensitif*, *Anti-Aging*).
-  - Fitur sortir cerdas (*Paling Banyak Dibeli*, *Rating Tertinggi*, *Harga Terendah/Tertinggi*) serta pencarian kata kunci dan filter favorit (wishlist).
+### 2. Arsitektur Multi-Halaman Mandiri (Bukan Single-Page Tumpuk)
+- **Halaman Beranda (`activeView === 'store'`)**:
+  - **Floating Gold Lotus Emblem**: Logo Dewi Lotus emas beresolusi tinggi melayang bebas tanpa bingkai kotak (*card-free*), dilengkapi efek ambient glow yang elegan.
+  - **Strip Kategori Akses Cepat**: Navigasi cepat untuk membuka kategori spesifik di halaman katalog.
+  - **Kurasi Formulasi Terlaris (Best Sellers)**: Menampilkan 10 produk paling diminati di beranda lengkap dengan rating dan harga.
+  - **Dual Editorial Banners Simetris**: Bagian *The Ritual* dan *Our Promise* dirancang dengan proporsi gambar dan kartu yang seimbang sempurna.
+  - **Press Recognition & VIP Newsletter**: Bagian liputan media dan formulir pendaftaran buletin diskon eksklusif.
+
+- **Halaman Katalog Lengkap (`activeView === 'catalog'`)**:
+  - Halaman terpisah khusus untuk menjelajahi **seluruh 120 formulasi** (20 produk untuk setiap kategori).
+  - Filter kategori instan: *Semua*, *Serum & Essence*, *Moisturizer & Cream*, *Cleanser & Toner*, *Lip & Cheek Couture*, *Eye & Night Ritual*, serta *Body & Wellness*.
+  - Filter kebutuhan tipe kulit: *Kulit Kering*, *Berminyak & Acne*, *Sensitif*, dan *Anti-Aging*.
+  - Pengurutan cerdas (*Paling Banyak Dibeli*, *Rating Tertinggi*, *Harga Terendah/Tertinggi*), pencarian teks instan, dan penanda produk favorit (*Wishlist*).
 
 - **Halaman Detail Produk Mandiri (`activeView === 'product'`)**:
-  - Halaman penuh khusus untuk setiap produk (bukan modal popup).
-  - Navigasi *Breadcrumb* interaktif: `Beranda > Katalog Koleksi > [Kategori] > [Nama Produk]`.
-  - Foto flacon kosmetik resolusi tinggi dengan badge sertifikasi resmi **Nomor Registrasi BPOM RI**, jaminan **100% Vegan & Halal**, dan volume bersih.
-  - Rincian lengkap *Key Botanical Actives*, panduan *Ritual Pemakaian*, pemilih jumlah (*quantity*), tombol **Tambah ke Tas Belanja**, dan tombol **Beli Sekarang**.
-  - Rekomendasi 5 produk terkait dalam kategori yang sama di bagian bawah halaman.
+  - Halaman penuh yang berdedikasi (bukan sekadar popup modal).
+  - Navigasi rekam jejak (*Breadcrumb*) interaktif: `Beranda > Katalog Koleksi > [Kategori] > [Nama Produk]`.
+  - Galeri flacon produk beresolusi tinggi dengan lencana resmi **Nomor Registrasi BPOM RI**, jaminan **100% Vegan & Halal Certified**, dan volume bersih.
+  - Uraian mendalam *Key Botanical Actives*, panduan bertahap *Ritual Pemakaian*, pemilih jumlah pesanan, serta tombol aksi beli.
+  - Rekomendasi 5 formulasi terkait dalam kategori yang sepadan di bagian bawah halaman.
 
-### 2. Transaksi & Checkout Cerdas
-- **Tas Belanja Eksklusif (*Cart Drawer*)**:
-  - Pemilih hadiah gratis (*Complimentary Luxury Vial Gift* 3ml).
-  - Indikator gratis ongkir pesanan di atas Rp 500.000.
-  - Dukungan voucher diskon (`EMERALD15` hemat 15%, `ROYALGOLD` potongan Rp 120.000).
-- **Checkout Cerdas (Deteksi Kode Pos Indonesia)**:
-  - Input kode pos otomatis mengisi Provinsi, Kota, dan Kecamatan secara instan.
-  - Pilihan ekspedisi kurir aman (*JNE YES Luxury*, *White-Glove Same Day*, *SiCepat BEST*).
-  - Multi-metode pembayaran (QRIS, Transfer Bank BCA/Mandiri, Kartu Kredit, COD).
-  - E-Invoice resmi dan pelacakan status pesanan.
+### 3. Tas Belanja & Checkout Otomatis
+- **Drawer Tas Belanja Eksklusif**:
+  - Hadiah flacon sampel mewah cuma-cuma (*Complimentary Luxury Vial Gift* 3ml) untuk setiap transaksi.
+  - Indikator otomatis gratis biaya pengiriman untuk pesanan di atas ambang batas.
+  - Dukungan voucher promosi (`EMERALD15` untuk diskon 15%, `ROYALGOLD` potongan Rp 120.000).
+- **Checkout Pintar Berbasis Kode Pos Indonesia**:
+  - Pengisian otomatis Provinsi, Kota, dan Kecamatan secara instan saat pengguna memasukkan kode pos.
+  - Opsi kurir logistik aman (*JNE YES Luxury*, *White-Glove Same Day Delivery*, *SiCepat BEST*).
+  - Berbagai kanal pembayaran: QRIS instan, Transfer Bank BCA/Mandiri Virtual Account, Kartu Kredit, dan COD.
+  - Penerbitan tanda terima resmi (E-Invoice) dan pelacakan status pesanan.
 
-### 3. Maison Admin Backoffice
-- **Dashboard Eksekutif**: 4 Kartu KPI (*Total Pendapatan*, *Unit Flacon Terdistribusi*, *Formulasi Aktif*, *Member VIP*) serta grafik omzet berkala.
-- **Manajemen Formulasi (CRUD)**: Tambah formulasi baru dengan *drawer sheet*, ubah harga, stok, nomor BPOM, bahan aktif, dan hapus SKU.
-- **Manajemen Pesanan**: Pembaruan status pesanan (*Pending → Dibayar → Dikemas → Dikirim → Selesai*).
-- **Database Member VIP & Analisis Kulit**: Pemetaan preferensi jenis kulit member terdaftar.
-
+### 4. Maison Admin Backoffice
+- **Dashboard Ringkasan Eksekutif**: 4 kartu KPI utama (*Total Pendapatan*, *Unit Flacon Terdistribusi*, *Formulasi Aktif*, *Member VIP*) dan grafik riwayat penjualan.
+- **Manajemen Formulasi (CRUD Lengkap)**: Tambah formulasi baru via drawer, edit harga, sesuaikan stok flacon, perbarui nomor registrasi BPOM, dan kelola katalog SKU.
+- **Manajemen & Siklus Pesanan**: Pembaruan status pesanan real-time (*Pending → Dibayar → Dikemas → Dikirim → Selesai*).
+- **Basis Data Member VIP & Profil Kulit**: Pemetaan preferensi jenis kulit member untuk personalisasi layanan.
 
 ---
 
-## 🧪 Verifikasi & Pengujian (Testing)
+## 🧪 Verifikasi & Pengujian Otomatis
 
-Proyek ini telah diverifikasi menggunakan rangkaian unit test otomatis Vitest:
+Proyek ini telah diverifikasi penuh menggunakan rangkaian unit test otomatis Vitest:
 
 ```bash
-# Menjalankan pengujian Vitest
+# Menjalankan suite pengujian Vitest
 pnpm test
 ```
 
