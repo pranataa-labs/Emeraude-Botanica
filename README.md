@@ -5,79 +5,112 @@
 
 [![React](https://img.shields.io/badge/React-19.3.0-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-6.2.0-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
+[![Vite](https://img.shields.io/badge/Vite-6.4.5-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.3-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![Vitest](https://img.shields.io/badge/Vitest-3.2.7-FCC72B?style=for-the-badge&logo=vitest)](https://vitest.dev/)
-[![Design System](https://img.shields.io/badge/Palette-Ivory_%7C_Sage_%7C_Emerald_%7C_Forest_%7C_24K_Royal_Gold-185844?style=for-the-badge)](https://github.com/pranataa-labs)
+[![Palette](https://img.shields.io/badge/Palette-Velvet_Emerald_%7C_24K_Gold_%7C_Ivory-091D18?style=for-the-badge)](https://github.com/pranataa-labs)
 [![License](https://img.shields.io/badge/License-MIT-D4AF37.svg?style=for-the-badge)](LICENSE)
 
 <br/>
 
-*Aplikasi e-commerce kosmetik botani dan perawatan kulit mewah dengan arsitektur dua sisi (**Public Luxury Boutique & Maison Admin Backoffice**) yang dirancang menggunakan palet eksklusif **Ivory, Sage, Emerald, Forest & 24K Royal Gold** terinspirasi dari keanggunan kelopak bunga zamrud botani dan emas 24K berkilau.*
+<img src="./docs/screenshots/hero-preview.png" alt="Émeraude Botanica — Haute Cosmétique & Luxury Wellness" width="100%" style="border-radius: 14px; box-shadow: 0 12px 36px rgba(0,0,0,0.4);" />
+
+<br/>
+<br/>
+
+*Aplikasi e-commerce kosmetik botani dan perawatan kulit mewah dengan arsitektur dua sisi (**Public Luxury Boutique & Maison Admin Backoffice**) yang dirancang menggunakan palet eksklusif **Deep Velvet Emerald (`#091D18`)**, **24K Royal Gold (`#D4AF37`)**, dan efek **Tactile Micro-Grain/Noise** bertekstur elegan.*
 
 ---
 
 </div>
 
-## 🎨 Palet Identitas Desain — Sesuai Gambar Referensi
+## 🎨 Palet Identitas & Desain Mewah
 
 | Swatch | Kode Hex | Label Warna | Peran Visual dalam Aplikasi |
 | :---: | :---: | :--- | :--- |
-| <img src="https://via.placeholder.com/20/F2EBDD/F2EBDD.png" width="20" height="20" /> | **`#F2EBDD`** | **IVORY** | Latar utama Mode Terang (*Alabaster/Warm Ivory*) & Tipografi Gading Kontras Tinggi (Mode Gelap) |
-| <img src="https://via.placeholder.com/20/78947F/78947F.png" width="20" height="20" /> | **`#78947F`** | **SAGE** | Aksen mist botani, badge formulasi, chip kebutuhan kulit, dan teks sekunder |
-| <img src="https://via.placeholder.com/20/185844/185844.png" width="20" height="20" /> | **`#185844`** | **EMERALD** | Permukaan kartu produk, panel velvet zamrud, dan tombol aksi Mode Terang |
-| <img src="https://via.placeholder.com/20/102F27/102F27.png" width="20" height="20" /> | **`#102F27`** | **FOREST** | Latar belakang sutra utama (Dark Mode Default) & Tipografi Gelap (Mode Terang) |
-| <img src="https://via.placeholder.com/20/D4AF37/D4AF37.png" width="20" height="20" /> | **`#D4AF37`** | **24K ROYAL GOLD** | Emblem daun botani, tombol CTA utama, garis tepi emas 24K, dan rating bintang |
+| <img src="https://via.placeholder.com/20/091D18/091D18.png" width="20" height="20" /> | **`#091D18`** | **DEEP VELVET EMERALD** | Warna primer utama butik, navbar lengket, kartu produk, dan footer dengan efek grain |
+| <img src="https://via.placeholder.com/20/D4AF37/D4AF37.png" width="20" height="20" /> | **`#D4AF37`** | **24K ROYAL GOLD** | Logo vektor Dewi Lotus, tombol CTA utama, aksen harga, border kemewahan, dan bintang rating |
+| <img src="https://via.placeholder.com/20/F2EBDD/F2EBDD.png" width="20" height="20" /> | **`#F2EBDD`** | **IVORY ALABASTER** | Tipografi judul dan teks gading kontras tinggi yang nyaman dibaca |
+| <img src="https://via.placeholder.com/20/78947F/78947F.png" width="20" height="20" /> | **`#78947F`** | **BOTANICAL SAGE** | Label formulasi sekunder, volume flacon, dan chip kebutuhan kulit |
 
 ---
 
-## 🌟 Fitur Utama
+## 🌟 Fitur Utama Aplikasi
 
-### 1. Sisi Pelanggan (Public Luxury Boutique)
-- **Hero Silk Floral & Interactive Swatch Bar**:
-  - Menampilkan emblem daun botani emas di dalam bingkai berlekuk klasik (*scalloped vintage crest*).
-  - Bar pencarian interaktif dan filter cepat (*Malachite*, *Ceramide*, *24K Gold*, *Lip Velvet*, *Bakuchiol*, *Matcha*).
-  - Bar 5 kotak warna interaktif (`#F2EBDD`, `#78947F`, `#185844`, `#102F27`, `#D4AF37`) yang dapat diklik untuk menyalin kode hex secara instan.
-- **Katalog 120 Produk Kosmetik & Skincare Mewah (20 Formulasi per Kategori)**:
-  - Filter kebutuhan kulit (*Kulit Kering*, *Kulit Berminyak & Acne*, *Kulit Sensitif*, *Anti-Aging & Kusam*).
-  - 6 kategori kosmetik (*Serum & Essence*, *Moisturizer & Cream*, *Cleanser & Toner*, *Lip & Cheek Couture*, *Eye & Night Ritual*, *Body & Wellness*).
-  - Fitur simpan ke **Favorit (Wishlist)** dan sortir harga/rating.
-- **Modal Detail Formulasi & BPOM**:
-  - Nomor Registrasi BPOM RI resmi per produk.
-  - Bahan Aktif Utama (*Key Actives*), Panduan Ritual Pemakaian, dan Volume Bersih.
-- **Tas Belanja & Complimentary Sample Gratis**:
-  - Progress bar **Gratis Pengiriman Eksklusif** (pembelian di atas Rp 500.000).
-  - Pemilih **Complimentary Luxury Vial Gift** gratis (misal: *Émeraude Cellular Elixir 3ml*, *24K Gold Peptide Eye Nectar*).
-  - Dukungan kode voucher diskon (`EMERALD15` diskon 15%, `ROYALGOLD` potongan Rp 120.000, `WELCOME50`).
-- **Alur Checkout Cerdas (Deteksi Kode Pos Indonesia)**:
-  - Input Kode Pos otomatis mengisi Provinsi, Kota, dan Kecamatan secara akurat.
-  - Pilihan kurir berpendingin (*JNE YES Luxury*, *White-Glove Same Day*, *SiCepat BEST*).
-  - Metode pembayaran QRIS, Transfer BCA/Mandiri, Kartu Kredit, dan COD.
-  - E-Invoice cetak dan pelacakan status pesanan 5 tahap.
-- **Command Palette (`⌘K` / `Ctrl+K`)**:
-  - Pencarian kilat seluruh formulasi, bahan aktif, dan navigasi cepat.
+### 1. Arsitektur Multi-Halaman (Bukan One-Page)
+- **Halaman Beranda (`activeView === 'store'`)**:
+  - **Floating Gold Lotus Emblem**: Logo Dewi Lotus emas melayang bebas tanpa bingkai kotak penutup (*card-free*), didukung pencahayaan *ambient gold glow* lembut.
+  - **Category Icon Strip**: Tombol ikon minimalis untuk melompat langsung ke halaman katalog per kategori.
+  - **Section "Produk Paling Banyak Dibeli" (Best Sellers)**: Menampilkan kurasi 10 produk terlaris di beranda, dengan tombol navigasi menuju katalog lengkap 120 formulasi.
+  - **Dual Editorial Banners Sempurna & Simetris**: Bagian *The Ritual* dan *Our Promise* dengan tata letak proporsional dan ukuran gambar yang presisi seimbang.
+  - **Press Bar & VIP Newsletter**: Liputan media mewah (*Vogue*, *Bazaar*, *Allure*, *Elle*) dan formulir langganan diskon 15%.
 
-### 2. Sisi Pengelola (Maison Admin Backoffice)
-- **Desain Khusus satnaing/shadcn-admin**: Sidebar 16rem yang dapat diciutkan (*collapsible icon mode*), header lengket (*sticky blurred*), dan kartu KPI dengan tren omzet.
-- **Dashboard Eksekutif**: 4 Kartu KPI (Total Pendapatan, Pesanan & Unit Flacon Terdistribusi, Formulasi Aktif, Member VIP Terdaftar) serta grafik omzet 6 bulan.
-- **Manajemen Formulasi (CRUD)**: Tambah produk baru melalui *Slide-out Sheet Drawer*, ubah harga/promo/stok/BPOM/bahan aktif, dan hapus SKU.
-- **Manajemen Pesanan & Resi**: Pembaruan status pesanan (*Pending → Dibayar → Dikemas → Dikirim → Selesai → Dibatalkan*).
-- **Database Member VIP & Analitik**: Analisis preferensi jenis kulit dan daftar 5 produk terlaris.
+- **Halaman Katalog Produk Tersendiri (`activeView === 'catalog'`)**:
+  - Halaman penuh khusus untuk menjelajahi **seluruh 120 produk** (20 formulasi per kategori).
+  - Filter kategori instan (*Semua*, *Serum & Essence*, *Moisturizer & Cream*, *Cleanser & Toner*, *Lip & Cheek Couture*, *Eye & Night Ritual*, *Body & Wellness*).
+  - Filter tipe kulit (*Kulit Kering*, *Berminyak & Acne*, *Sensitif*, *Anti-Aging*).
+  - Fitur sortir cerdas (*Paling Banyak Dibeli*, *Rating Tertinggi*, *Harga Terendah/Tertinggi*) serta pencarian kata kunci dan filter favorit (wishlist).
+
+- **Halaman Detail Produk Mandiri (`activeView === 'product'`)**:
+  - Halaman penuh khusus untuk setiap produk (bukan modal popup).
+  - Navigasi *Breadcrumb* interaktif: `Beranda > Katalog Koleksi > [Kategori] > [Nama Produk]`.
+  - Foto flacon kosmetik resolusi tinggi dengan badge sertifikasi resmi **Nomor Registrasi BPOM RI**, jaminan **100% Vegan & Halal**, dan volume bersih.
+  - Rincian lengkap *Key Botanical Actives*, panduan *Ritual Pemakaian*, pemilih jumlah (*quantity*), tombol **Tambah ke Tas Belanja**, dan tombol **Beli Sekarang**.
+  - Rekomendasi 5 produk terkait dalam kategori yang sama di bagian bawah halaman.
+
+### 2. Transaksi & Checkout Cerdas
+- **Tas Belanja Eksklusif (*Cart Drawer*)**:
+  - Pemilih hadiah gratis (*Complimentary Luxury Vial Gift* 3ml).
+  - Indikator gratis ongkir pesanan di atas Rp 500.000.
+  - Dukungan voucher diskon (`EMERALD15` hemat 15%, `ROYALGOLD` potongan Rp 120.000).
+- **Checkout Cerdas (Deteksi Kode Pos Indonesia)**:
+  - Input kode pos otomatis mengisi Provinsi, Kota, dan Kecamatan secara instan.
+  - Pilihan ekspedisi kurir aman (*JNE YES Luxury*, *White-Glove Same Day*, *SiCepat BEST*).
+  - Multi-metode pembayaran (QRIS, Transfer Bank BCA/Mandiri, Kartu Kredit, COD).
+  - E-Invoice resmi dan pelacakan status pesanan.
+
+### 3. Maison Admin Backoffice
+- **Dashboard Eksekutif**: 4 Kartu KPI (*Total Pendapatan*, *Unit Flacon Terdistribusi*, *Formulasi Aktif*, *Member VIP*) serta grafik omzet berkala.
+- **Manajemen Formulasi (CRUD)**: Tambah formulasi baru dengan *drawer sheet*, ubah harga, stok, nomor BPOM, bahan aktif, dan hapus SKU.
+- **Manajemen Pesanan**: Pembaruan status pesanan (*Pending → Dibayar → Dikemas → Dikirim → Selesai*).
+- **Database Member VIP & Analisis Kulit**: Pemetaan preferensi jenis kulit member terdaftar.
 
 ---
 
 ## 🔑 Akun Demo Siap Pakai
 
-Tersedia tombol login instan 1-klik di dalam modal Masuk:
+Tersedia tombol login instan 1-klik di modal Masuk Akun:
 
-| Peran | Email | Kata Sandi | Akses Utama |
+| Peran Akun | Email | Kata Sandi | Lingkup Akses |
 | :--- | :--- | :--- | :--- |
-| **Maison Director (Admin)** | `admin@example.com` | `password123` | Backoffice Dashboard, CRUD Kosmetik, Pesanan VIP, Analitik |
-| **VIP Emerald Member** | `user@example.com` | `password123` | Butik Kosmetik, Tas Belanja, Checkout Multi-kurir, Pelacakan |
+| **Maison Director (Admin)** | `admin@example.com` | `password123` | Backoffice Dashboard, CRUD Formulasi, Kelola Pesanan VIP, Analitik |
+| **VIP Member (Customer)** | `user@example.com` | `password123` | Butik Belanja, Wishlist, Checkout Otomatis, Riwayat Pesanan |
 
 ---
 
-## 🛠️ Menjalankan Proyek Secara Lokal
+## 🧪 Verifikasi & Pengujian (Testing)
+
+Proyek ini telah diverifikasi menggunakan rangkaian unit test otomatis Vitest:
+
+```bash
+# Menjalankan pengujian Vitest
+pnpm test
+```
+
+Hasil verifikasi:
+```text
+✓ src/tests/cosmetics.test.ts (6 tests)
+  ✓ INITIAL_PRODUCTS contains exactly 120 products
+  ✓ every category contains exactly 20 products
+  ✓ all products have required luxury cosmetic properties
+  ✓ seed orders have valid totals and customer data
+  ✓ complimentary samples list contains luxury vials
+  ✓ category list contains all 6 core cosmetic divisions
+```
+
+---
+
+## 🛠️ Panduan Menjalankan Proyek Secara Lokal
 
 ### Prasyarat
 - Node.js (v18 ke atas, disarankan v20+)
@@ -85,24 +118,19 @@ Tersedia tombol login instan 1-klik di dalam modal Masuk:
 
 ### Langkah Instalasi
 ```bash
-# 1. Masuk ke direktori proyek
+# 1. Masuk ke direktori repositori
 cd emeraude-cosmetics
 
-# 2. Pasang dependensi
+# 2. Pasang paket dependensi
 pnpm install
 
-# 3. Jalankan server pengembangan
+# 3. Jalankan server pengembangan lokal
 pnpm dev --port 5174
 ```
 
-Buka peramban di **[http://localhost:5174/](http://localhost:5174/)**.
+Aplikasi dapat diakses langsung pada peramban di **[http://localhost:5174/](http://localhost:5174/)**.
 
-### Menjalankan Pengujian (Testing)
-```bash
-pnpm test
-```
-
-### Build Produksi
+### Kompilasi & Build Produksi
 ```bash
 pnpm run build
 ```
@@ -113,5 +141,5 @@ pnpm run build
 Dilisensikan di bawah [MIT License](LICENSE).
 
 <div align="center">
-  <sub>Engineered with dedication by <a href="https://github.com/pranataa-labs">Pranataa Labs</a></sub>
+  <sub>Designed &amp; Engineered with pride by <a href="https://github.com/pranataa-labs">Pranataa Labs</a></sub>
 </div>
